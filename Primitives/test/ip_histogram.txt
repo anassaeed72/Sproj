@@ -1,0 +1,9 @@
+# BANNER FILE NOT PROVIDED (-b option)
+# BULK_EXTRACTOR-Version: 1.5.0 ($Rev: 10844 $)
+# Feature-Recorder: ip
+# Filename: test.mem
+# Histogram-File-Version: 1.1
+n=13	0.0.0.0
+n=13	255.255.255.255
+n=2	169.254.255.255
+n=2	169.254.66.129

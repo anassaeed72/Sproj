@@ -1,0 +1,35 @@
+# BANNER FILE NOT PROVIDED (-b option)
+# BULK_EXTRACTOR-Version: 1.5.0 ($Rev: 10844 $)
+# Feature-Recorder: ip
+# Filename: test.mem
+# Feature-File-Version: 1.1
+795115476	0.0.0.0	struct ip L (src) cksum-ok
+795115476	255.255.255.255	struct ip R (dst) cksum-ok
+796978612	169.254.66.129	struct ip L (src) cksum-ok
+796978612	169.254.255.255	struct ip R (dst) cksum-ok
+811251726	0.0.0.0	struct ip L (src) cksum-ok
+811251726	255.255.255.255	struct ip R (dst) cksum-ok
+811253774	0.0.0.0	struct ip L (src) cksum-ok
+811253774	255.255.255.255	struct ip R (dst) cksum-ok
+811255822	0.0.0.0	struct ip L (src) cksum-ok
+811255822	255.255.255.255	struct ip R (dst) cksum-ok
+811257870	0.0.0.0	struct ip L (src) cksum-ok
+811257870	255.255.255.255	struct ip R (dst) cksum-ok
+811259918	0.0.0.0	struct ip L (src) cksum-ok
+811259918	255.255.255.255	struct ip R (dst) cksum-ok
+811261966	0.0.0.0	struct ip L (src) cksum-ok
+811261966	255.255.255.255	struct ip R (dst) cksum-ok
+811264014	0.0.0.0	struct ip L (src) cksum-ok
+811264014	255.255.255.255	struct ip R (dst) cksum-ok
+811266062	0.0.0.0	struct ip L (src) cksum-ok
+811266062	255.255.255.255	struct ip R (dst) cksum-ok
+811268110	0.0.0.0	struct ip L (src) cksum-ok
+811268110	255.255.255.255	struct ip R (dst) cksum-ok
+811282450	0.0.0.0	struct ip L (src) cksum-ok
+811282450	255.255.255.255	struct ip R (dst) cksum-ok
+811282802	0.0.0.0	struct ip L (src) cksum-ok
+811282802	255.255.255.255	struct ip R (dst) cksum-ok
+813150414	0.0.0.0	struct ip L (src) cksum-ok
+813150414	255.255.255.255	struct ip R (dst) cksum-ok
+800560628	169.254.66.129	struct ip L (src) cksum-ok
+800560628	169.254.255.255	struct ip R (dst) cksum-ok
