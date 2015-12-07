@@ -7,11 +7,19 @@ if [ -z "$2" ]; then
     echo "Please enter file name"
 	exit  1
 fi
-mydata=$(python vol.py --profile=Win7SP0x86 -f ${1} pslist)
-echo $mydata
+python vol.py -f ${1} pslist
+mydata=$(python vol.py -f ${1} pslist)
+len='12345678'
+count=''
 for word in $mydata
 do
-	# echo $word
+	if [[ ${#count} >${#len}  ]]; then
+		#statements
+		echo $word
+	else
+		count+='1'
+	fi
+	
 
 done
 
