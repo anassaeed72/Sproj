@@ -9,6 +9,9 @@ output=proc.communicate()[0]
 count = 0
 index = 0
 arrayOfFiles=['Offset.txt','Name.txt','PID.txt','PPID.txt','Thds.txt','Hnds.txt','Sess.txt','Wow64.txt','Start.txt','Start.txt','Start.txt','Exit.txt','Exit.txt','Exit.txt','temp.txt']
+for x in arrayOfFiles:
+	if os.path.exists(x):
+		os.remove(x)
 for oneLine in output.split("\n"):
 	if count < 2:
 		count = count+1

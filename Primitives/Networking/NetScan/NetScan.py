@@ -14,7 +14,8 @@ count = 0
 index = 0
 arrayOfFiles=['Offset.txt','Proto.txt','Local-Address.txt','Foriegn-Address.txt','State.txt','Pid.txt','Owner.txt','Created.txt', 'Created.txt', 'Created.txt']
 for x in arrayOfFiles:
-	os.remove(x)
+	if os.path.exists(x):
+		os.remove(x)
 for oneLine in output.split("\n"):
 	if count < 2:
 		count = count+1
