@@ -1,18 +1,20 @@
 import os
 import subprocess
 import sys
-if len(sys.argv) <3:
+
+if len(sys.argv) <2:
 	print('Arguments not given')
 	sys.exit()
 
 
-commandToExecute = 'python vol.py -f ' + sys.argv[1] + " pslist"
+commandToExecute = 'python vol.py -f ' + sys.argv[1] + " sockscan"
 proc=subprocess.Popen(commandToExecute, shell=True, stdout=subprocess.PIPE, )
 output=proc.communicate()[0]
-
 count = 0
 index = 0
-arrayOfFiles=['Offset.txt','Name.txt','PID.txt','PPID.txt','Thds.txt','Hnds.txt','Sess.txt','Wow64.txt','Start.txt','Start.txt','Start.txt','Exit.txt','Exit.txt','Exit.txt','temp.txt']
+arrayOfFiles=['Offset.txt','PID.txt','Port.txt','Proto.txt','Protocol.txt','Address.txt','Create-Time.txt','Create-Time.txt', 'Create-Time.txt']
+for x in arrayOfFiles:
+	os.remove(x)
 for oneLine in output.split("\n"):
 	if count < 2:
 		count = count+1
