@@ -12,10 +12,10 @@ e = etree.parse(sys.argv[1])
 def flatten(seq):
   for item in seq:
     if isinstance(item,(etree._Element,)):
-    	with open("tempFileXml.xml", "w") as myfile:
+    	with open("OneOperationsTempXml.xml", "w") as myfile:
     		myfile.write(etree.tostring(item,with_tail=False))
     		myfile.close()
-  	  	os.system('python OneOperation.py tempFileXml.xml')
+  	  	os.system('python OneOperation.py OneOperationsTempXml.xml')
 
 flatten(e.xpath('/operations/node()'))
 

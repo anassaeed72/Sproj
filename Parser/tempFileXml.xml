@@ -1,5 +1,0 @@
-<operation>
-	    <operationName myvalue="Sockets"/>
-		<operationInputFile myvalue="/home/xen/Documents/zeus.vmem"/>
-		<operationPath myvalue="/home/xen/Documents/scripts/Primitives/Networking/Sockets"/>
-	</operation>
