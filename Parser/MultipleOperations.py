@@ -1,33 +1,21 @@
 import os
-import subprocess
 import sys
+from lxml import etree
 import xml.etree.ElementTree
-from xml.dom import minidom
+
 if len(sys.argv) <2:
 	print('Arguments not given')
 	sys.exit()
 
+e = etree.parse(sys.argv[1])
 
+def flatten(seq):
+  for item in seq:
+    if isinstance(item,(etree._Element,)):
+    	with open("tempFileXml.xml", "w") as myfile:
+    		myfile.write(etree.tostring(item,with_tail=False))
+    		myfile.close()
+  	  	os.system('python OneOperation.py tempFileXml.xml')
 
-from xml.dom import minidom
-xmldoc = minidom.parse(sys.argv[1])
+flatten(e.xpath('/operations/node()'))
 
-operationName = xmldoc.getElementsByTagName('operationName')
-# print(operationName[0].attributes['myvalue'].value)
-operationNameValue = operationName[0].attributes['myvalue'].value
-
-
-operationInputFile = xmldoc.getElementsByTagName('operationInputFile')
-# print(operationInputFile[0].attributes['myvalue'].value)
-operationInputFilevalue = operationInputFile[0].attributes['myvalue'].value
-
-
-operationPath = xmldoc.getElementsByTagName('operationPath')
-# print(operationPath[0].attributes['myvalue'].value)
-operationPathValue = operationPath[0].attributes['myvalue'].value
-
-print "Doing Operation"
-
-
-commandToExecute = "python " + operationPathValue + "/" + operationNameValue + ".py " + operationInputFilevalue
-os.system(commandToExecute)
