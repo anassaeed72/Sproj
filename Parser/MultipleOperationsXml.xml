@@ -1,0 +1,7 @@
+<operations>	
+	<operation>
+	    <operationName myvalue="Connscan"/>
+		<operationInputFile myvalue="/home/xen/Documents/zeus.vmem"/>
+		<operationPath myvalue="/home/xen/Documents/scripts/Primitives/Networking/Connscan"/>
+	</operation>
+</operations>
