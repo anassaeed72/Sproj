@@ -3,8 +3,15 @@ import sys
 def cybox(cyboxXmlValue):
 	print "In cybox " + cyboxXmlValue
 
-def ifCondition():
-	print "In If Condition"
+def ifCondition(conditionValue,leftValue,rightValue,actionValue):
+	print "In If Condition" + conditionValue + " " + leftValue+ " " + rightValue+ " " +actionValue
+	if conditionValue == "==":
+			pass	
+	elif conditionValue == "<":
+		pass
+	elif conditionValue == ">":
+		pass
+
 if len(sys.argv) <2:
 	print('Arguments not given')
 	sys.exit()
@@ -22,7 +29,16 @@ if operationNameValue == "cybox":
 	sys.exit(1)
 
 if operationNameValue =="IfCondition":
-	ifCondition()
+	condition = xmldoc.getElementsByTagName('condition')
+	conditionValue = condition[0].attributes['myvalue'].value
+	left = xmldoc.getElementsByTagName('left')
+	leftValue = left[0].attributes['myvalue'].value
+	right = xmldoc.getElementsByTagName('right')
+	rightValue = right[0].attributes['myvalue'].value
+	action = xmldoc.getElementsByTagName('action')
+	actionValue = action[0].attributes['myvalue'].value
+	ifCondition(conditionValue,leftValue,rightValue,actionValue)
+	sys.exit(1)
 	
 
 operationInputFile = xmldoc.getElementsByTagName('operationInputFile')

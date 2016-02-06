@@ -1,6 +1,9 @@
 <operation>
-    <operationName myvalue="cybox"/>
-		<cyboxXml myvalue="path to file should be given here"/>
+    <operationName myvalue="IfCondition"/>
+		<condition myvalue="condition"/>
+		<left myvalue ="left"/>
+		<right myvalue = "right"/>
+		<action myvalue = "action"/>
 </operation>
 
 
