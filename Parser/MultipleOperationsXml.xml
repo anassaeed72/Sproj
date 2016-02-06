@@ -1,12 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <operations>
 	<operation>
-	    <operationName myvalue="Connscan"/>
-		<operationInputFile myvalue="/home/xen/Documents/zeus.vmem"/>
-		<operationPath myvalue="/home/xen/Documents/scripts/Primitives/Networking/Connscan"/>
+		<operationName myvalue="Connscan" />
+		<operationInputFile myvalue="/home/xen/Documents/zeus.vmem" />
+		<operationPath myvalue="/home/xen/Documents/scripts/Primitives/Networking/Connscan" />
 	</operation>
 	<operation>
-	    <operationName myvalue="Sockets"/>
-		<operationInputFile myvalue="/home/xen/Documents/zeus.vmem"/>
-		<operationPath myvalue="/home/xen/Documents/scripts/Primitives/Networking/Sockets"/>
+		<operationName myvalue="IfCondition" />
+		<condition myvalue="==" />
+		<left myvalue="left" />
+		<right myvalue="10" />
+		<action myvalue="action" />
+	</operation>
+	<operation>
+		<operationName myvalue="Sockets" />
+		<operationInputFile myvalue="/home/xen/Documents/zeus.vmem" />
+		<operationPath myvalue="/home/xen/Documents/scripts/Primitives/Networking/Sockets" />
+	</operation>
+	<operation>
+		<operationName myvalue="cybox" />
+		<cyboxXml myvalue="path to file should be given here" />
 	</operation>
 </operations>
