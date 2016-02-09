@@ -5,32 +5,15 @@ def cybox(cyboxXmlValue):
 
 def nestedOperationFunc(nestedOperationXmlFile):
 	print "in nestedOperationFunc " + nestedOperationXmlFile
-	os.system('python MultipleOperations.py '+nestedOperationXmlFile)
 
-
-
-def ifCondition(conditionValue,left,right,yesactionValue,noactionValue):
-	print "In If Condition" + conditionValue + " " + left+ " " + right+ " " +yesactionValue +  " " + noactionValue
-
-	with open(left) as leftFile:
-	    	content = leftFile.readline()
-
-	rightValue = right
+def ifCondition(conditionValue,leftValue,rightValue,actionValue):
+	print "In If Condition" + conditionValue + " " + leftValue+ " " + rightValue+ " " +actionValue
 	if conditionValue == "==":
-		if leftValue == rightValue:
-			nestedOperationFunc(yesactionValue)	
-		else:
-			nestedOperationFunc(noactionValue)	
+			pass	
 	elif conditionValue == "<":
-		if leftValue < rightValue:
-			nestedOperationFunc(yesactionValue)	
-		else:
-			nestedOperationFunc(noactionValue)	
+		pass
 	elif conditionValue == ">":
-		if leftValue > rightValue:
-			nestedOperationFunc(yesactionValue)	
-		else:
-			nestedOperationFunc(noactionValue)	
+		pass
 
 if len(sys.argv) <2:
 	print('Arguments not given')
@@ -55,13 +38,9 @@ if operationNameValue =="IfCondition":
 	leftValue = left[0].attributes['myvalue'].value
 	right = xmldoc.getElementsByTagName('right')
 	rightValue = right[0].attributes['myvalue'].value
-	yesaction = xmldoc.getElementsByTagName('yesaction')
-	yesactionValue = yesaction[0].attributes['myvalue'].value
-
-	noaction = xmldoc.getElementsByTagName('noaction')
-	noactionValue = noaction[0].attributes['myvalue'].value
-
-	ifCondition(conditionValue,leftValue,rightValue,yesactionValue,noactionValue)
+	action = xmldoc.getElementsByTagName('action')
+	actionValue = action[0].attributes['myvalue'].value
+	ifCondition(conditionValue,leftValue,rightValue,actionValue)
 	sys.exit(1)
 
 if operationNameValue =="nestedOperations":

@@ -10,7 +10,8 @@
 		<condition myvalue="==" />
 		<left myvalue="left" />
 		<right myvalue="10" />
-		<action myvalue="action" />
+		<yesaction myvalue="yesaction" />
+		<noaction myvalue="noaction"/>
 	</operation>
 	<operation>
 		<operationName myvalue="Sockets" />
