@@ -15,12 +15,3 @@ invalid
 signature
 found
 is
-invalid
-invalid
-0xf000ff53
-selected
-found
-found
-invalid
-Address
-found

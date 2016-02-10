@@ -69,6 +69,35 @@ if operationNameValue =="nestedOperations":
 	nestedOperationValue = nestedOperation[0].attributes['myvalue'].value
 	nestedOperationFunc(nestedOperationValue)
 	sys.exit(1)
+
+if operationNameValue =="DOS":
+	operationInputFile = xmldoc.getElementsByTagName('operationPath')
+	operationInputFilevalue = operationInputFile[0].attributes['myvalue'].value
+
+	vmName = xmldoc.getElementsByTagName('vmName')
+	vmNameValue = vmName[0].attributes['myvalue'].value
+
+	minPacket = xmldoc.getElementsByTagName('minPacket')
+	minPacketvalue = minPacket[0].attributes['myvalue'].value
+	command = "" + operationInputFilevalue +"/DOSOperation.sh " + vmNameValue + " " + minPacketvalue
+	print command
+	os.system(command)
+	sys.exit(1)
+
+if operationNameValue =="getDump":
+	operationInputFile = xmldoc.getElementsByTagName('operationInputFile')
+	operationInputFilevalue = operationInputFile[0].attributes['myvalue'].value
+
+
+	operationPath = xmldoc.getElementsByTagName('operationPath')
+	operationPathValue = operationPath[0].attributes['myvalue'].value
+
+	vmName = xmldoc.getElementsByTagName('vmName')
+	vmNameValue = vmName[0].attributes['myvalue'].value
+	command = "python " + operationPathValue +"/getDump.py " + vmNameValue + " " + operationInputFilevalue
+	print command
+	os.system(command)
+	sys.exit(1)
 	
 
 operationInputFile = xmldoc.getElementsByTagName('operationInputFile')
@@ -82,5 +111,5 @@ operationPathValue = operationPath[0].attributes['myvalue'].value
 commandToExecute = "python " + operationPathValue + "/" + operationNameValue + ".py " + operationInputFilevalue
 print "Command : "+operationNameValue
 print commandToExecute
-# os.system(commandToExecute)
+os.system(commandToExecute)
 

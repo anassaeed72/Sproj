@@ -1,4 +1,5 @@
 <operation>
-		<operationName myvalue="cybox"/>
-		<cyboxXml myvalue="path to file should be given here"/>
+		<operationName myvalue="Psscan"/>
+		<operationInputFile myvalue="/home/xen/Documents/scripts/Primitives/Utility/ABC.mem"/>
+		<operationPath myvalue="/home/xen/Documents/scripts/Primitives/Processes/Psscan"/>
 	</operation>

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <operations>
 	<operation>
+      
 		<operationName myvalue="Connscan" />
 		<operationInputFile myvalue="/home/xen/Documents/zeus.vmem" />
 		<operationPath myvalue="/home/xen/Documents/scripts/Primitives/Networking/Connscan" />
 	</operation>
-	<operation>
+	<operation1>
 		<operationName myvalue="IfCondition" />
 		<condition myvalue="==" />
 		<left myvalue="left" />
