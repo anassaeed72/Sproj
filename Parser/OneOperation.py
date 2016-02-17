@@ -11,22 +11,18 @@ def nestedOperationFunc(nestedOperationXmlFile):
 	os.system('python MultipleOperations.py '+nestedOperationXmlFile)
 
 
-def flatten(seq):
-  print "in function flatten"
-  print seq
+def flatten(seq,fileName):
   count = 0
   for item in seq:
   	if count == 0:
   		count = 1
   		continue
-
-    if isinstance(item,(etree._Element,)):
-    	with open("IfConditionXmlTemp.xml", "w") as myfile:
+	if isinstance(item,(etree._Element,)):
+	    with open(fileName, "w") as myfile:
     		myfile.write(etree.tostring(item,with_tail=False))
     		myfile.close()
-   	print item
-    break
-
+    		os.system("python IfConditionMultiple.py IfConditionMultipleXmlTemp.xml")
+    
 def ifCondition(conditionValue,left,right,yesactionValue,noactionValue):
 	print "In If Condition" + conditionValue + " " + left+ " " + right+ " " +yesactionValue +  " " + noactionValue
 
@@ -85,7 +81,8 @@ if operationNameValue =="IfCondition":
 if operationNameValue == "ifMultiple":
 	print "in multiple if"
 	e = etree.parse(sys.argv[1])
-	flatten(e.xpath('/operation/node()'))
+	flatten(e.xpath('/operation/node()'),"IfConditionMultipleXmlTemp.xml")
+	
 	sys.exit(1)
 
 if operationNameValue =="nestedOperations":

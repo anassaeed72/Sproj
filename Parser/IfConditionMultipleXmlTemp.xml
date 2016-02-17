@@ -1,0 +1,12 @@
+<ifConditionMultiple myvalue="or">
+		<ifConditionBasic>
+			<left myvalue="left"/>
+			<right myvalue="right"/>
+			<operator myvalue="equals"/>
+		</ifConditionBasic>
+		<ifConditionBasic>
+			<left myvalue="left"/>
+			<right myvalue="right"/>
+			<operator myvalue="greater"/>
+		</ifConditionBasic>
+</ifConditionMultiple>

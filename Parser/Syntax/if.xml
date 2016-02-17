@@ -1,13 +1,18 @@
 <operations>
 	<operation >
 		<operationName myvalue="ifMultiple"/>
-		<ifCode>
-			<oneIf myvalue="ifBasic">
+		<ifConditionMultiple myvalue ="or">
+			<ifConditionBasic>
 				<left myvalue="left"/>
 				<right myvalue="right"/>
-				<operator myvalue="operator"/>
-			</oneIf>
-		</ifCode>
+				<operator myvalue="equals"/>
+			</ifConditionBasic>
+			<ifConditionBasic>
+				<left myvalue="left"/>
+				<right myvalue="right"/>
+				<operator myvalue="greater"/>
+			</ifConditionBasic>
+		</ifConditionMultiple>
 			
 	</operation>
 </operations>

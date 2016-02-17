@@ -1,0 +1,5 @@
+<ifConditionBasic>
+				<left myvalue="left"/>
+				<right myvalue="right"/>
+				<operator myvalue="greater"/>
+			</ifConditionBasic>
