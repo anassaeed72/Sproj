@@ -1,5 +1,11 @@
 <operation>
-		<operationName myvalue="Psscan"/>
-		<operationInputFile myvalue="/home/xen/Documents/scripts/Primitives/Utility/ABC.mem"/>
-		<operationPath myvalue="/home/xen/Documents/scripts/Primitives/Processes/Psscan"/>
+		<operationName myvalue="ifMultiple"/>
+		<ifCode>
+			<oneIf myvalue="ifBasic">
+				<left myvalue="left"/>
+				<right myvalue="right"/>
+				<operator myvalue="operator"/>
+			</oneIf>
+		</ifCode>
+			
 	</operation>

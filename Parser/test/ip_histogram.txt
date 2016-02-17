@@ -3,7 +3,7 @@
 # Feature-Recorder: ip
 # Filename: /home/xen/Documents/scripts/Primitives/Utility/ABC.mem
 # Histogram-File-Version: 1.1
-n=132	0.0.0.0
-n=132	255.255.255.255
-n=22	169.254.255.255
-n=22	169.254.66.129
+n=156	0.0.0.0
+n=156	255.255.255.255
+n=26	169.254.255.255
+n=26	169.254.66.129

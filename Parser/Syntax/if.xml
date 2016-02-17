@@ -1,7 +1,13 @@
-<operation myvalue="ifMultiple" operator = "or">
-	<oneIf myvalue="ifBasic">
-		<left myvalue="left"/>
-		<right myvalue="right"/>
-		<operator myvalue="operator"/>
-	</oneIf>	
-</operation>
+<operations>
+	<operation >
+		<operationName myvalue="ifMultiple"/>
+		<ifCode>
+			<oneIf myvalue="ifBasic">
+				<left myvalue="left"/>
+				<right myvalue="right"/>
+				<operator myvalue="operator"/>
+			</oneIf>
+		</ifCode>
+			
+	</operation>
+</operations>

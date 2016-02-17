@@ -48,12 +48,12 @@
 	<operation>
 		<operationName myvalue="PsList"/>
 		<operationInputFile myvalue="/home/xen/Documents/scripts/Primitives/Utility/ABC.mem"/>
-		<operationPath  myvalue="/home/xen/Documents/scripts/Primitives/Processes/PsList"/>
+		<operationPath  myvalue="/home/xen/Documents/scripts/Primitives/Proceses/PsList"/>
 	</operation>
 	<operation>
 		<operationName myvalue="Psscan"/>
 		<operationInputFile myvalue="/home/xen/Documents/scripts/Primitives/Utility/ABC.mem"/>
-		<operationPath  myvalue="/home/xen/Documents/scripts/Primitives/Processes/Psscan"/>
+		<operationPath  myvalue="/home/xen/Documents/scripts/Primitives/Proceses/Psscan"/>
 	</operation>
 	
 
