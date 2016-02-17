@@ -1,0 +1,31 @@
+<operation myvalue="ifMultiple" operator = "or">
+	<oneIf myvalue="ifBasic">
+		<left myvalue="left"/>
+		<right myvalue="right"/>
+		<operator myvalue="operator"/>
+	</oneIf>
+	<oneIf myvalue="ifBasic">
+		<left myvalue="left"/>
+		<right myvalue="right"/>
+		<operator myvalue="operator"/>
+	</oneIf>
+	<oneIf myvalue="ifMultiple">
+		<operation myvalue="ifMultiple" operator = "and">
+			<oneIf>
+				<left myvalue="left"/>
+				<right myvalue="right"/>
+				<operator myvalue="operator"/>
+			</oneIf>
+			<oneIf>
+				<left myvalue="left"/>
+				<right myvalue="right"/>
+				<operator myvalue="operator"/>
+			</oneIf>
+			<oneIf>
+				<left myvalue="left"/>
+				<right myvalue="right"/>
+				<operator myvalue="operator"/>
+			</oneIf>
+		</operation>
+	</oneIf>
+</operation>
