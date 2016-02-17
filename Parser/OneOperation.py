@@ -21,7 +21,7 @@ def flatten(seq,fileName):
 	    with open(fileName, "w") as myfile:
     		myfile.write(etree.tostring(item,with_tail=False))
     		myfile.close()
-    		os.system("python IfConditionMultiple.py IfConditionMultipleXmlTemp.xml")
+    		os.system("python IfConditionMultiple.py IfConditionMultipleXmlTemp.xml 0")
     
 def ifCondition(conditionValue,left,right,yesactionValue,noactionValue):
 	print "In If Condition" + conditionValue + " " + left+ " " + right+ " " +yesactionValue +  " " + noactionValue
@@ -79,7 +79,6 @@ if operationNameValue =="IfCondition":
 	sys.exit(1)
 
 if operationNameValue == "ifMultiple":
-	print "in multiple if"
 	e = etree.parse(sys.argv[1])
 	flatten(e.xpath('/operation/node()'),"IfConditionMultipleXmlTemp.xml")
 	
