@@ -1,9 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <operation>
-    <operationName myvalue="cybox"/>
-		<cyboxXml myvalue="path to file should be given here"/>
+	<operationName myvalue="cybox" />
+	<cyboxXml myvalue="path to file should be given here" />
 </operation>
-
-
-
-
-

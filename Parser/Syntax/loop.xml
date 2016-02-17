@@ -1,14 +1,15 @@
-<loop myvalue = "10">
+<?xml version="1.0" encoding="UTF-8"?>
+<loop myvalue="10">
 	<operations>
 		<operation>
-	    	<operationName myvalue="Connscan"/>
-			<operationInputFile myvalue="/home/xen/Documents/zeus.vmem"/>
-			<operationPath myvalue="/home/xen/Documents/scripts/Primitives/Networking/Connscan"/>
+			<operationName myvalue="Connscan" />
+			<operationInputFile myvalue="/home/xen/Documents/zeus.vmem" />
+			<operationPath myvalue="/home/xen/Documents/scripts/Primitives/Networking/Connscan" />
 		</operation>
 		<operation>
-	    	<operationName myvalue="Sockets"/>
-			<operationInputFile myvalue="/home/xen/Documents/zeus.vmem"/>
-			<operationPath myvalue="/home/xen/Documents/scripts/Primitives/Networking/Sockets"/>
+			<operationName myvalue="Sockets" />
+			<operationInputFile myvalue="/home/xen/Documents/zeus.vmem" />
+			<operationPath myvalue="/home/xen/Documents/scripts/Primitives/Networking/Sockets" />
 		</operation>
 	</operations>
 </loop>

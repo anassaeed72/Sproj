@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <operations>
 	<operation>
-      
 		<operationName myvalue="Connscan" />
 		<operationInputFile myvalue="/home/xen/Documents/zeus.vmem" />
 		<operationPath myvalue="/home/xen/Documents/scripts/Primitives/Networking/Connscan" />
 	</operation>
-	<operation1>
+	<operation>
 		<operationName myvalue="IfCondition" />
 		<condition myvalue="==" />
 		<left myvalue="left" />
 		<right myvalue="10" />
 		<yesaction myvalue="yesaction" />
-		<noaction myvalue="noaction"/>
+		<noaction myvalue="noaction" />
 	</operation>
 	<operation>
 		<operationName myvalue="Sockets" />
