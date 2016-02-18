@@ -1,12 +1,12 @@
-<ifConditionMultiple myvalue="or">
+<ifConditionMultiple myvalue="and">
 			<ifConditionBasic>
-				<left myvalue="left"/>
-				<right myvalue="right"/>
-				<operator myvalue="equals"/>
+				<left myvalue="192.1.1.1:80"/>
+				<right myvalue="home/xen/Documents/scripts/Primitives/Networking/Connscan/Remote-Address.txt"/>
+				<operator myvalue="contains"/>
 			</ifConditionBasic>
 			<ifConditionBasic>
-				<left myvalue="left"/>
-				<right myvalue="right"/>
-				<operator myvalue="greater"/>
+				<left myvalue="192.1.1.2"/>
+				<right myvalue="home/xen/Documents/scripts/Primitives/Networking/Connscan/Remote-Address.txt"/>
+				<operator myvalue="contains"/>
 			</ifConditionBasic>
 		</ifConditionMultiple>
