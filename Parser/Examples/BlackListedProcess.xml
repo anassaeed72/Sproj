@@ -7,21 +7,21 @@
 		<operationPath myvalue= "/home/xen/Documents/scripts/Primitives/Utility"/>
 	</operation>
 	<operation>
-		<operationName myvalue="Connscan"/>
+		<operationName myvalue="Psscan"/>
 		<operationInputFile myvalue="/home/xen/Documents/scripts/Primitives/Utility/ABC.mem"/>
-		<operationPath  myvalue="/home/xen/Documents/scripts/Primitives/Networking/Connscan"/>
+		<operationPath  myvalue="/home/xen/Documents/scripts/Primitives/Processes/Psscan"/>
 	</operation>
 	<operation>
 		<operationName myvalue="ifMultiple"/>
-		<ifConditionMultiple myvalue="and">
+		<ifConditionMultiple myvalue="or">
 			<ifConditionBasic>
-				<left myvalue="192.1.1.1:80"/>
-				<right myvalue = "home/xen/Documents/scripts/Primitives/Networking/Connscan/Remote-Address.txt"/>
+				<left myvalue="svchost.exe"/>
+				<right myvalue = "home/xen/Documents/scripts/Primitives/Processes/Connscan/Name.txt"/>
 				<operator myvalue="contains"/>
 			</ifConditionBasic>
 			<ifConditionBasic>
-				<left myvalue="192.1.1.2"/>
-				<right myvalue = "home/xen/Documents/scripts/Primitives/Networking/Connscan/Remote-Address.txt"/>
+				<left myvalue="zeus.exe"/>
+				<right myvalue = "home/xen/Documents/scripts/Primitives/Processes/Connscan/Name.txt"/>
 				<operator myvalue="contains"/>
 			</ifConditionBasic>
 		</ifConditionMultiple>
