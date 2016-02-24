@@ -60,7 +60,7 @@ if operationNameValue == "cybox":
 	cyboxXml = xmldoc.getElementsByTagName('cyboxXml')
 	cyboxXmlValue = cyboxXml[0].attributes['myvalue'].value
 	cybox(cyboxXmlValue)
-	sys.exit(1)
+	sys.exit(0)
 
 if operationNameValue =="IfCondition":
 	condition = xmldoc.getElementsByTagName('condition')
@@ -76,19 +76,19 @@ if operationNameValue =="IfCondition":
 	noactionValue = noaction[0].attributes['myvalue'].value
 
 	ifCondition(conditionValue,leftValue,rightValue,yesactionValue,noactionValue)
-	sys.exit(1)
+	sys.exit(0)
 
 if operationNameValue == "ifMultiple":
 	e = etree.parse(sys.argv[1])
 	flatten(e.xpath('/operation/node()'),"IfConditionMultipleXmlTemp.xml")
 	
-	sys.exit(1)
+	sys.exit(0)
 
 if operationNameValue =="nestedOperations":
 	nestedOperation = xmldoc.getElementsByTagName('nestedOperationXml')
 	nestedOperationValue = nestedOperation[0].attributes['myvalue'].value
 	nestedOperationFunc(nestedOperationValue)
-	sys.exit(1)
+	sys.exit(0)
 
 if operationNameValue =="DOS":
 	operationInputFile = xmldoc.getElementsByTagName('operationPath')
@@ -102,7 +102,7 @@ if operationNameValue =="DOS":
 	command = "" + operationInputFilevalue +"/DOSOperation.sh " + vmNameValue + " " + minPacketvalue
 	print command
 	os.system(command)
-	sys.exit(1)
+	sys.exit(0)
 
 if operationNameValue =="getDump":
 	operationInputFile = xmldoc.getElementsByTagName('operationInputFile')
@@ -117,7 +117,11 @@ if operationNameValue =="getDump":
 	command = "python " + operationPathValue +"/getDump.py " + vmNameValue + " " + operationInputFilevalue
 	print command
 	os.system(command)
-	sys.exit(1)
+	sys.exit(0)
+if operationNameValue=="exit":
+	exitCommand = "exit"
+	print exitCommand
+	sys.exit(0)
 	
 
 operationInputFile = xmldoc.getElementsByTagName('operationInputFile')
