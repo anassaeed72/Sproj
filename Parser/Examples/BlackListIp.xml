@@ -1,0 +1,23 @@
+<operations>
+	
+	<operation>
+		<operationName myvalue="Connscan"/>
+		<operationInputFile myvalue=" /home/xen/Documents/Other/scripts/Zeus/volatility/zeus.vmem"/>
+		<operationPath  myvalue="/home/xen/Documents/"/>
+	</operation>
+
+	<operation>
+		<operationName myvalue="ifMultiple"/>
+		<ifConditionMultiple myvalue="and">
+			<ifConditionBasic>
+				<key myvalue="Local"/>
+				<value myvalue="172.16.176.143:1054"/>
+			</ifConditionBasic>
+			<ifConditionBasic>
+				<key myvalue="Local"/>
+				<value myvalue="172.16.176.143:1054"/>
+			</ifConditionBasic>
+		</ifConditionMultiple>
+	</operation>
+
+</operations>
