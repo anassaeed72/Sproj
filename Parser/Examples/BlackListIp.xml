@@ -2,8 +2,8 @@
 	
 	<operation>
 		<operationName myvalue="Connscan"/>
-		<operationInputFile myvalue=" /home/xen/Documents/Other/scripts/Zeus/volatility/zeus.vmem"/>
-		<operationPath  myvalue="/home/xen/Documents/"/>
+		<operationInputFile myvalue="/MemoryDumps/zeus.vmem"/>
+		<operationPath  myvalue="Primitives/Networking/Connscan/"/>
 	</operation>
 
 	<operation>

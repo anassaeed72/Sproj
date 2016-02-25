@@ -1,12 +1,10 @@
-<ifConditionMultiple myvalue="or">
+<ifConditionMultiple myvalue="and">
 			<ifConditionBasic>
-				<left myvalue="left"/>
-				<right myvalue="right"/>
-				<operator myvalue="equals"/>
+				<key myvalue="Local"/>
+				<value myvalue="172.16.176.143:1054"/>
 			</ifConditionBasic>
 			<ifConditionBasic>
-				<left myvalue="left"/>
-				<right myvalue="right"/>
-				<operator myvalue="greater"/>
+				<key myvalue="Local"/>
+				<value myvalue="172.16.176.143:1054"/>
 			</ifConditionBasic>
 		</ifConditionMultiple>

@@ -1,28 +1,42 @@
+from pymongo import MongoClient
+import json
+import sys
 import os
 import subprocess
 import sys
 
-if len(sys.argv) <2:
-	print('Arguments not given')
-	sys.exit()
-
-
+print  "Connscan Zeeshan"
 commandToExecute = 'python vol.py -f ' + sys.argv[1] + " connscan"
 proc=subprocess.Popen(commandToExecute, shell=True, stdout=subprocess.PIPE, )
-output=proc.communicate()[0]
-count = 0
-index = 0
-arrayOfFiles=['Offset.txt','Local-Address.txt','Remote-Address.txt','Pid.txt','temp.txt']
-for x in arrayOfFiles:
-	if os.path.exists(x):
-		os.remove(x)
-for oneLine in output.split("\n"):
-	if count < 2:
-		count = count+1
-		continue
-	index = 0
-	for oneWord in oneLine.split():
-		commandToExecute= "python AppendToFileNewLine.py " + arrayOfFiles[index] + " " + oneWord
-		index = index+1
-		os.system(commandToExecute)
+f=proc.communicate()[0]
 
+print "Connscan done"
+count = 0
+aDict = []
+aDict2= {}
+for line in f.split("\n"):
+	count = count +1
+	if count == 1:
+		line2 = line
+		line2 = line2.strip()
+		line2 = line2.split("\n")
+		line2 = line2[0].split()
+	else:
+		if count > 2:
+			line = line.strip()
+
+			parts = line.split("\t")
+			parts = parts[0].split()
+			count2 = 0
+			for word in parts:
+				if count2 < (len(parts) -1):	
+					aDict2[line2[count2]] = word
+					count2 = count2 +1
+			aDict.append(aDict2)
+			aDict2 = {}
+
+
+client = MongoClient()
+db = client.test
+
+db.testcollection.insert_many(aDict)

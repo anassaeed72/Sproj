@@ -2,6 +2,7 @@ import os
 import sys
 from lxml import etree
 import xml.etree.ElementTree
+from Constants import ConstantsClass
 
 def cybox(cyboxXmlValue):
 	print "In cybox " + cyboxXmlValue
@@ -126,11 +127,11 @@ if operationNameValue=="exit":
 
 operationInputFile = xmldoc.getElementsByTagName('operationInputFile')
 operationInputFilevalue = operationInputFile[0].attributes['myvalue'].value
-
+operationInputFilevalue = ConstantsClass.pathValue+operationInputFilevalue
 
 operationPath = xmldoc.getElementsByTagName('operationPath')
 operationPathValue = operationPath[0].attributes['myvalue'].value
-
+operationPathValue = ConstantsClass.pathValue + operationPathValue
 
 commandToExecute = "python " + operationPathValue + "/" + operationNameValue + ".py " + operationInputFilevalue
 print "Command : "+operationNameValue
