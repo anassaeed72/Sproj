@@ -38,13 +38,14 @@ def flatten(seq):
 				myfile.close()
 				outputIfBasic = ""
 				outputIfBasic = subprocess.check_output(('python IfConditionBasic.py IfConditionBasicXmlTemp.xml'),shell=True)
-	  	  		if ifMultipleOperator == "or" and outputIfBasic == "true":
-	  	  			print "true"
+				print "Basic If Condition Output "+outputIfBasic
+	  	  		if ifMultipleOperator == "or" and outputIfBasic == "true\n":
+	  	  			print "true If Condition Multiple"
 	  	  			sys.exit()
-	  	  		if ifMultipleOperator == "and" and outputIfBasic == "false":
-	  	  			print "false"
+	  	  		if ifMultipleOperator == "and" and outputIfBasic == "false\n":
+	  	  			print "false If Condition Multiple"
 	  	  			sys.exit()
 
 flatten(e.xpath('/ifConditionMultiple/node()'))
 if ifMultipleOperator == "and":
-	print "true"
+	print "true If Condition Multiple Final"

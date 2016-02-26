@@ -14,7 +14,7 @@ print "Connscan done"
 count = 0
 aDict = []
 aDict2= {}
-line2 = ['Offset', 'Local-Address', 'Remote-Address', 'Pid']
+line2 = ['Connscan-Offset', 'Connscan-Local-Address', 'Connscan-Remote-Address', 'Connscan-Pid']
 for line in f.split("\n"):
 	count = count +1
 	if count == 1:

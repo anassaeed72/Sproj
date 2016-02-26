@@ -1,10 +1,17 @@
 <ifConditionMultiple myvalue="or">
+			
 			<ifConditionBasic>
-				<key myvalue="Local"/>
+				<key myvalue="Connscan-Pid"/>
+				<value myvalue="856"/>
+			</ifConditionBasic>
+
+			<ifConditionBasic>
+				<key myvalue="Connscan-Local-Address"/>
 				<value myvalue="172.16.176.143:1054"/>
 			</ifConditionBasic>
 			<ifConditionBasic>
-				<key myvalue="Address"/>
+				<key myvalue="Connscan-Remote-Address"/>
 				<value myvalue="193.104.41.75:80"/>
 			</ifConditionBasic>
+
 		</ifConditionMultiple>

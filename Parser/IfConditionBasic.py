@@ -17,8 +17,6 @@ leftValue = left[0].attributes['myvalue'].value
 right = xmldoc.getElementsByTagName('value')
 rightValue = right[0].attributes['myvalue'].value
 
-print leftValue
-print rightValue
 client = MongoClient()
 db = client.test
 
@@ -31,7 +29,16 @@ key_val[key_] = value
 
 cursor = db.testcollection.find(key_val)
 
-for document in cursor:
-	print ' '.join('| {} : {} |'.format(key, val) for key, val in sorted(document.items()))
-print "If Condition basic"
-print "true"
+
+
+
+
+if cursor.count() >0:
+	print "true"
+else:
+	print "false"
+sys.exit()
+# for document in cursor:
+	# print ' '.join('| {} : {} |'.format(key, val) for key, val in sorted(document.items()))
+# print "If Condition basic"
+# print "true"

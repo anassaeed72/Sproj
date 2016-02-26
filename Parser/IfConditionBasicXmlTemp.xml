@@ -1,4 +1,4 @@
 <ifConditionBasic>
-				<key myvalue="Address"/>
+				<key myvalue="Connscan-Remote-Address"/>
 				<value myvalue="193.104.41.75:80"/>
 			</ifConditionBasic>
