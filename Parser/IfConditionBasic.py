@@ -33,4 +33,5 @@ cursor = db.testcollection.find(key_val)
 
 for document in cursor:
 	print ' '.join('| {} : {} |'.format(key, val) for key, val in sorted(document.items()))
+print "If Condition basic"
 print "true"

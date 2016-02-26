@@ -2,20 +2,20 @@
 	
 	<operation>
 		<operationName myvalue="Connscan"/>
-		<operationInputFile myvalue="/MemoryDumps/zeus.vmem"/>
-		<operationPath  myvalue="Primitives/Networking/Connscan/"/>
+		<operationInputFile myvalue="MemoryDumps/zeus.vmem"/>
+		<operationPath  myvalue="Primitives/Networking/Connscan"/>
 	</operation>
 
 	<operation>
 		<operationName myvalue="ifMultiple"/>
-		<ifConditionMultiple myvalue="and">
+		<ifConditionMultiple myvalue="or">
 			<ifConditionBasic>
 				<key myvalue="Local"/>
 				<value myvalue="172.16.176.143:1054"/>
 			</ifConditionBasic>
 			<ifConditionBasic>
-				<key myvalue="Local"/>
-				<value myvalue="172.16.176.143:1054"/>
+				<key myvalue="Address"/>
+				<value myvalue="193.104.41.75:80"/>
 			</ifConditionBasic>
 		</ifConditionMultiple>
 	</operation>

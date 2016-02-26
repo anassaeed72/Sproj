@@ -1,10 +1,10 @@
-<ifConditionMultiple myvalue="and">
+<ifConditionMultiple myvalue="or">
 			<ifConditionBasic>
 				<key myvalue="Local"/>
 				<value myvalue="172.16.176.143:1054"/>
 			</ifConditionBasic>
 			<ifConditionBasic>
-				<key myvalue="Local"/>
-				<value myvalue="172.16.176.143:1054"/>
+				<key myvalue="Address"/>
+				<value myvalue="193.104.41.75:80"/>
 			</ifConditionBasic>
 		</ifConditionMultiple>
