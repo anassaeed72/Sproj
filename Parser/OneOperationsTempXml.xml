@@ -1,23 +1,4 @@
 <operation>
-		<operationName myvalue="ifMultiple"/>
-		<ifConditionMultiple myvalue="or">
-			
-			<ifConditionBasic>
-				<key myvalue="Connscan-Pid"/>
-				<value myvalue="856"/>
-				<collection myvalue="testcollection"/>
-			</ifConditionBasic>
-
-			<ifConditionBasic>
-				<key myvalue="Connscan-Local-Address"/>
-				<value myvalue="172.16.176.143:1054"/>
-				<collection myvalue="testcollection"/>
-			</ifConditionBasic>
-			<ifConditionBasic>
-				<key myvalue="Connscan-Remote-Address"/>
-				<value myvalue="193.104.41.75:80"/>
-				<collection myvalue="testcollection"/>
-			</ifConditionBasic>
-
-		</ifConditionMultiple>
+		<operationName myvalue="TCP_DUMP"/>
+		<operationInputFile myvalue="MemoryDumps/Bulk_Extractor/packets.pcap"/>
 	</operation>

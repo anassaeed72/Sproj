@@ -8,7 +8,7 @@
 
 	<operation>
 		<operationName myvalue="ifMultiple"/>
-		<ifConditionMultiple myvalue="or">
+		<ifConditionMultiple myvalue="and">
 			
 			<ifConditionBasic>
 				<key myvalue="Connscan-Pid"/>

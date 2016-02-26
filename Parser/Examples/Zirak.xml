@@ -1,0 +1,17 @@
+<operations>
+	
+	<operation>
+		<operationName myvalue="Bulk_Extractor"/>
+		<operationInputFile myvalue="MemoryDumps/zeus.vmem"/>
+		<operationPath  myvalue="MemoryDumps/Bulk_Extractor"/>
+	</operation>
+
+	<operation>
+		<operationName myvalue="TCP_DUMP"/>
+		<operationInputFile myvalue="MemoryDumps/Bulk_Extractor/packets.pcap"/>
+		
+	</operation>
+
+	
+
+</operations>

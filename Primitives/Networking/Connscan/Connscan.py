@@ -5,7 +5,7 @@ import os
 import subprocess
 import sys
 
-print  "Connscan Zeeshan "
+print  "Connscan Starting "
 commandToExecute = 'python vol.py -f ' + sys.argv[1] + " connscan"
 proc=subprocess.Popen(commandToExecute, shell=True, stdout=subprocess.PIPE, )
 f=proc.communicate()[0]

@@ -1,0 +1,9 @@
+# BANNER FILE NOT PROVIDED (-b option)
+# BULK_EXTRACTOR-Version: 1.5.0 ($Rev: 10844 $)
+# Feature-Recorder: ether
+# Filename: /home/xen/Documents/Sproj/MemoryDumps/zeus.vmem
+# Histogram-File-Version: 1.1
+n=938	00:0C:29:A4:81:79
+n=525	00:50:56:F1:2D:82
+n=21	00:50:56:FC:2F:93
+n=21	01:00:5E:7F:FF:FA

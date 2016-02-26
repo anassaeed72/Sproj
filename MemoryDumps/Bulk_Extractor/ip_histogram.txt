@@ -1,0 +1,16 @@
+# BANNER FILE NOT PROVIDED (-b option)
+# BULK_EXTRACTOR-Version: 1.5.0 ($Rev: 10844 $)
+# Feature-Recorder: ip
+# Filename: /home/xen/Documents/Sproj/MemoryDumps/zeus.vmem
+# Histogram-File-Version: 1.1
+n=931	172.16.176.143
+n=679	172.16.176.255
+n=378	131.107.115.254
+n=343	172.16.176.1
+n=70	172.16.176.2
+n=70	193.104.41.75
+n=35	255.255.255.255
+n=28	172.16.176.254
+n=21	239.255.255.250
+n=14	0.0.0.0
+n=7	207.46.197.32

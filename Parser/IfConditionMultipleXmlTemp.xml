@@ -1,20 +1,15 @@
-<ifConditionMultiple myvalue="or">
+<ifConditionMultiple myvalue="and">
 			
 			<ifConditionBasic>
-				<key myvalue="Connscan-Pid"/>
-				<value myvalue="856"/>
-				<collection myvalue="testcollection"/>
+				<key myvalue="PsList-PID"/>
+				<value myvalue="1088"/>
+				<collection myvalue="PsListCollection"/>
 			</ifConditionBasic>
 
 			<ifConditionBasic>
-				<key myvalue="Connscan-Local-Address"/>
-				<value myvalue="172.16.176.143:1054"/>
-				<collection myvalue="testcollection"/>
-			</ifConditionBasic>
-			<ifConditionBasic>
-				<key myvalue="Connscan-Remote-Address"/>
-				<value myvalue="193.104.41.75:80"/>
-				<collection myvalue="testcollection"/>
+				<key myvalue="PsList-Name"/>
+				<value myvalue="svchost.exe"/>
+				<collection myvalue="PsListCollection"/>
 			</ifConditionBasic>
 
 		</ifConditionMultiple>

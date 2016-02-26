@@ -33,15 +33,8 @@ key_val[key_] = value
 cursor = db[collectionValue].find(key_val)
 
 
-
-
-
 if cursor.count() >0:
 	print "true"
 else:
 	print "false"
 sys.exit()
-# for document in cursor:
-	# print ' '.join('| {} : {} |'.format(key, val) for key, val in sorted(document.items()))
-# print "If Condition basic"
-# print "true"

@@ -3,6 +3,8 @@ import sys
 from lxml import etree
 import xml.etree.ElementTree
 from Constants import ConstantsClass
+import subprocess
+from pymongo import MongoClient
 
 def cybox(cyboxXmlValue):
 	print "In cybox " + cyboxXmlValue
@@ -123,7 +125,63 @@ if operationNameValue=="exit":
 	exitCommand = "exit"
 	print exitCommand
 	sys.exit(0)
+
+if operationNameValue=="Bulk_Extractor":
+	print "Bulk_Extractor"
+	operationInputFile = xmldoc.getElementsByTagName('operationInputFile')
+	operationInputFilevalue = operationInputFile[0].attributes['myvalue'].value
+	operationInputFilevalue = ConstantsClass.pathValue+operationInputFilevalue
+
+	operationPath = xmldoc.getElementsByTagName('operationPath')
+	operationPathValue = operationPath[0].attributes['myvalue'].value
+	operationPathValue = ConstantsClass.pathValue + operationPathValue
+	command = "bulk_extractor -E net -o "+operationPathValue+" " +operationInputFilevalue
+	print command
+	os.system(command)
+	sys.exit()	
+
+if operationNameValue=="TCP_DUMP":
+	print "TCP DUMP"
+	operationInputFile = xmldoc.getElementsByTagName('operationInputFile')
+	operationInputFilevalue = operationInputFile[0].attributes['myvalue'].value
+	operationInputFilevalue = ConstantsClass.pathValue+operationInputFilevalue
+
 	
+	command = "sudo tcpdump -tttttnnr "+operationInputFilevalue+" | grep IP"
+	print command
+	outputTcpDump = subprocess.check_output((command),shell=True)
+	for lines in outputTcpDump.split('\n'):
+		print "Line "+lines
+		count =0
+		aDict2={}
+		aDict =[]
+		for word in lines.split(' '):
+			print "word " + word
+			if count ==2:
+				# insert sender IP here
+				aDict2["SenderIP"] = word
+			elif count == 4:
+				# insert recieve IP here
+				aDict2["ReceiverIP"] = word
+				break
+			count = count+1
+		
+
+	aDict.append(aDict2)
+	aDict2={}
+	client = MongoClient()
+	db = client.test
+	db.randCollection.insert_many(aDict)
+	
+	# # db.randCollection.aggregate([{$group: {_id,  "SenderIP": {$sum: "$SenderIP"}}}])
+	# pipe = [{'$group': {'_id': None,'SenderIP': {'$sum': '$SenderIP'}}}]
+	# db.randCollection.aggregate(pipeline=pipe)
+	
+	cursor = db.randCollection.find()
+	for document in cursor:
+		print ' '.join('| {} : {} |'.format(key, val) for key, val in sorted(document.items()))
+		
+	sys.exit()	
 
 operationInputFile = xmldoc.getElementsByTagName('operationInputFile')
 operationInputFilevalue = operationInputFile[0].attributes['myvalue'].value
