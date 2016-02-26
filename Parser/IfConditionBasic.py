@@ -17,6 +17,9 @@ leftValue = left[0].attributes['myvalue'].value
 right = xmldoc.getElementsByTagName('value')
 rightValue = right[0].attributes['myvalue'].value
 
+collection = xmldoc.getElementsByTagName('collection')
+collectionValue = collection[0].attributes['myvalue'].value
+
 client = MongoClient()
 db = client.test
 
@@ -27,7 +30,7 @@ value =rightValue# sys.argv[3]
 key_val = {}
 key_val[key_] = value
 
-cursor = db.testcollection.find(key_val)
+cursor = db[collectionValue].find(key_val)
 
 
 

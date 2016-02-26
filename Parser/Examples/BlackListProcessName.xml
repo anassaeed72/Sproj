@@ -1,0 +1,28 @@
+<operations>
+	
+	<operation>
+		<operationName myvalue="PsList"/>
+		<operationInputFile myvalue="MemoryDumps/zeus.vmem"/>
+		<operationPath  myvalue="Primitives/Proceses/PsList"/>
+	</operation>
+
+	<operation>
+		<operationName myvalue="ifMultiple"/>
+		<ifConditionMultiple myvalue="and">
+			
+			<ifConditionBasic>
+				<key myvalue="PsList-PID"/>
+				<value myvalue="1088"/>
+				<collection myvalue="PsListCollection"/>
+			</ifConditionBasic>
+
+			<ifConditionBasic>
+				<key myvalue="PsList-Name"/>
+				<value myvalue="svchost.exe"/>
+				<collection myvalue="PsListCollection"/>
+			</ifConditionBasic>
+
+		</ifConditionMultiple>
+	</operation>
+
+</operations>
