@@ -4,16 +4,17 @@ import sys
 from pymongo import MongoClient
 
 
-print "Handles Starting"
-proc=subprocess.Popen('python vol.py -f '+sys.argv[1]+' pslist', shell=True, stdout=subprocess.PIPE, )
+print "Getsids Starting"
+proc=subprocess.Popen('python vol.py -f '+sys.argv[1]+' getsids', shell=True, stdout=subprocess.PIPE, )
 output=proc.communicate()[0]
-print "Handles Done"
+print "Getsids Done"
+print output
 count = 0
 index = 0
 aDict = []
 aDict2= {}
 
-line2=['Handles-Offset','Handles-Name','Handles-PID','Handles-PPID','Handles--Thds','Handles--Hnds','Handles--Sess','PsList-Wow64','PsList-Start','PsList-Start','PsList-Start','PsList-Exit','PsList-Exit','PsList-Exit','PsList-temp']
+line2=['Getsids-Name','Getsids-PID','Getsids-ID','Getsids-Privilage']
 
 for line in output.split("\n"):
 	count = count +1
@@ -26,7 +27,9 @@ for line in output.split("\n"):
 			parts = parts[0].split()
 			count2 = 0
 			for word in parts:
-
+				if count2 >3:
+					aDict2[line2[3]] += " "+word
+					continue
 				aDict2[line2[count2]] = word
 				count2 = count2 +1
 
@@ -36,5 +39,5 @@ for line in output.split("\n"):
 
 client = MongoClient()
 db = client.test
-db.HandlesCollection.insert_many(aDict)
-print "Handles Seeded DB"
+db.GetsidsCollection.insert_many(aDict)
+print "Getsids Seeded DB"
