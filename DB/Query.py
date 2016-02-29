@@ -10,7 +10,7 @@ value ="svchost.exe"# sys.argv[3]
 key_val = {}
 key_val[key_] = value
 
-cursor = db.PsListCollection.find(key_val)
+cursor = db.DllListCollection.find()
 
 
 
