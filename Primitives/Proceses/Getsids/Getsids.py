@@ -5,10 +5,9 @@ from pymongo import MongoClient
 
 
 print "Handles Starting"
-proc=subprocess.Popen('python vol.py -f '+sys.argv[1]+' handles', shell=True, stdout=subprocess.PIPE, )
+proc=subprocess.Popen('python vol.py -f '+sys.argv[1]+' pslist', shell=True, stdout=subprocess.PIPE, )
 output=proc.communicate()[0]
 print "Handles Done"
-print output
 count = 0
 index = 0
 aDict = []
