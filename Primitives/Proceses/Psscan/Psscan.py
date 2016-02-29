@@ -1,25 +1,43 @@
 import os
 import subprocess
 import sys
+from pymongo import MongoClient
 
 
-
+print "Psscan Starting"
 commandToExecute = 'python vol.py -f ' + sys.argv[1] + " psscan"
 proc=subprocess.Popen(commandToExecute, shell=True, stdout=subprocess.PIPE, )
+print "Psscan Ended"
 output=proc.communicate()[0]
 count = 0
 index = 0
-arrayOfFiles=['Offset.txt','Name.txt','PID.txt','PPID.txt','PDB.txt','Time-Created.txt','Time-Created.txt','Time-Created.txt','Time-Exited.txt','Time-Exited.txt','Time-Exited.txt']
-for x in arrayOfFiles:
-	if os.path.exists(x):
-		os.remove(x)
-for oneLine in output.split("\n"):
-	if count < 2:
-		count = count+1
-		continue
-	index = 0
-	for oneWord in oneLine.split():
-		commandToExecute= "python AppendToFileNewLine.py " + arrayOfFiles[index] + " " + oneWord
-		index = index+1
-		os.system(commandToExecute)
+aDict = []
+aDict2= {}
 
+line2=['Psscan-Offset','Psscan-Name','Psscan-PID','Psscan-PPID','Psscan-PDB','Psscan-Time-Created','Psscan-Time-Created','Psscan-Time-Created','Psscan-Time-Exited','Psscan-Time-Exited','Psscan-Time-Exited']
+
+
+for line in output.split("\n"):
+	count = count +1
+	if count == 1:
+		continue
+	else:
+		if count > 2:
+			line = line.strip()
+			parts = line.split("\t")
+			parts = parts[0].split()
+			count2 = 0
+			for word in parts:
+				if count2 >10:
+					count2 = 10
+				aDict2[line2[count2]] = word
+				count2 = count2 +1
+
+			aDict.append(aDict2)
+			aDict2 = {}
+
+
+client = MongoClient()
+db = client.test
+db.PsxViewCollection.insert_many(aDict)
+print "Psscan Added to DB"
