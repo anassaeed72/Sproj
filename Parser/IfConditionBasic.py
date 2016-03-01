@@ -22,6 +22,19 @@ collectionValue = collection[0].attributes['myvalue'].value
 
 client = MongoClient()
 db = client.test
+if collectionValue=="DOSCollection":
+	cursor = list(db.randCollection.aggregate([
+    {"$group" : {"_id" : "$SenderIP", "count":  { "$sum" : 1}}
+
+    }
+	]))
+	for document in cursor:
+		if document["_id"]== leftValue:
+			if document["count"]>rightValue:
+				print "true"
+			else:
+				print "false"
+			sys.exit()
 
 
 key_ =leftValue# sys.argv[2] # key is col and value is 127.0.0.1

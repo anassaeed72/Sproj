@@ -150,13 +150,12 @@ if operationNameValue=="TCP_DUMP":
 	command = "sudo tcpdump -tttttnnr "+operationInputFilevalue+" | grep IP"
 	print command
 	outputTcpDump = subprocess.check_output((command),shell=True)
+	aDict =[]
 	for lines in outputTcpDump.split('\n'):
-		print "Line "+lines
 		count =0
 		aDict2={}
-		aDict =[]
+		
 		for word in lines.split(' '):
-			print "word " + word
 			if count ==2:
 				# insert sender IP here
 				aDict2["SenderIP"] = word
@@ -165,21 +164,29 @@ if operationNameValue=="TCP_DUMP":
 				aDict2["ReceiverIP"] = word
 				break
 			count = count+1
-		
-
-	aDict.append(aDict2)
-	aDict2={}
+		aDict.append(aDict2)
+		aDict2={}
+	
 	client = MongoClient()
 	db = client.test
-	db.randCollection.insert_many(aDict)
+	db.DOSCollection.insert_many(aDict)
 	
-	# # db.randCollection.aggregate([{$group: {_id,  "SenderIP": {$sum: "$SenderIP"}}}])
-	# pipe = [{'$group': {'_id': None,'SenderIP': {'$sum': '$SenderIP'}}}]
-	# db.randCollection.aggregate(pipeline=pipe)
-	
-	cursor = db.randCollection.find()
-	for document in cursor:
-		print ' '.join('| {} : {} |'.format(key, val) for key, val in sorted(document.items()))
+	#cursor = list(db.randCollection.aggregate([
+	 #    {"$group" : {"_id" : "$SenderIP", "count":  { "$sum" : 1}}
+
+ 	#    }
+	# ]))
+	# for document in cursor:
+	# 	print document
+	# 	# print ' '.join('| {} : {} |'.format(key, val) for key, val in sorted(document.items()))
+	# db.DOSCollection.insert(cursor)
+	# db.DOSCollection.remove()
+	# cursor = db.DOSCollection.find()
+	# print "after cursor is obtained"
+	# for document in cursor:
+	# 	print "oneline"
+	# 	print ' '.join('| {} : {} |'.format(key, val) for key, val in sorted(document.items()))
+
 		
 	sys.exit()	
 
