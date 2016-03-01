@@ -1,23 +1,7 @@
 <operation>
-		<operationName myvalue="ifMultiple"/>
-		<ifConditionMultiple myvalue="and">
-			
-			<ifConditionBasic>
-				<key myvalue="0.0.0.0.68"/>
-				<value myvalue="1"/>
-				<collection myvalue="DOSCollection"/>
-			</ifConditionBasic>
-
-			<ifConditionBasic>
-				<key myvalue="172.16.176.143:1054"/>
-				<value myvalue="2"/>
-				<collection myvalue="DOSCollection"/>
-			</ifConditionBasic>
-			<ifConditionBasic>
-				<key myvalue="172.16.176.143.1055"/>
-				<value myvalue="3"/>
-				<collection myvalue="DOSCollection"/>
-			</ifConditionBasic>
-
-		</ifConditionMultiple>
-	</operation>
+	<operationName myvalue="cybox"/>
+	<cybox>
+		<internal>
+		</internal>
+	</cybox>
+</operation>

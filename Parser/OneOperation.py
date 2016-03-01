@@ -5,9 +5,9 @@ import xml.etree.ElementTree
 from Constants import ConstantsClass
 import subprocess
 from pymongo import MongoClient
-
-def cybox(cyboxXmlValue):
-	print "In cybox " + cyboxXmlValue
+print "In One Operation"
+def cybox():
+	print "In cybox "
 
 def nestedOperationFunc(nestedOperationXmlFile):
 	print "in nestedOperationFunc " + nestedOperationXmlFile
@@ -48,7 +48,12 @@ def ifCondition(conditionValue,left,right,yesactionValue,noactionValue):
 			nestedOperationFunc(yesactionValue)	
 		else:
 			nestedOperationFunc(noactionValue)	
-
+def flattenCybox(seq):
+	for item in seq:
+		if isinstance(item,(etree._Element,)):
+			with open("CyboxOneOperationXmlTemp.xml", "w") as myfile:
+				myfile.write(etree.tostring(item,with_tail=False))
+				myfile.close()
 if len(sys.argv) <2:
 	print('Arguments not given')
 	sys.exit()
@@ -61,8 +66,11 @@ operationNameValue = operationName[0].attributes['myvalue'].value
 
 if operationNameValue == "cybox":
 	cyboxXml = xmldoc.getElementsByTagName('cyboxXml')
-	cyboxXmlValue = cyboxXml[0].attributes['myvalue'].value
-	cybox(cyboxXmlValue)
+	e = etree.parse(sys.argv[1])
+
+	flattenCybox(e.xpath('/operation/node()'))
+
+	cybox()
 	sys.exit(0)
 
 if operationNameValue =="IfCondition":

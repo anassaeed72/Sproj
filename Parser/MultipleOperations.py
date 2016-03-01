@@ -18,10 +18,6 @@ def flatten(seq):
     		myfile.write(etree.tostring(item,with_tail=False))
     		myfile.close()
         os.system('python OneOperation.py OneOperationsTempXml.xml')
-  	  	# outputOneOperation = subprocess.check_output(('python OneOperation.py OneOperationsTempXml.xml'),shell=False)
-		# if outputOneOperation == "exit\n":
-			# print "Exiting system"
-			# sys.exit(0)
 
 
 flatten(e.xpath('/operations/node()'))
