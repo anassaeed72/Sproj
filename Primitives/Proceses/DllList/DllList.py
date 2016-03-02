@@ -44,5 +44,6 @@ for line in output.split("\n"):
 
 client = MongoClient()
 db = client.test
-db.DllListCollection.insert_many(aDict)
+if aDict:
+	db.DllListCollection.insert_many(aDict)
 print "Added data to DB"

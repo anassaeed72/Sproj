@@ -48,4 +48,5 @@ for line in output.split("\n"):
 
 client = MongoClient()
 db = client.test
-db.PsListCollection.insert_many(aDict)
+if  aDict:
+	db.PsListCollection.insert_many(aDict)

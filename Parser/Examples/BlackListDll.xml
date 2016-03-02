@@ -1,4 +1,12 @@
-<operation>
+<operations>
+	
+	<operation>
+		<operationName myvalue="DllList"/>
+		<operationInputFile myvalue="MemoryDumps/zeus.vmem"/>
+		<operationPath  myvalue="Primitives/Proceses/DllList"/>
+	</operation>
+
+	<operation>
 		<operationName myvalue="ifMultiple"/>
 		<ifConditionMultiple myvalue="and">
 			
@@ -11,3 +19,5 @@
 			
 		</ifConditionMultiple>
 	</operation>
+
+</operations>

@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dfxml xmloutputversion='1.0'>
+  <metadata 
+  xmlns='http://afflib.org/bulk_extractor/' 
+  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' 
+  xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <dc:type>Feature Extraction</dc:type>
+  </metadata>
+  <creator version='1.0'>
+    <program>BULK_EXTRACTOR</program>
+    <version>1.5.0</version>
+    <build_environment>
+      <compiler>5.2.1 (5.2.1 20151028)</compiler>
+      <CPPFLAGS> -I/usr/local/include -DUTC_OFFSET=-0500</CPPFLAGS>
+      <CFLAGS>-g     -pthread -g -O3 -MD -Wpointer-arith -Wmissing-declarations -Wmissing-prototypes -Wshadow -Wwrite-strings -Wcast-align -Waggregate-return -Wbad-function-cast -Wcast-qual -Wundef -Wredundant-decls -Wdisabled-optimization -Wfloat-equal -Wmultichar -Wc++-compat -Wmissing-noreturn -Wall -Wstrict-prototypes -fPIC   -D_FORTIFY_SOURCE=2 </CFLAGS>
+      <CXXFLAGS>-g -pthread -g -O3 -std=c++11 -Wall -MD -D_FORTIFY_SOURCE=2 -Wpointer-arith -Wshadow -Wwrite-strings -Wcast-align -Wredundant-decls -Wdisabled-optimization -Wfloat-equal -Wmultichar -Wmissing-noreturn -Woverloaded-virtual -Wsign-promo -funit-at-a-time -Weffc++  -fPIC -D_FORTIFY_SOURCE=2 </CXXFLAGS>
+      <LDFLAGS> -L/usr/local/lib</LDFLAGS>
+      <LIBS>-lewf -lstdc++ -lexpat -lz -ldl  -lssl -lcrypto </LIBS>
+      <compilation_date>2015-12-02T12:41:00</compilation_date>
+      <library name="libewf" version="20140608"/>
+    </build_environment>
+    <execution_environment>
+      <os_sysname>Linux</os_sysname>
+      <os_release>4.2.0-1-amd64</os_release>
+      <os_version>#1 SMP Debian 4.2.6-1 (2015-11-10)</os_version>
+      <host>debian</host>
+      <arch>x86_64</arch>
+      <command_line>bulk_extractor -E net -o /home/xen/Documents/Sproj/MemoryDumps/Bulk_Extractor /home/xen/Documents/Sproj/MemoryDumps/zeus.vmem</command_line>
+      <uid>1000</uid>
+      <username>xen</username>
+      <start_time>2016-03-02T20:11:31Z</start_time>
+    </execution_environment>
+  </creator>
+  <configuration>
+    <threads>4</threads>
+    <pagesize>16777216</pagesize>
+    <marginsize>4194304</marginsize>
+    <scanners>
+      <scanner>net</scanner>
+    </scanners>
+  </configuration>
+  <provided_filename>/home/xen/Documents/Sproj/MemoryDumps/zeus.vmem</provided_filename>
+  <timestamp name='phase1 start' delta='0.000429' total='0.000429'/>
+  <runtime xmlns:debug="http://www.afflib.org/bulk_extractor/debug">
+  </runtime>
+  <source>
+    <image_filename>/home/xen/Documents/Sproj/MemoryDumps/zeus.vmem</image_filename>
+    <image_size>134217728</image_size>
+    <hashdigest type='MD5'>d41d8cd98f00b204e9800998ecf8427e</hashdigest>
+  </source>
+  <feature_files>
+    <feature_file><name>alerts</name>
+<count>0</count>
+</feature_file>
+
+    <feature_file><name>ether</name>
+<count>1</count>
+</feature_file>
+
+    <feature_file><name>ip</name>
+<count>1</count>
+</feature_file>
+
+    <thread_wait thread='0'>0</thread_wait>
+    <thread_wait thread='0'>0.000145</thread_wait>
+    <thread_wait thread='1'>0.000151</thread_wait>
+    <thread_wait thread='2'>0.000152</thread_wait>
+    <thread_wait thread='3'>0.000111</thread_wait>
+  </feature_files>
+  <timestamp name='phase1 end' delta='0.000245' total='0.000674'/>
+  <timestamp name='phase2 (shutdown) start' delta='0.000014' total='0.000689'/>
+  <timestamp name='phase2 (shutdown) end' delta='0.000006' total='0.000695'/>
+  <timestamp name='phase3 (histograms) start' delta='0.000008' total='0.000704'/>
+  <timestamp name='phase3 (histograms) end' delta='0.034309' total='0.035014'/>
+  <report>
+    <total_bytes>0</total_bytes>
+    <elapsed_seconds>0.035328</elapsed_seconds>
+    <max_depth_seen>0</max_depth_seen>
+    <dup_data_encountered>0</dup_data_encountered>
+  </report>
+  <scanner_times>
+  </scanner_times>
+  <rusage>
+    <utime>0.012000</utime>
+    <stime>0.000000</stime>
+    <maxrss>6708</maxrss>
+    <minflt>343</minflt>
+    <majflt>0</majflt>
+    <nswap>0</nswap>
+    <inblock>632</inblock>
+    <oublock>24</oublock>
+    <clocktime>0.035090</clocktime>
+  </rusage>
+</dfxml>

@@ -4,7 +4,8 @@ from lxml import etree
 import xml.etree.ElementTree
 import re
 from pymongo import MongoClient
-
+from operator import itemgetter
+from collections import OrderedDict
 if len(sys.argv) <2:
 	print('Arguments not given')
 	sys.exit()
@@ -20,34 +21,66 @@ rightValue = right[0].attributes['myvalue'].value
 collection = xmldoc.getElementsByTagName('collection')
 collectionValue = collection[0].attributes['myvalue'].value
 
+operator = xmldoc.getElementsByTagName('operator')
+operatorValue = operator[0].attributes['myvalue'].value
+
 client = MongoClient()
 db = client.test
+
 if collectionValue=="DOSCollection":
 	cursor = list(db.randCollection.aggregate([
     {"$group" : {"_id" : "$SenderIP", "count":  { "$sum" : 1}}
 
     }
 	]))
+	if operatorValue=="average":
+		countOfDocuments = 0
+		countOfPackets = 0
+		for document in cursor:
+			countOfDocuments = countOfDocuments +1
+			countOfPackets+=document["count"]
+		averageValue = countOfPackets/countOfDocuments
+		if averageValue > int (rightValue):
+			print "true"
+		else:
+			print "false"
+		sys.exit()
+
+	if operatorValue=="sum":
+		countOfDocuments = 0
+		countOfPackets = 0
+		for document in cursor:
+			countOfPackets+=document["count"]
+		if countOfPackets > int (rightValue):
+			print "true"
+		else:
+			print "false"
+		sys.exit()
+
+	
 	for document in cursor:
+		# print document
 		if document["_id"]== leftValue:
-			if document["count"]>rightValue:
+			if document["count"]>=int(rightValue):
 				print "true"
 			else:
 				print "false"
 			sys.exit()
-
-
-key_ =leftValue# sys.argv[2] # key is col and value is 127.0.0.1
-value =rightValue# sys.argv[3]
-
-key_val = {}
-key_val[key_] = value
-
-cursor = db[collectionValue].find(key_val)
-
-
-if cursor.count() >0:
-	print "true"
-else:
 	print "false"
-sys.exit()
+	sys.exit()
+
+if operatorValue =="contains":
+	key_ =leftValue# sys.argv[2] # key is col and value is 127.0.0.1
+	value =rightValue# sys.argv[3]
+
+	key_val = {}
+	key_val[key_] = value
+
+	cursor = db[collectionValue].find(key_val)
+
+
+	if cursor.count() >0:
+		print "true"
+	else:
+		print "false"
+	sys.exit()

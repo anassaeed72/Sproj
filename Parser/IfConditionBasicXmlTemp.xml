@@ -1,5 +1,6 @@
 <ifConditionBasic>
-				<key myvalue="0.0.0.0.68"/>
-				<value myvalue="1"/>
-				<collection myvalue="DOSCollection"/>
+				<key myvalue="DllList-Path"/>
+				<value myvalue="C:\WINDOWS\system32\xpsp2res.dll"/>
+				<collection myvalue="DllListCollection"/>
+				<operator myvalue="contains"/>
 			</ifConditionBasic>
