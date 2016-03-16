@@ -4,11 +4,12 @@ import subprocess
 
 from lxml import etree
 import xml.etree.ElementTree
-
+from Print import Print
+from Constants import PrintLevel
 if len(sys.argv) <2:
-	print('Arguments not given')
+	Print.Print(PrintLevel.BaseClass,'Arguments not given')
 	sys.exit()
-print "In Multiple Operations"
+Print.Print(PrintLevel.BaseClass,"In Multiple Operations")
 e = etree.parse(sys.argv[1])
 outputOneOperation = ""
 def flatten(seq):

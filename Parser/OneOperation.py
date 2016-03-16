@@ -3,14 +3,17 @@ import sys
 from lxml import etree
 import xml.etree.ElementTree
 from Constants import ConstantsClass
+from Print import Print
 import subprocess
 from pymongo import MongoClient
+from Print import Print
+from Constants import PrintLevel
 print "In One Operation"
 def cybox():
-	print "In cybox "
+	Print.Print(PrintLevel.Command,"In cybox ")
 
 def nestedOperationFunc(nestedOperationXmlFile):
-	print "in nestedOperationFunc " + nestedOperationXmlFile
+	Print.Print(PrintLevel.Command, "in nestedOperationFunc " + nestedOperationXmlFile)
 	os.system('python MultipleOperations.py '+nestedOperationXmlFile)
 
 
@@ -27,7 +30,7 @@ def flatten(seq,fileName):
     		os.system("python IfConditionMultiple.py IfConditionMultipleXmlTemp.xml 0")
     
 def ifCondition(conditionValue,left,right,yesactionValue,noactionValue):
-	print "In If Condition" + conditionValue + " " + left+ " " + right+ " " +yesactionValue +  " " + noactionValue
+	Print.Print(PrintLevel.IfConditionCondition, "In If Condition" + conditionValue + " " + left+ " " + right+ " " +yesactionValue +  " " + noactionValue)
 
 	with open(left) as leftFile:
 	    	content = leftFile.readline()
@@ -55,7 +58,7 @@ def flattenCybox(seq):
 				myfile.write(etree.tostring(item,with_tail=False))
 				myfile.close()
 if len(sys.argv) <2:
-	print('Arguments not given')
+	Print.Print(PrintLevel.Error,'Arguments not given')
 	sys.exit()
 
 from xml.dom import minidom
@@ -111,7 +114,7 @@ if operationNameValue =="DOS":
 	minPacket = xmldoc.getElementsByTagName('minPacket')
 	minPacketvalue = minPacket[0].attributes['myvalue'].value
 	command = "" + operationInputFilevalue +"/DOSOperation.sh " + vmNameValue + " " + minPacketvalue
-	print command
+	Print.Print(PrintLevel.Command, command)
 	os.system(command)
 	sys.exit(0)
 
@@ -126,16 +129,16 @@ if operationNameValue =="getDump":
 	vmName = xmldoc.getElementsByTagName('vmName')
 	vmNameValue = vmName[0].attributes['myvalue'].value
 	command = "python " + operationPathValue +"/getDump.py " + vmNameValue + " " + operationInputFilevalue
-	print command
+	Print.Print(PrintLevel.Command, command)
 	os.system(command)
 	sys.exit(0)
 if operationNameValue=="exit":
 	exitCommand = "exit"
-	print exitCommand
+	Print.Print(PrintLevel.Command, exitCommand)
 	sys.exit(0)
 
 if operationNameValue=="Bulk_Extractor":
-	print "Bulk_Extractor"
+	Print.Print(PrintLevel.Command, "Bulk_Extractor")
 	operationInputFile = xmldoc.getElementsByTagName('operationInputFile')
 	operationInputFilevalue = operationInputFile[0].attributes['myvalue'].value
 	operationInputFilevalue = ConstantsClass.pathValue+operationInputFilevalue
@@ -144,19 +147,19 @@ if operationNameValue=="Bulk_Extractor":
 	operationPathValue = operationPath[0].attributes['myvalue'].value
 	operationPathValue = ConstantsClass.pathValue + operationPathValue
 	command = "bulk_extractor -E net -o "+operationPathValue+" " +operationInputFilevalue
-	print command
+	Print.Print(PrintLevel.Command, command)
 	os.system(command)
 	sys.exit()	
 
 if operationNameValue=="TCP_DUMP":
-	print "TCP DUMP"
+	Print.Print(PrintLevel.Command,"TCP DUMP")
 	operationInputFile = xmldoc.getElementsByTagName('operationInputFile')
 	operationInputFilevalue = operationInputFile[0].attributes['myvalue'].value
 	operationInputFilevalue = ConstantsClass.pathValue+operationInputFilevalue
 
 	
 	command = "sudo tcpdump -tttttnnr "+operationInputFilevalue+" | grep IP"
-	print command
+	Print.Print(PrintLevel.Command, command)
 	outputTcpDump = subprocess.check_output((command),shell=True)
 	aDict =[]
 	for lines in outputTcpDump.split('\n'):
@@ -207,7 +210,7 @@ operationPathValue = operationPath[0].attributes['myvalue'].value
 operationPathValue = ConstantsClass.pathValue + operationPathValue
 
 commandToExecute = "python " + operationPathValue + "/" + operationNameValue + ".py " + operationInputFilevalue
-print "Command : "+operationNameValue
-print commandToExecute
+Print.Print(PrintLevel.Command,"Command : "+operationNameValue)
+Print.Print(PrintLevel.Command, commandToExecute)
 os.system(commandToExecute)
 

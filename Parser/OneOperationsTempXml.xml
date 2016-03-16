@@ -3,11 +3,24 @@
 		<ifConditionMultiple myvalue="and">
 			
 			<ifConditionBasic>
-				<key myvalue="DllList-Path"/>
-				<value myvalue="C:\WINDOWS\system32\xpsp2res.dll"/>
-				<collection myvalue="DllListCollection"/>
+				<key myvalue="Connscan-Pid"/>
+				<value myvalue="856"/>
+				<collection myvalue="testcollection"/>
 				<operator myvalue="contains"/>
 			</ifConditionBasic>
-			
+
+			<ifConditionBasic>
+				<key myvalue="Connscan-Local-Address"/>
+				<value myvalue="172.16.176.143:1054"/>
+				<collection myvalue="testcollection"/>
+				<operator myvalue="contains"/>
+			</ifConditionBasic>
+			<ifConditionBasic>
+				<key myvalue="Connscan-Remote-Address"/>
+				<value myvalue="193.104.41.75:80"/>
+				<collection myvalue="testcollection"/>
+				<operator myvalue="contains"/>
+			</ifConditionBasic>
+
 		</ifConditionMultiple>
 	</operation>
