@@ -8,137 +8,204 @@ import subprocess
 from pymongo import MongoClient
 from Print import Print
 from Constants import PrintLevel
-print "In One Operation"
-def cybox():
-	Print.Print(PrintLevel.Command,"In cybox ")
-
-def nestedOperationFunc(nestedOperationXmlFile):
-	Print.Print(PrintLevel.Command, "in nestedOperationFunc " + nestedOperationXmlFile)
-	os.system('python MultipleOperations.py '+nestedOperationXmlFile)
-
-
-def flatten(seq,fileName):
-  count = 0
-  for item in seq:
-  	if count == 0:
-  		count = 1
-  		continue
-	if isinstance(item,(etree._Element,)):
-	    with open(fileName, "w") as myfile:
-    		myfile.write(etree.tostring(item,with_tail=False))
-    		myfile.close()
-    		os.system("python IfConditionMultiple.py IfConditionMultipleXmlTemp.xml 0")
-    
-def ifCondition(conditionValue,left,right,yesactionValue,noactionValue):
-	Print.Print(PrintLevel.IfConditionCondition, "In If Condition" + conditionValue + " " + left+ " " + right+ " " +yesactionValue +  " " + noactionValue)
-
-	with open(left) as leftFile:
-	    	content = leftFile.readline()
-
-	rightValue = right
-	if conditionValue == "==":
-		if leftValue == rightValue:
-			nestedOperationFunc(yesactionValue)	
-		else:
-			nestedOperationFunc(noactionValue)	
-	elif conditionValue == "<":
-		if leftValue < rightValue:
-			nestedOperationFunc(yesactionValue)	
-		else:
-			nestedOperationFunc(noactionValue)	
-	elif conditionValue == ">":
-		if leftValue > rightValue:
-			nestedOperationFunc(yesactionValue)	
-		else:
-			nestedOperationFunc(noactionValue)	
-def flattenCybox(seq):
-	for item in seq:
-		if isinstance(item,(etree._Element,)):
-			with open("CyboxOneOperationXmlTemp.xml", "w") as myfile:
-				myfile.write(etree.tostring(item,with_tail=False))
-				myfile.close()
-if len(sys.argv) <2:
-	Print.Print(PrintLevel.Error,'Arguments not given')
-	sys.exit()
-
 from xml.dom import minidom
-xmldoc = minidom.parse(sys.argv[1])
 
-operationName = xmldoc.getElementsByTagName('operationName')
-operationNameValue = operationName[0].attributes['myvalue'].value
+class OneOperation(object):
+	"""docstring for OneOperation"""
+	def __init__(self, fileName):
+		super(OneOperation, self).__init__()
+		self.fileName = fileName
+		
+	def cybox():
+		Print.Print(PrintLevel.Command,"In cybox ")
 
-if operationNameValue == "cybox":
-	cyboxXml = xmldoc.getElementsByTagName('cyboxXml')
-	e = etree.parse(sys.argv[1])
-
-	flattenCybox(e.xpath('/operation/node()'))
-
-	cybox()
-	sys.exit(0)
-
-if operationNameValue =="IfCondition":
-	condition = xmldoc.getElementsByTagName('condition')
-	conditionValue = condition[0].attributes['myvalue'].value
-	left = xmldoc.getElementsByTagName('left')
-	leftValue = left[0].attributes['myvalue'].value
-	right = xmldoc.getElementsByTagName('right')
-	rightValue = right[0].attributes['myvalue'].value
-	yesaction = xmldoc.getElementsByTagName('yesaction')
-	yesactionValue = yesaction[0].attributes['myvalue'].value
-
-	noaction = xmldoc.getElementsByTagName('noaction')
-	noactionValue = noaction[0].attributes['myvalue'].value
-
-	ifCondition(conditionValue,leftValue,rightValue,yesactionValue,noactionValue)
-	sys.exit(0)
-
-if operationNameValue == "ifMultiple":
-	e = etree.parse(sys.argv[1])
-	flatten(e.xpath('/operation/node()'),"IfConditionMultipleXmlTemp.xml")
-	
-	sys.exit(0)
-
-if operationNameValue =="nestedOperations":
-	nestedOperation = xmldoc.getElementsByTagName('nestedOperationXml')
-	nestedOperationValue = nestedOperation[0].attributes['myvalue'].value
-	nestedOperationFunc(nestedOperationValue)
-	sys.exit(0)
-
-if operationNameValue =="DOS":
-	operationInputFile = xmldoc.getElementsByTagName('operationPath')
-	operationInputFilevalue = operationInputFile[0].attributes['myvalue'].value
-
-	vmName = xmldoc.getElementsByTagName('vmName')
-	vmNameValue = vmName[0].attributes['myvalue'].value
-
-	minPacket = xmldoc.getElementsByTagName('minPacket')
-	minPacketvalue = minPacket[0].attributes['myvalue'].value
-	command = "" + operationInputFilevalue +"/DOSOperation.sh " + vmNameValue + " " + minPacketvalue
-	Print.Print(PrintLevel.Command, command)
-	os.system(command)
-	sys.exit(0)
-
-if operationNameValue =="getDump":
-	operationInputFile = xmldoc.getElementsByTagName('operationInputFile')
-	operationInputFilevalue = operationInputFile[0].attributes['myvalue'].value
+	def nestedOperationFunc(nestedOperationXmlFile):
+		Print.Print(PrintLevel.Command, "in nestedOperationFunc " + nestedOperationXmlFile)
+		os.system('python MultipleOperations.py '+nestedOperationXmlFile)
 
 
-	operationPath = xmldoc.getElementsByTagName('operationPath')
-	operationPathValue = operationPath[0].attributes['myvalue'].value
+	def flatten(seq,fileName):
+	  count = 0
+	  for item in seq:
+	  	if count == 0:
+	  		count = 1
+	  		continue
+		if isinstance(item,(etree._Element,)):
+		    with open(fileName, "w") as myfile:
+	    		myfile.write(etree.tostring(item,with_tail=False))
+	    		myfile.close()
+	    		os.system("python IfConditionMultiple.py IfConditionMultipleXmlTemp.xml 0")
+	    
+	def ifCondition(conditionValue,left,right,yesactionValue,noactionValue):
+		Print.Print(PrintLevel.IfConditionCondition, "In If Condition" + conditionValue + " " + left+ " " + right+ " " +yesactionValue +  " " + noactionValue)
 
-	vmName = xmldoc.getElementsByTagName('vmName')
-	vmNameValue = vmName[0].attributes['myvalue'].value
-	command = "python " + operationPathValue +"/getDump.py " + vmNameValue + " " + operationInputFilevalue
-	Print.Print(PrintLevel.Command, command)
-	os.system(command)
-	sys.exit(0)
-if operationNameValue=="exit":
-	exitCommand = "exit"
-	Print.Print(PrintLevel.Command, exitCommand)
-	sys.exit(0)
+		with open(left) as leftFile:
+		    	content = leftFile.readline()
 
-if operationNameValue=="Bulk_Extractor":
-	Print.Print(PrintLevel.Command, "Bulk_Extractor")
+		rightValue = right
+		if conditionValue == "==":
+			if leftValue == rightValue:
+				nestedOperationFunc(yesactionValue)	
+			else:
+				nestedOperationFunc(noactionValue)	
+		elif conditionValue == "<":
+			if leftValue < rightValue:
+				nestedOperationFunc(yesactionValue)	
+			else:
+				nestedOperationFunc(noactionValue)	
+		elif conditionValue == ">":
+			if leftValue > rightValue:
+				nestedOperationFunc(yesactionValue)	
+			else:
+				nestedOperationFunc(noactionValue)	
+	def flattenCybox(seq):
+		for item in seq:
+			if isinstance(item,(etree._Element,)):
+				with open("CyboxOneOperationXmlTemp.xml", "w") as myfile:
+					myfile.write(etree.tostring(item,with_tail=False))
+					myfile.close()
+	def evaluate():
+
+	Print.Print(PrintLevel.Command, "In One Operation")
+	xmldoc = minidom.parse(fileName)
+
+	operationName = xmldoc.getElementsByTagName('operationName')
+	operationNameValue = operationName[0].attributes['myvalue'].value
+
+	if operationNameValue == "cybox":
+		cyboxXml = xmldoc.getElementsByTagName('cyboxXml')
+		e = etree.parse(sys.argv[1])
+
+		flattenCybox(e.xpath('/operation/node()'))
+
+		cybox()
+		sys.exit(0)
+
+	if operationNameValue =="IfCondition":
+		condition = xmldoc.getElementsByTagName('condition')
+		conditionValue = condition[0].attributes['myvalue'].value
+		left = xmldoc.getElementsByTagName('left')
+		leftValue = left[0].attributes['myvalue'].value
+		right = xmldoc.getElementsByTagName('right')
+		rightValue = right[0].attributes['myvalue'].value
+		yesaction = xmldoc.getElementsByTagName('yesaction')
+		yesactionValue = yesaction[0].attributes['myvalue'].value
+
+		noaction = xmldoc.getElementsByTagName('noaction')
+		noactionValue = noaction[0].attributes['myvalue'].value
+
+		ifCondition(conditionValue,leftValue,rightValue,yesactionValue,noactionValue)
+		sys.exit(0)
+
+	if operationNameValue == "ifMultiple":
+		e = etree.parse(sys.argv[1])
+		flatten(e.xpath('/operation/node()'),"IfConditionMultipleXmlTemp.xml")
+		
+		sys.exit(0)
+
+	if operationNameValue =="nestedOperations":
+		nestedOperation = xmldoc.getElementsByTagName('nestedOperationXml')
+		nestedOperationValue = nestedOperation[0].attributes['myvalue'].value
+		nestedOperationFunc(nestedOperationValue)
+		sys.exit(0)
+
+	if operationNameValue =="DOS":
+		operationInputFile = xmldoc.getElementsByTagName('operationPath')
+		operationInputFilevalue = operationInputFile[0].attributes['myvalue'].value
+
+		vmName = xmldoc.getElementsByTagName('vmName')
+		vmNameValue = vmName[0].attributes['myvalue'].value
+
+		minPacket = xmldoc.getElementsByTagName('minPacket')
+		minPacketvalue = minPacket[0].attributes['myvalue'].value
+		command = "" + operationInputFilevalue +"/DOSOperation.sh " + vmNameValue + " " + minPacketvalue
+		Print.Print(PrintLevel.Command, command)
+		os.system(command)
+		sys.exit(0)
+
+	if operationNameValue =="getDump":
+		operationInputFile = xmldoc.getElementsByTagName('operationInputFile')
+		operationInputFilevalue = operationInputFile[0].attributes['myvalue'].value
+
+
+		operationPath = xmldoc.getElementsByTagName('operationPath')
+		operationPathValue = operationPath[0].attributes['myvalue'].value
+
+		vmName = xmldoc.getElementsByTagName('vmName')
+		vmNameValue = vmName[0].attributes['myvalue'].value
+		command = "python " + operationPathValue +"/getDump.py " + vmNameValue + " " + operationInputFilevalue
+		Print.Print(PrintLevel.Command, command)
+		os.system(command)
+		sys.exit(0)
+	if operationNameValue=="exit":
+		exitCommand = "exit"
+		Print.Print(PrintLevel.Command, exitCommand)
+		sys.exit(0)
+
+	if operationNameValue=="Bulk_Extractor":
+		Print.Print(PrintLevel.Command, "Bulk_Extractor")
+		operationInputFile = xmldoc.getElementsByTagName('operationInputFile')
+		operationInputFilevalue = operationInputFile[0].attributes['myvalue'].value
+		operationInputFilevalue = ConstantsClass.pathValue+operationInputFilevalue
+
+		operationPath = xmldoc.getElementsByTagName('operationPath')
+		operationPathValue = operationPath[0].attributes['myvalue'].value
+		operationPathValue = ConstantsClass.pathValue + operationPathValue
+		command = "bulk_extractor -E net -o "+operationPathValue+" " +operationInputFilevalue
+		Print.Print(PrintLevel.Command, command)
+		os.system(command)
+		sys.exit()	
+
+	if operationNameValue=="TCP_DUMP":
+		Print.Print(PrintLevel.Command,"TCP DUMP")
+		operationInputFile = xmldoc.getElementsByTagName('operationInputFile')
+		operationInputFilevalue = operationInputFile[0].attributes['myvalue'].value
+		operationInputFilevalue = ConstantsClass.pathValue+operationInputFilevalue
+
+		
+		command = "sudo tcpdump -tttttnnr "+operationInputFilevalue+" | grep IP"
+		Print.Print(PrintLevel.Command, command)
+		outputTcpDump = subprocess.check_output((command),shell=True)
+		aDict =[]
+		for lines in outputTcpDump.split('\n'):
+			count =0
+			aDict2={}
+			
+			for word in lines.split(' '):
+				if count ==2:
+					# insert sender IP here
+					aDict2["SenderIP"] = word
+				elif count == 4:
+					# insert recieve IP here
+					aDict2["ReceiverIP"] = word
+					break
+				count = count+1
+			aDict.append(aDict2)
+			aDict2={}
+		
+		client = MongoClient()
+		db = client.test
+		db.DOSCollection.insert_many(aDict)
+		
+		#cursor = list(db.randCollection.aggregate([
+		 #    {"$group" : {"_id" : "$SenderIP", "count":  { "$sum" : 1}}
+
+	 	#    }
+		# ]))
+		# for document in cursor:
+		# 	print document
+		# 	# print ' '.join('| {} : {} |'.format(key, val) for key, val in sorted(document.items()))
+		# db.DOSCollection.insert(cursor)
+		# db.DOSCollection.remove()
+		# cursor = db.DOSCollection.find()
+		# print "after cursor is obtained"
+		# for document in cursor:
+		# 	print "oneline"
+		# 	print ' '.join('| {} : {} |'.format(key, val) for key, val in sorted(document.items()))
+
+			
+		sys.exit()	
+
 	operationInputFile = xmldoc.getElementsByTagName('operationInputFile')
 	operationInputFilevalue = operationInputFile[0].attributes['myvalue'].value
 	operationInputFilevalue = ConstantsClass.pathValue+operationInputFilevalue
@@ -146,71 +213,9 @@ if operationNameValue=="Bulk_Extractor":
 	operationPath = xmldoc.getElementsByTagName('operationPath')
 	operationPathValue = operationPath[0].attributes['myvalue'].value
 	operationPathValue = ConstantsClass.pathValue + operationPathValue
-	command = "bulk_extractor -E net -o "+operationPathValue+" " +operationInputFilevalue
-	Print.Print(PrintLevel.Command, command)
-	os.system(command)
-	sys.exit()	
 
-if operationNameValue=="TCP_DUMP":
-	Print.Print(PrintLevel.Command,"TCP DUMP")
-	operationInputFile = xmldoc.getElementsByTagName('operationInputFile')
-	operationInputFilevalue = operationInputFile[0].attributes['myvalue'].value
-	operationInputFilevalue = ConstantsClass.pathValue+operationInputFilevalue
-
-	
-	command = "sudo tcpdump -tttttnnr "+operationInputFilevalue+" | grep IP"
-	Print.Print(PrintLevel.Command, command)
-	outputTcpDump = subprocess.check_output((command),shell=True)
-	aDict =[]
-	for lines in outputTcpDump.split('\n'):
-		count =0
-		aDict2={}
-		
-		for word in lines.split(' '):
-			if count ==2:
-				# insert sender IP here
-				aDict2["SenderIP"] = word
-			elif count == 4:
-				# insert recieve IP here
-				aDict2["ReceiverIP"] = word
-				break
-			count = count+1
-		aDict.append(aDict2)
-		aDict2={}
-	
-	client = MongoClient()
-	db = client.test
-	db.DOSCollection.insert_many(aDict)
-	
-	#cursor = list(db.randCollection.aggregate([
-	 #    {"$group" : {"_id" : "$SenderIP", "count":  { "$sum" : 1}}
-
- 	#    }
-	# ]))
-	# for document in cursor:
-	# 	print document
-	# 	# print ' '.join('| {} : {} |'.format(key, val) for key, val in sorted(document.items()))
-	# db.DOSCollection.insert(cursor)
-	# db.DOSCollection.remove()
-	# cursor = db.DOSCollection.find()
-	# print "after cursor is obtained"
-	# for document in cursor:
-	# 	print "oneline"
-	# 	print ' '.join('| {} : {} |'.format(key, val) for key, val in sorted(document.items()))
-
-		
-	sys.exit()	
-
-operationInputFile = xmldoc.getElementsByTagName('operationInputFile')
-operationInputFilevalue = operationInputFile[0].attributes['myvalue'].value
-operationInputFilevalue = ConstantsClass.pathValue+operationInputFilevalue
-
-operationPath = xmldoc.getElementsByTagName('operationPath')
-operationPathValue = operationPath[0].attributes['myvalue'].value
-operationPathValue = ConstantsClass.pathValue + operationPathValue
-
-commandToExecute = "python " + operationPathValue + "/" + operationNameValue + ".py " + operationInputFilevalue
-Print.Print(PrintLevel.Command,"Command : "+operationNameValue)
-Print.Print(PrintLevel.Command, commandToExecute)
-os.system(commandToExecute)
+	commandToExecute = "python " + operationPathValue + "/" + operationNameValue + ".py " + operationInputFilevalue
+	Print.Print(PrintLevel.Command,"Command : "+operationNameValue)
+	Print.Print(PrintLevel.Command, commandToExecute)
+	os.system(commandToExecute)
 
