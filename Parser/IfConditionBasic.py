@@ -6,8 +6,10 @@ import re
 from pymongo import MongoClient
 from operator import itemgetter
 from collections import OrderedDict
+from Print import Print
+from Constants import PrintLevel
 if len(sys.argv) <2:
-	print('Arguments not given')
+	Print.Print(PrintLevel.Command,'Arguments not given')
 	sys.exit()
 
 from xml.dom import minidom
@@ -41,9 +43,9 @@ if collectionValue=="DOSCollection":
 			countOfPackets+=document["count"]
 		averageValue = countOfPackets/countOfDocuments
 		if averageValue > int (rightValue):
-			print "true"
+			Print.Print(PrintLevel.IfConditionAnswer,"true")
 		else:
-			print "false"
+			Print.Print(PrintLevel.IfConditionAnswer,"false")
 		sys.exit()
 
 	if operatorValue=="sum":
@@ -52,9 +54,9 @@ if collectionValue=="DOSCollection":
 		for document in cursor:
 			countOfPackets+=document["count"]
 		if countOfPackets > int (rightValue):
-			print "true"
+			Print.Print(PrintLevel.IfConditionAnswer,"true")
 		else:
-			print "false"
+			Print.Print(PrintLevel.IfConditionAnswer,"false")
 		sys.exit()
 
 	
@@ -62,11 +64,11 @@ if collectionValue=="DOSCollection":
 		# print document
 		if document["_id"]== leftValue:
 			if document["count"]>=int(rightValue):
-				print "true"
+				Print.Print(PrintLevel.IfConditionAnswer,"true")
 			else:
-				print "false"
+				Print.Print(PrintLevel.IfConditionAnswer,"false")
 			sys.exit()
-	print "false"
+	Print.Print(PrintLevel.IfConditionAnswer,"false")
 	sys.exit()
 
 if operatorValue =="contains":
@@ -80,7 +82,7 @@ if operatorValue =="contains":
 
 
 	if cursor.count() >0:
-		print "true"
+		Print.Print(PrintLevel.IfConditionAnswer,"true")
 	else:
-		print "false"
+		Print.Print(PrintLevel.IfConditionAnswer,"false")
 	sys.exit()

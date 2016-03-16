@@ -3,12 +3,13 @@ import sys
 import subprocess
 from lxml import etree
 import xml.etree.ElementTree
-
+from Print import Print
+from Constants import PrintLevel
 if len(sys.argv) <2:
-	print('Arguments not given')
+	Print.Print(PrintLevel.Command,'Arguments not given')
 	sys.exit()
 e = etree.parse(sys.argv[1])
-print "In Multiple If Condition"
+Print.Print(PrintLevel.BaseClass, "In Multiple If Condition")
 from xml.dom import minidom
 xmldoc = minidom.parse(sys.argv[1])
 ifMultiple = xmldoc.getElementsByTagName('ifConditionMultiple')
@@ -38,14 +39,14 @@ def flatten(seq):
 				myfile.close()
 				outputIfBasic = ""
 				outputIfBasic = subprocess.check_output(('python IfConditionBasic.py IfConditionBasicXmlTemp.xml'),shell=True)
-				print "Basic If Condition Output "+outputIfBasic
+				Print.Print(PrintLevel.IfConditionAnswer, "Basic If Condition Output "+outputIfBasic)
 	  	  		if ifMultipleOperator == "or" and outputIfBasic == "true\n":
-	  	  			print "true If Condition Multiple"
+	  	  			Print.Print(PrintLevel.IfConditionAnswer, "true If Condition Multiple")
 	  	  			sys.exit()
 	  	  		if ifMultipleOperator == "and" and outputIfBasic == "false\n":
-	  	  			print "false If Condition Multiple"
+	  	  			Print.Print(PrintLevel.IfConditionAnswer,"false If Condition Multiple")
 	  	  			sys.exit()
 
 flatten(e.xpath('/ifConditionMultiple/node()'))
 if ifMultipleOperator == "and":
-	print "true If Condition Multiple Final"
+	Print.Print(PrintLevel.IfConditionAnswer, "true If Condition Multiple Final")
