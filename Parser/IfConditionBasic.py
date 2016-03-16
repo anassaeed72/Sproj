@@ -15,7 +15,7 @@ class IfConditionBasic(object):
 	def __init__(self, fileName):
 		super(IfConditionBasic, self).__init__()
 		self.fileName = fileName
-	def evaluate():				
+	def evaluate(self):				
 		xmldoc = minidom.parse(self.fileName)
 
 		left = xmldoc.getElementsByTagName('key')
