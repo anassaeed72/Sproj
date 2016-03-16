@@ -4,13 +4,15 @@ import sys
 import os
 import subprocess
 import sys
+from Print import Print
+from Constants import PrintLevel
 
-print  "Connscan Starting "
+Print.Print(PrintLevel.Command,  "Connscan Starting ")
 commandToExecute = 'python vol.py -f ' + sys.argv[1] + " connscan"
 proc=subprocess.Popen(commandToExecute, shell=True, stdout=subprocess.PIPE, )
 f=proc.communicate()[0]
 
-print "Connscan done"
+Print.Print(PrintLevel.Command,"Connscan done")
 count = 0
 aDict = []
 aDict2= {}

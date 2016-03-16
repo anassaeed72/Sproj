@@ -2,16 +2,17 @@ import os
 import subprocess
 import sys
 from pymongo import MongoClient
+from Print import Print
+from Constants import PrintLevel
 
 if len(sys.argv) <2:
-	print('Arguments not given')
+	Print.Print(PrintLevel.Error,'Arguments not given')
 	sys.exit()
-print "DllList Starting"
+Print.Print(PrintLevel.Command,"DllList Starting")
 commandToExecute = 'python vol.py -f ' + sys.argv[1] + " dlllist"
 proc=subprocess.Popen(commandToExecute, shell=True, stdout=subprocess.PIPE, )
-print "DllList Ended"
+Print.Print(PrintLevel.Command, "DllList Ended")
 output=proc.communicate()[0]
-print "Got output"
 count = 0
 index = 0
 aDict = []
@@ -19,7 +20,7 @@ aDict2= {}
 
 line2=['DllList-Base','DllList-Size','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path']
 
-# print output
+Print.Print(PrintLevel.RawOutput, output)
 
 
 for line in output.split("\n"):
@@ -46,4 +47,4 @@ client = MongoClient()
 db = client.test
 if aDict:
 	db.DllListCollection.insert_many(aDict)
-print "Added data to DB"
+Print.Print(PrintLevel.Command,"DllList Added data to DB")

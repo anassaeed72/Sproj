@@ -2,13 +2,15 @@ import os
 import subprocess
 import sys
 from pymongo import MongoClient
+from Print import Print
+from Constants import PrintLevel
 
 
-print "Getsids Starting"
+Print.Print(PrintLevel.Command, "Getsids Starting")
 proc=subprocess.Popen('python vol.py -f '+sys.argv[1]+' getsids', shell=True, stdout=subprocess.PIPE, )
 output=proc.communicate()[0]
-print "Getsids Done"
-print output
+Print.Print(PrintLevel.Command, "Getsids Done")
+Print.Print(PrintLevel.RawOutput, output)
 count = 0
 index = 0
 aDict = []
@@ -40,4 +42,4 @@ for line in output.split("\n"):
 client = MongoClient()
 db = client.test
 db.GetsidsCollection.insert_many(aDict)
-print "Getsids Seeded DB"
+Print.Print(PrintLevel.Command, "Getsids Seeded DB")

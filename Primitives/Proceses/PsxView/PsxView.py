@@ -2,13 +2,14 @@ import os
 import subprocess
 import sys
 from pymongo import MongoClient
+from Print import Print
+from Constants import PrintLevel
 
-
-print "PsxView Starting"
+Print.Print(PrintLevel.Command, "PsxView Starting")
 proc=subprocess.Popen('python vol.py -f '+sys.argv[1]+' psxview', shell=True, stdout=subprocess.PIPE, )
 output=proc.communicate()[0]
-print "PsxView Done"
-print output
+Print.Print(PrintLevel.Command, "PsxView Done")
+Print.Print(PrintLevel.RawOutput, output)
 count = 0
 index = 0
 aDict = []

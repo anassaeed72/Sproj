@@ -2,12 +2,13 @@ import os
 import subprocess
 import sys
 from pymongo import MongoClient
+from Print import Print
+from Constants import PrintLevel
 
-
-print "PsList Starting"
+Print.Print(PrintLevel.Command, "PsList Starting")
 proc=subprocess.Popen('python vol.py -f '+sys.argv[1]+' pslist', shell=True, stdout=subprocess.PIPE, )
 output=proc.communicate()[0]
-print "PsList Done"
+Print.Print(PrintLevel.Command, "PsList Done")
 count = 0
 index = 0
 aDict = []

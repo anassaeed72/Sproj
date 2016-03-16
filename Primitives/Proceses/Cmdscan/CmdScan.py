@@ -2,13 +2,15 @@ import os
 import subprocess
 import sys
 from pymongo import MongoClient
+from Print import Print
+from Constants import PrintLevel
 
+Print.Print(PrintLevel.Command,"CmdScan Starting")
 
-print "CmdScan Starting"
 proc=subprocess.Popen('python vol.py -f '+sys.argv[1]+' cmdscan', shell=True, stdout=subprocess.PIPE, )
 output=proc.communicate()[0]
-print "CmdScan Done"
-print output
+Print.Print(PrintLevel.Command,"CmdScan Done")
+Print.Print(PrintLevel.RawOutput,output)
 sys.exit()
 count = 0
 index = 0
@@ -41,4 +43,4 @@ for line in output.split("\n"):
 client = MongoClient()
 db = client.test
 db.CmdScanCollection.insert_many(aDict)
-print "CmdScan Seeded DB"
+Print.Print(PrintLevel.Command,"CmdScan Seeded DB")

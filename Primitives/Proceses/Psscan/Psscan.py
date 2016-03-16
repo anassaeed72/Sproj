@@ -2,12 +2,13 @@ import os
 import subprocess
 import sys
 from pymongo import MongoClient
+from Print import Print
+from Constants import PrintLevel
 
-
-print "Psscan Starting"
+Print.Print(PrintLevel.Command, "Psscan Starting")
 commandToExecute = 'python vol.py -f ' + sys.argv[1] + " psscan"
 proc=subprocess.Popen(commandToExecute, shell=True, stdout=subprocess.PIPE, )
-print "Psscan Ended"
+Print.Print(PrintLevel.Command, "Psscan Ended")
 output=proc.communicate()[0]
 count = 0
 index = 0
@@ -40,4 +41,4 @@ for line in output.split("\n"):
 client = MongoClient()
 db = client.test
 db.PsxViewCollection.insert_many(aDict)
-print "Psscan Added to DB"
+Print.Print(PrintLevel,Command, "Psscan Added to DB")
