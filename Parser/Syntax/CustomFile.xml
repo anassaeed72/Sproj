@@ -1,0 +1,9 @@
+<operations>
+	
+	<operation>
+		<operationName myvalue="CustomPython"/>
+		<operationInputFile myvalue="custom.py"/>
+		<operationPath  myvalue="Custom"/>
+	</operation>
+
+</operations>

@@ -189,7 +189,19 @@ class OneOperation(object):
 			client = MongoClient()
 			db = client.test
 			db.DOSCollection.insert_many(aDict)
+			sys.exit()
+		if operationNameValue =="CustomPython":
+			operationInputFile = xmldoc.getElementsByTagName('operationInputFile')
+			operationInputFilevalue = operationInputFile[0].attributes['myvalue'].value
+
+			operationPath = xmldoc.getElementsByTagName('operationPath')
+			operationPathValue = operationPath[0].attributes['myvalue'].value
+			operationPathValue = ConstantsClass.pathValue + operationPathValue +"/"+ operationInputFilevalue
 			
+			commandToExecute = "python " + operationPathValue
+			Print.Print(PrintLevel.Command, "Command  " + operationNameValue)
+			Print.Print(PrintLevel.Command,commandToExecute)
+			os.system(commandToExecute)			
 			#cursor = list(db.randCollection.aggregate([
 			 #    {"$group" : {"_id" : "$SenderIP", "count":  { "$sum" : 1}}
 
