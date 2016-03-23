@@ -10,14 +10,15 @@ from Print import Print
 from Constants import PrintLevel
 from xml.dom import minidom
 from IfConditionMultiple import IfConditionMultiple
+from time import time
 class OneOperation(object):
 	"""docstring for OneOperation"""
 	def __init__(self, fileName):
 		super(OneOperation, self).__init__()
 		self.fileName = fileName
 		
-	def cybox():
-		Print.Print(PrintLevel.Command,"In cybox ")
+	def cybox(self, fileNameTemporary):
+		Print.Print(PrintLevel.Command,"In cybox "+fileNameTemporary)
 
 	def nestedOperationFunc(nestedOperationXmlFile):
 		Print.Print(PrintLevel.Command, "in nestedOperationFunc " + nestedOperationXmlFile)
@@ -60,10 +61,10 @@ class OneOperation(object):
 				nestedOperationFunc(yesactionValue)	
 			else:
 				nestedOperationFunc(noactionValue)	
-	def flattenCybox(self,seq):
+	def flattenCybox(self,seq,fileNameTemporary):
 		for item in seq:
 			if isinstance(item,(etree._Element,)):
-				with open("CyboxOneOperationXmlTemp.xml", "w") as myfile:
+				with open(fileNameTemporary, "w") as myfile:
 					myfile.write(etree.tostring(item,with_tail=False))
 					myfile.close()
 	def evaluate(self):
@@ -75,13 +76,21 @@ class OneOperation(object):
 		operationNameValue = operationName[0].attributes['myvalue'].value
 
 		if operationNameValue == "cybox":
-			cyboxXml = xmldoc.getElementsByTagName('cyboxXml')
 			e = etree.parse(self.fileName)
+			fileNameTemporary = "CyboxOneOperationXmlTemp"+ str(time()) + ".xml"
+			self.flattenCybox(e.xpath('/operation/node()'),fileNameTemporary)
 
-			self.flattenCybox(e.xpath('/operation/node()'))
-
-			cybox()
-			sys.exit(0)
+			cybox(fileNameTemporary)
+			return
+		if operationNameValue == "nestedSchema":
+			e = etree.parse(self.fileName)
+			fileNameTemporary = "MultipleOperationsTempXml"+ str(time()) + ".xml"
+			self.flattenCybox(e.xpath('/operation/node()'),fileNameTemporary)
+			commandToExecute = "python MultipleOperations.py " + fileNameTemporary
+			Print.Print(PrintLevel.Command, "Command  " + operationNameValue)
+			Print.Print(PrintLevel.Command,commandToExecute)
+			os.system(commandToExecute)	
+			return
 
 		if operationNameValue =="IfCondition":
 			condition = xmldoc.getElementsByTagName('condition')
@@ -234,7 +243,7 @@ class OneOperation(object):
 			elif operationLevelValue == "Gamma":
 				Print.Print(PrintLevel.Gamma,operationWordsValue)
 			return
-			
+
 
 		operationInputFile = xmldoc.getElementsByTagName('operationInputFile')
 		operationInputFilevalue = operationInputFile[0].attributes['myvalue'].value
