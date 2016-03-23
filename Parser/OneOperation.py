@@ -60,7 +60,7 @@ class OneOperation(object):
 				nestedOperationFunc(yesactionValue)	
 			else:
 				nestedOperationFunc(noactionValue)	
-	def flattenCybox(seq):
+	def flattenCybox(self,seq):
 		for item in seq:
 			if isinstance(item,(etree._Element,)):
 				with open("CyboxOneOperationXmlTemp.xml", "w") as myfile:
@@ -76,9 +76,9 @@ class OneOperation(object):
 
 		if operationNameValue == "cybox":
 			cyboxXml = xmldoc.getElementsByTagName('cyboxXml')
-			e = etree.parse(sys.argv[1])
+			e = etree.parse(self.fileName)
 
-			flattenCybox(e.xpath('/operation/node()'))
+			self.flattenCybox(e.xpath('/operation/node()'))
 
 			cybox()
 			sys.exit(0)
@@ -220,6 +220,21 @@ class OneOperation(object):
 
 				
 			sys.exit()	
+		if operationNameValue == "Alert":
+			operationWords = xmldoc.getElementsByTagName('operationWords')
+			operationWordsValue = operationWords[0].attributes['myvalue'].value
+
+			operationLevel = xmldoc.getElementsByTagName('operationLevel')
+			operationLevelValue = operationLevel[0].attributes['myvalue'].value
+
+			if operationLevelValue  == "Alpha":			
+				Print.Print(PrintLevel.Alpha,operationWordsValue)
+			elif operationLevelValue == "Beta":
+				Print.Print(PrintLevel.Beta,operationWordsValue)
+			elif operationLevelValue == "Gamma":
+				Print.Print(PrintLevel.Gamma,operationWordsValue)
+			return
+			
 
 		operationInputFile = xmldoc.getElementsByTagName('operationInputFile')
 		operationInputFilevalue = operationInputFile[0].attributes['myvalue'].value

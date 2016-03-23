@@ -11,3 +11,6 @@ class PrintLevel(Enum):
 	BaseClass =True
 	Error = True
 	RawOuput = True
+	Alpha =True
+	Beta = False
+	Gamma = True

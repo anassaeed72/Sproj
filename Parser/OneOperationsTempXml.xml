@@ -1,5 +1,5 @@
 <operation>
-		<operationName myvalue="CustomPython"/>
-		<operationInputFile myvalue="custom.py"/>
-		<operationPath myvalue="Custom"/>
+		<operationName myvalue="Alert"/>
+		<operationWords myvalue="Value of Alert Gamma"/>
+		<operationLevel myvalue="Gamma"/>
 	</operation>
