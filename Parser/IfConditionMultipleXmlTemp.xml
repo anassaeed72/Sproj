@@ -1,10 +1,18 @@
 <ifConditionMultiple myvalue="and">
-		
+			
 			<ifConditionBasic>
-				<key myvalue="PsList-Name"/>
-				<value myvalue="svchost.exe"/>
+				<key myvalue="PsList-PID"/>
+				<value myvalue="1088"/>
 				<collection myvalue="PsListCollection"/>
 				<operator myvalue="contains"/>
 			</ifConditionBasic>
 
+			<ifConditionBasic>
+				<key myvalue="PsList-PID"/>
+				<value myvalue="10881"/>
+				<collection myvalue="PsListCollection"/>
+				<operator myvalue="contains"/>
+			</ifConditionBasic>
+
+			
 		</ifConditionMultiple>
