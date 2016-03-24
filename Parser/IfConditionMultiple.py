@@ -12,6 +12,7 @@ class IfConditionMultiple(object):
 	def __init__(self, fileName):
 		super(IfConditionMultiple, self).__init__()
 		self.fileName = fileName
+		self.ifMultipleOperator = "and"
 	def flatten(self,seq):
 		for item in seq:
 			if isinstance(item,(etree._Element,)):
@@ -35,11 +36,11 @@ class IfConditionMultiple(object):
 					outputIfBasic = subprocess.check_output(('python IfConditionBasic.py IfConditionBasicXmlTemp.xml'),shell=True)
 					IfConditionBasicObject = IfConditionBasic('IfConditionBasicXmlTemp.xml')
 					outputIfBasic = IfConditionBasicObject.evaluate()
-					Print.Print(PrintLevel.IfConditionAnswer, "Basic If Condition Output "+outputIfBasic)
-		  	  		if ifMultipleOperator == "or" and outputIfBasic ==True:
+					Print.Print(PrintLevel.IfConditionAnswer, "Basic If Condition Output "+str(outputIfBasic))
+		  	  		if self.ifMultipleOperator == "or" and outputIfBasic ==True:
 		  	  			Print.Print(PrintLevel.IfConditionAnswer, "true If Condition Multiple")
 		  	  			sys.exit()
-		  	  		if ifMultipleOperator == "and" and outputIfBasic == False:
+		  	  		if self.ifMultipleOperator == "and" and outputIfBasic == False:
 		  	  			Print.Print(PrintLevel.IfConditionAnswer,"false If Condition Multiple")
 		  	  			sys.exit()
 	def evaluate(self):
@@ -47,7 +48,7 @@ class IfConditionMultiple(object):
 		Print.Print(PrintLevel.BaseClass, "In Multiple If Condition")		
 		xmldoc = minidom.parse(self.fileName)
 		ifMultiple = xmldoc.getElementsByTagName('ifConditionMultiple')
-		ifMultipleOperator = "and"#ifMultiple[0].attributes['myvalue'].value
+		self.ifMultipleOperator = "and"#ifMultiple[0].attributes['myvalue'].value
 		depthCheck = int(0)
 		if depthCheck >10:
 			sys.exit()
@@ -55,5 +56,5 @@ class IfConditionMultiple(object):
 		
 
 		self.flatten(e.xpath('/ifConditionMultiple/node()'))
-		if ifMultipleOperator == "and":
+		if self.ifMultipleOperator == "and":
 			Print.Print(PrintLevel.IfConditionAnswer, "true If Condition Multiple Final")

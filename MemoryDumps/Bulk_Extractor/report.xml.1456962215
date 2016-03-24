@@ -28,7 +28,7 @@
       <command_line>bulk_extractor -E net -o /home/xen/Documents/Sproj/MemoryDumps/Bulk_Extractor /home/xen/Documents/Sproj/MemoryDumps/zeus.vmem</command_line>
       <uid>1000</uid>
       <username>xen</username>
-      <start_time>2016-03-24T19:18:25Z</start_time>
+      <start_time>2016-03-02T21:37:04Z</start_time>
     </execution_environment>
   </creator>
   <configuration>
@@ -40,13 +40,32 @@
     </scanners>
   </configuration>
   <provided_filename>/home/xen/Documents/Sproj/MemoryDumps/zeus.vmem</provided_filename>
-  <timestamp name='phase1 start' delta='0.017039' total='0.017039'/>
+  <timestamp name='phase1 start' delta='0.000515' total='0.000515'/>
   <runtime xmlns:debug="http://www.afflib.org/bulk_extractor/debug">
+    <debug:work_start threadid='0' pos0='0' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_start threadid='2' pos0='16777216' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_start threadid='1' pos0='33554432' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_start threadid='3' pos0='50331648' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='0' pos0='0' time='0.462503'/>
+    <debug:work_start threadid='0' pos0='67108864' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='2' pos0='16777216' time='0.530525'/>
+    <debug:work_start threadid='2' pos0='83886080' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='3' pos0='50331648' time='0.541983'/>
+    <debug:work_start threadid='3' pos0='100663296' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='1' pos0='33554432' time='0.634612'/>
+    <debug:work_start threadid='1' pos0='117440512' pagesize='16777216' bufsize='16777216'/>
+<!-- Time elapsed waiting for 4 threads to finish:
+     (timeout in 60 min.)
+ -->
+    <debug:work_end threadid='0' pos0='67108864' time='0.464321'/>
+    <debug:work_end threadid='2' pos0='83886080' time='0.557614'/>
+    <debug:work_end threadid='3' pos0='100663296' time='0.47571'/>
+    <debug:work_end threadid='1' pos0='117440512' time='0.493462'/>
   </runtime>
   <source>
     <image_filename>/home/xen/Documents/Sproj/MemoryDumps/zeus.vmem</image_filename>
     <image_size>134217728</image_size>
-    <hashdigest type='MD5'>d41d8cd98f00b204e9800998ecf8427e</hashdigest>
+    <hashdigest type='MD5'>b6e4817d7c1aea69bbd8b19b42075681</hashdigest>
   </source>
   <feature_files>
     <feature_file><name>alerts</name>
@@ -54,41 +73,46 @@
 </feature_file>
 
     <feature_file><name>ether</name>
-<count>1</count>
+<count>216</count>
 </feature_file>
 
     <feature_file><name>ip</name>
-<count>1</count>
+<count>369</count>
 </feature_file>
 
-    <thread_wait thread='0'>0</thread_wait>
-    <thread_wait thread='0'>0.000402</thread_wait>
-    <thread_wait thread='1'>0.000358</thread_wait>
-    <thread_wait thread='2'>0.000344</thread_wait>
-    <thread_wait thread='3'>0.000312</thread_wait>
+    <thread_wait thread='0'>0.38737</thread_wait>
+    <thread_wait thread='0'>0.035526</thread_wait>
+    <thread_wait thread='1'>0.109278</thread_wait>
+    <thread_wait thread='2'>0.071363</thread_wait>
+    <thread_wait thread='3'>0.136144</thread_wait>
   </feature_files>
-  <timestamp name='phase1 end' delta='0.000664' total='0.017706'/>
-  <timestamp name='phase2 (shutdown) start' delta='0.000053' total='0.017760'/>
-  <timestamp name='phase2 (shutdown) end' delta='0.000016' total='0.017778'/>
-  <timestamp name='phase3 (histograms) start' delta='0.000034' total='0.017813'/>
-  <timestamp name='phase3 (histograms) end' delta='0.142011' total='0.159825'/>
+  <timestamp name='phase1 end' delta='1.246127' total='1.246643'/>
+  <timestamp name='phase2 (shutdown) start' delta='0.000008' total='1.246652'/>
+  <timestamp name='phase2 (shutdown) end' delta='0.000086' total='1.246739'/>
+  <timestamp name='phase3 (histograms) start' delta='0.000010' total='1.246750'/>
+  <timestamp name='phase3 (histograms) end' delta='0.014520' total='1.261270'/>
   <report>
-    <total_bytes>0</total_bytes>
-    <elapsed_seconds>0.184207</elapsed_seconds>
+    <total_bytes>134217728</total_bytes>
+    <elapsed_seconds>1.261612</elapsed_seconds>
     <max_depth_seen>0</max_depth_seen>
     <dup_data_encountered>0</dup_data_encountered>
   </report>
   <scanner_times>
+    <path><name>NET</name>
+<calls>8</calls>
+<seconds>3.814581</seconds>
+</path>
+
   </scanner_times>
   <rusage>
-    <utime>0.044000</utime>
-    <stime>0.004000</stime>
-    <maxrss>6760</maxrss>
-    <minflt>340</minflt>
-    <majflt>15</majflt>
+    <utime>3.808000</utime>
+    <stime>0.068000</stime>
+    <maxrss>109136</maxrss>
+    <minflt>40293</minflt>
+    <majflt>0</majflt>
     <nswap>0</nswap>
-    <inblock>5752</inblock>
-    <oublock>24</oublock>
-    <clocktime>0.160024</clocktime>
+    <inblock>0</inblock>
+    <oublock>184</oublock>
+    <clocktime>1.261336</clocktime>
   </rusage>
 </dfxml>

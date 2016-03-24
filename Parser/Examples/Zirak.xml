@@ -14,13 +14,9 @@
 	<operation>
 		<operationName myvalue="ifMultiple"/>
 		<ifConditionMultiple myvalue="and">
-
-			
-
-			
 			<ifConditionBasic>
 				<key myvalue="0.0.0.0.68"/>
-				<value myvalue="1"/>
+				<value myvalue="100"/>
 				<collection myvalue="DOSCollection"/>
 				<operator myvalue="contains"/>
 			</ifConditionBasic>
