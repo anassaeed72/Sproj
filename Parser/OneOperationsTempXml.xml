@@ -1,13 +1,13 @@
 <operation>
 		<operationName myvalue="ifMultiple"/>
 		<ifConditionMultiple myvalue="and">
-			
+		
 			<ifConditionBasic>
-				<key myvalue="DllList-Path"/>
-				<value myvalue="C:\WINDOWS\system32\xpsp2res.dll"/>
-				<collection myvalue="DllListCollection"/>
+				<key myvalue="PsList-Name"/>
+				<value myvalue="svchost.exe"/>
+				<collection myvalue="PsListCollection"/>
 				<operator myvalue="contains"/>
 			</ifConditionBasic>
-			
+
 		</ifConditionMultiple>
 	</operation>
