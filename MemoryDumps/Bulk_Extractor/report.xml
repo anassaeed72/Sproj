@@ -28,7 +28,7 @@
       <command_line>bulk_extractor -E net -o /home/xen/Documents/Sproj/MemoryDumps/Bulk_Extractor /home/xen/Documents/Sproj/MemoryDumps/zeus.vmem</command_line>
       <uid>1000</uid>
       <username>xen</username>
-      <start_time>2016-03-24T19:18:25Z</start_time>
+      <start_time>2016-03-24T19:38:15Z</start_time>
     </execution_environment>
   </creator>
   <configuration>
@@ -40,7 +40,7 @@
     </scanners>
   </configuration>
   <provided_filename>/home/xen/Documents/Sproj/MemoryDumps/zeus.vmem</provided_filename>
-  <timestamp name='phase1 start' delta='0.017039' total='0.017039'/>
+  <timestamp name='phase1 start' delta='0.000770' total='0.000770'/>
   <runtime xmlns:debug="http://www.afflib.org/bulk_extractor/debug">
   </runtime>
   <source>
@@ -62,33 +62,33 @@
 </feature_file>
 
     <thread_wait thread='0'>0</thread_wait>
-    <thread_wait thread='0'>0.000402</thread_wait>
-    <thread_wait thread='1'>0.000358</thread_wait>
-    <thread_wait thread='2'>0.000344</thread_wait>
-    <thread_wait thread='3'>0.000312</thread_wait>
+    <thread_wait thread='0'>0.00019</thread_wait>
+    <thread_wait thread='1'>0.000175</thread_wait>
+    <thread_wait thread='2'>0.000161</thread_wait>
+    <thread_wait thread='3'>0.000145</thread_wait>
   </feature_files>
-  <timestamp name='phase1 end' delta='0.000664' total='0.017706'/>
-  <timestamp name='phase2 (shutdown) start' delta='0.000053' total='0.017760'/>
-  <timestamp name='phase2 (shutdown) end' delta='0.000016' total='0.017778'/>
-  <timestamp name='phase3 (histograms) start' delta='0.000034' total='0.017813'/>
-  <timestamp name='phase3 (histograms) end' delta='0.142011' total='0.159825'/>
+  <timestamp name='phase1 end' delta='0.000300' total='0.001071'/>
+  <timestamp name='phase2 (shutdown) start' delta='0.000025' total='0.001097'/>
+  <timestamp name='phase2 (shutdown) end' delta='0.000008' total='0.001106'/>
+  <timestamp name='phase3 (histograms) start' delta='0.000013' total='0.001119'/>
+  <timestamp name='phase3 (histograms) end' delta='0.308130' total='0.309250'/>
   <report>
     <total_bytes>0</total_bytes>
-    <elapsed_seconds>0.184207</elapsed_seconds>
+    <elapsed_seconds>0.309694</elapsed_seconds>
     <max_depth_seen>0</max_depth_seen>
     <dup_data_encountered>0</dup_data_encountered>
   </report>
   <scanner_times>
   </scanner_times>
   <rusage>
-    <utime>0.044000</utime>
+    <utime>0.036000</utime>
     <stime>0.004000</stime>
-    <maxrss>6760</maxrss>
+    <maxrss>6724</maxrss>
     <minflt>340</minflt>
-    <majflt>15</majflt>
+    <majflt>0</majflt>
     <nswap>0</nswap>
-    <inblock>5752</inblock>
+    <inblock>1216</inblock>
     <oublock>24</oublock>
-    <clocktime>0.160024</clocktime>
+    <clocktime>0.309439</clocktime>
   </rusage>
 </dfxml>
