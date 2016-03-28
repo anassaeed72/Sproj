@@ -1,6 +1,6 @@
-<ifConditionBasic>
-				<key myvalue="PsList-PID"/>
-				<value myvalue="10881"/>
-				<collection myvalue="PsListCollection"/>
-				<operator myvalue="contains"/>
-			</ifConditionBasic>
+<ifConditionBasic myvalue="Process object">
+        <key myvalue="PsList-Name"/>
+        <value myvalue="keylogger.exe"/>
+        <collection myvalue="PsListCollection"/>
+        <operator myvalue="contains"/>
+      </ifConditionBasic>
