@@ -165,7 +165,7 @@ class OneOperation(object):
 			command = "bulk_extractor -E net -o "+operationPathValue+" " +operationInputFilevalue
 			Print.Print(PrintLevel.Command, command)
 			os.system(command)
-			sys.exit()	
+			return
 
 		if operationNameValue=="TCP_DUMP":
 			Print.Print(PrintLevel.Command,"TCP DUMP")
@@ -197,7 +197,7 @@ class OneOperation(object):
 			client = MongoClient()
 			db = client.test
 			db.DOSCollection.insert_many(aDict)
-			sys.exit()
+			return
 		if operationNameValue =="CustomPython":
 			operationInputFile = xmldoc.getElementsByTagName('operationInputFile')
 			operationInputFilevalue = operationInputFile[0].attributes['myvalue'].value

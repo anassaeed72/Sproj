@@ -25,7 +25,7 @@ if len(sys.argv) <2:
 
 
 Print.Print(PrintLevel.BaseClass,"In Multiple Operations")
-Print.Print(PrintLevel.NewLine, "\n\n\n")
+Print.Print(PrintLevel.NewLine, "")
 Print.Print(PrintLevel.BaseClass, "Running File  " + findFileName(sys.argv[1]))
 
 xmldoc = minidom.parse(sys.argv[1])

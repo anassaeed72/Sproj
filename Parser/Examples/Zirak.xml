@@ -1,4 +1,4 @@
-<operations>
+<operations description="DOS attack detection script">
 	
 	<operation>
 		<operationName myvalue="Bulk_Extractor"/>
