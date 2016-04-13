@@ -13,3 +13,4 @@ class PrintLevel(Enum):
 	Alpha =True
 	Beta = False
 	Gamma = True
+	NewLine = True

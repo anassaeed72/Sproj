@@ -255,6 +255,6 @@ class OneOperation(object):
 
 		commandToExecute = "python " + operationPathValue + "/" + operationNameValue + ".py " + operationInputFilevalue
 		Print.Print(PrintLevel.Command,"Command : "+operationNameValue)
-		Print.Print(PrintLevel.Command, commandToExecute)
+		# Print.Print(PrintLevel.Command, commandToExecute)
 		os.system(commandToExecute)
 
