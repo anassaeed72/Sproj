@@ -14,22 +14,27 @@ def findFileName(input):
     array = input.split("/")
     return array[len(array)-1]
 
+def printDescription(description):
+    Print.Print(PrintLevel.NewLine, "")
+    Print.Print(PrintLevel.BaseClass,"Descrition:  " + description)
+    Print.Print(PrintLevel.NewLine, "\n")
 
 if len(sys.argv) <2:
     Print.Print(PrintLevel.BaseClass,'Arguments not given')
     sys.exit()
 
-xmldoc = minidom.parse(sys.argv[1])
-descriptionObject = xmldoc.getElementsByTagName('operations')
-descriptionObjectValue = descriptionObject[0].attributes['description'].value
 
 Print.Print(PrintLevel.BaseClass,"In Multiple Operations")
 Print.Print(PrintLevel.NewLine, "\n\n\n")
 Print.Print(PrintLevel.BaseClass, "Running File  " + findFileName(sys.argv[1]))
-Print.Print(PrintLevel.NewLine, "")
-Print.Print(PrintLevel.BaseClass,"Descrition:  " + descriptionObjectValue)
-Print.Print(PrintLevel.NewLine, "\n")
 
+xmldoc = minidom.parse(sys.argv[1])
+descriptionObject = xmldoc.getElementsByTagName('operations')
+try:
+    descriptionObjectValue = descriptionObject[0].attributes['description'].value
+    printDescription(descriptionObjectValue)
+except Exception, e:
+    pass
 
 
 e = etree.parse(sys.argv[1])

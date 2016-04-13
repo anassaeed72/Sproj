@@ -1,6 +1,6 @@
 <ifConditionBasic>
-				<key myvalue="Connscan-Remote-Address"/>
-				<value myvalue="193.104.41.75:80"/>
-				<collection myvalue="testcollection"/>
+				<key myvalue="DllList-Path"/>
+				<value myvalue="C:\WINDOWS\system32\xpsp2res.dll"/>
+				<collection myvalue="DllListCollection"/>
 				<operator myvalue="contains"/>
 			</ifConditionBasic>
