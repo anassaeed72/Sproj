@@ -5,12 +5,14 @@ class ConstantsClass:
 
 class PrintLevel(Enum):
 	Command=True
-	IfConditionAnswer=True
+	IfConditionAnswerMultiple=True
+	IfConditionAnswerBasic=False
 	IfConditionCondition=True
+	IfConditionFormatting = True
 	BaseClass =True
 	Error = True
 	RawOuput = True
 	Alpha =True
-	Beta = False
+	# Beta = False
 	Gamma = True
 	NewLine = True

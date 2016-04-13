@@ -36,12 +36,14 @@ class IfConditionMultiple(object):
 					outputIfBasic = subprocess.check_output(('python IfConditionBasic.py IfConditionBasicXmlTemp.xml'),shell=True)
 					IfConditionBasicObject = IfConditionBasic('IfConditionBasicXmlTemp.xml')
 					outputIfBasic = IfConditionBasicObject.evaluate()
-					Print.Print(PrintLevel.IfConditionAnswer, "Basic If Condition Output "+str(outputIfBasic))
+					Print.Print(PrintLevel.IfConditionAnswerMultiple, "Basic If Condition Output "+str(outputIfBasic))
 		  	  		if self.ifMultipleOperator == "or" and outputIfBasic ==True:
-		  	  			Print.Print(PrintLevel.IfConditionAnswer, "true If Condition Multiple")
+		  	  			Print.Print(PrintLevel.NewLine,"")
+		  	  			Print.Print(PrintLevel.IfConditionAnswerMultiple, "If Condition Multiple: True")
 		  	  			sys.exit()
 		  	  		if self.ifMultipleOperator == "and" and outputIfBasic == False:
-		  	  			Print.Print(PrintLevel.IfConditionAnswer,"false If Condition Multiple")
+		  	  			Print.Print(PrintLevel.NewLine,"")
+		  	  			Print.Print(PrintLevel.IfConditionAnswerMultiple,"If Condition Multiple: False")
 		  	  			sys.exit()
 	def evaluate(self):
 		e = etree.parse(self.fileName)
@@ -57,4 +59,6 @@ class IfConditionMultiple(object):
 
 		self.flatten(e.xpath('/ifConditionMultiple/node()'))
 		if self.ifMultipleOperator == "and":
-			Print.Print(PrintLevel.IfConditionAnswer, "true If Condition Multiple Final")
+			Print.Print(PrintLevel.NewLine,"")
+			Print.Print(PrintLevel.IfConditionAnswerMultiple, "If Condition Multiple Final : True")
+

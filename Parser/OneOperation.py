@@ -28,39 +28,38 @@ class OneOperation(object):
 	def flatten(self,seq,fileName):
 	  count = 0
 	  for item in seq:
-	  	if count == 0:
-	  		count = 1
+	  	if count == 0 or count ==1:
+	  		count = count +1
 	  		continue
 		if isinstance(item,(etree._Element,)):
 		    with open(fileName, "w") as myfile:
 	    		myfile.write(etree.tostring(item,with_tail=False))
 	    		myfile.close()
-	    		# os.system("python IfConditionMultiple.py IfConditionMultipleXmlTemp.xml 0")
 	    		IfConditionMultipleBasic = IfConditionMultiple("IfConditionMultipleXmlTemp.xml")
 	    		IfConditionMultipleBasic.evaluate()
 	    
-	def ifCondition(conditionValue,left,right,yesactionValue,noactionValue):
-		Print.Print(PrintLevel.IfConditionCondition, "In If Condition" + conditionValue + " " + left+ " " + right+ " " +yesactionValue +  " " + noactionValue)
+	# def ifCondition(conditionValue,left,right,yesactionValue,noactionValue):
+	# 	Print.Print(PrintLevel.IfConditionCondition, "In If Condition" + conditionValue + " " + left+ " " + right+ " " +yesactionValue +  " " + noactionValue)
 
-		with open(left) as leftFile:
-		    	content = leftFile.readline()
+	# 	with open(left) as leftFile:
+	# 	    	content = leftFile.readline()
 
-		rightValue = right
-		if conditionValue == "==":
-			if leftValue == rightValue:
-				nestedOperationFunc(yesactionValue)	
-			else:
-				nestedOperationFunc(noactionValue)	
-		elif conditionValue == "<":
-			if leftValue < rightValue:
-				nestedOperationFunc(yesactionValue)	
-			else:
-				nestedOperationFunc(noactionValue)	
-		elif conditionValue == ">":
-			if leftValue > rightValue:
-				nestedOperationFunc(yesactionValue)	
-			else:
-				nestedOperationFunc(noactionValue)	
+	# 	rightValue = right
+	# 	if conditionValue == "==":
+	# 		if leftValue == rightValue:
+	# 			nestedOperationFunc(yesactionValue)	
+	# 		else:
+	# 			nestedOperationFunc(noactionValue)	
+	# 	elif conditionValue == "<":
+	# 		if leftValue < rightValue:
+	# 			nestedOperationFunc(yesactionValue)	
+	# 		else:
+	# 			nestedOperationFunc(noactionValue)	
+	# 	elif conditionValue == ">":
+	# 		if leftValue > rightValue:
+	# 			nestedOperationFunc(yesactionValue)	
+	# 		else:
+	# 			nestedOperationFunc(noactionValue)	
 	def flattenCybox(self,seq,fileNameTemporary):
 		for item in seq:
 			if isinstance(item,(etree._Element,)):
