@@ -1,0 +1,19 @@
+<operations>
+	
+	<operation>
+		<operationName myvalue="Alert"/>
+		<operationWords myvalue="Value of Alert Alpha"/>
+		<operationLevel  myvalue="Alpha"/>
+	</operation>
+
+<operation>
+		<operationName myvalue="Alert"/>
+		<operationWords myvalue="Value of Alert Beta"/>
+		<operationLevel  myvalue="Beta"/>
+	</operation>
+	<operation>
+		<operationName myvalue="Alert"/>
+		<operationWords myvalue="Value of Alert Gamma"/>
+		<operationLevel  myvalue="Gamma"/>
+	</operation>
+</operations>

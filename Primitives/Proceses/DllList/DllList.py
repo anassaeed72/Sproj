@@ -4,7 +4,7 @@ import sys
 from pymongo import MongoClient
 from Print import Print
 from Constants import PrintLevel
-
+from Constants import ConstantsClass
 if len(sys.argv) <2:
 	Print.Print(PrintLevel.Error,'Arguments not given')
 	sys.exit()
@@ -20,7 +20,7 @@ aDict2= {}
 
 line2=['DllList-Base','DllList-Size','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path']
 
-Print.Print(PrintLevel.RawOutput, output)
+# Print.Print(PrintLevel.RawOuput, output)
 
 
 for line in output.split("\n"):

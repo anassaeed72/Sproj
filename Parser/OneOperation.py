@@ -10,14 +10,15 @@ from Print import Print
 from Constants import PrintLevel
 from xml.dom import minidom
 from IfConditionMultiple import IfConditionMultiple
+from time import time
 class OneOperation(object):
 	"""docstring for OneOperation"""
 	def __init__(self, fileName):
 		super(OneOperation, self).__init__()
 		self.fileName = fileName
 		
-	def cybox():
-		Print.Print(PrintLevel.Command,"In cybox ")
+	def cybox(self, fileNameTemporary):
+		Print.Print(PrintLevel.Command,"In cybox "+fileNameTemporary)
 
 	def nestedOperationFunc(nestedOperationXmlFile):
 		Print.Print(PrintLevel.Command, "in nestedOperationFunc " + nestedOperationXmlFile)
@@ -27,43 +28,42 @@ class OneOperation(object):
 	def flatten(self,seq,fileName):
 	  count = 0
 	  for item in seq:
-	  	if count == 0:
-	  		count = 1
+	  	if count == 0 or count ==1:
+	  		count = count +1
 	  		continue
 		if isinstance(item,(etree._Element,)):
 		    with open(fileName, "w") as myfile:
 	    		myfile.write(etree.tostring(item,with_tail=False))
 	    		myfile.close()
-	    		# os.system("python IfConditionMultiple.py IfConditionMultipleXmlTemp.xml 0")
 	    		IfConditionMultipleBasic = IfConditionMultiple("IfConditionMultipleXmlTemp.xml")
 	    		IfConditionMultipleBasic.evaluate()
 	    
-	def ifCondition(conditionValue,left,right,yesactionValue,noactionValue):
-		Print.Print(PrintLevel.IfConditionCondition, "In If Condition" + conditionValue + " " + left+ " " + right+ " " +yesactionValue +  " " + noactionValue)
+	# def ifCondition(conditionValue,left,right,yesactionValue,noactionValue):
+	# 	Print.Print(PrintLevel.IfConditionCondition, "In If Condition" + conditionValue + " " + left+ " " + right+ " " +yesactionValue +  " " + noactionValue)
 
-		with open(left) as leftFile:
-		    	content = leftFile.readline()
+	# 	with open(left) as leftFile:
+	# 	    	content = leftFile.readline()
 
-		rightValue = right
-		if conditionValue == "==":
-			if leftValue == rightValue:
-				nestedOperationFunc(yesactionValue)	
-			else:
-				nestedOperationFunc(noactionValue)	
-		elif conditionValue == "<":
-			if leftValue < rightValue:
-				nestedOperationFunc(yesactionValue)	
-			else:
-				nestedOperationFunc(noactionValue)	
-		elif conditionValue == ">":
-			if leftValue > rightValue:
-				nestedOperationFunc(yesactionValue)	
-			else:
-				nestedOperationFunc(noactionValue)	
-	def flattenCybox(seq):
+	# 	rightValue = right
+	# 	if conditionValue == "==":
+	# 		if leftValue == rightValue:
+	# 			nestedOperationFunc(yesactionValue)	
+	# 		else:
+	# 			nestedOperationFunc(noactionValue)	
+	# 	elif conditionValue == "<":
+	# 		if leftValue < rightValue:
+	# 			nestedOperationFunc(yesactionValue)	
+	# 		else:
+	# 			nestedOperationFunc(noactionValue)	
+	# 	elif conditionValue == ">":
+	# 		if leftValue > rightValue:
+	# 			nestedOperationFunc(yesactionValue)	
+	# 		else:
+	# 			nestedOperationFunc(noactionValue)	
+	def flattenCybox(self,seq,fileNameTemporary):
 		for item in seq:
 			if isinstance(item,(etree._Element,)):
-				with open("CyboxOneOperationXmlTemp.xml", "w") as myfile:
+				with open(fileNameTemporary, "w") as myfile:
 					myfile.write(etree.tostring(item,with_tail=False))
 					myfile.close()
 	def evaluate(self):
@@ -75,13 +75,21 @@ class OneOperation(object):
 		operationNameValue = operationName[0].attributes['myvalue'].value
 
 		if operationNameValue == "cybox":
-			cyboxXml = xmldoc.getElementsByTagName('cyboxXml')
-			e = etree.parse(sys.argv[1])
+			e = etree.parse(self.fileName)
+			fileNameTemporary = "CyboxOneOperationXmlTemp"+ str(time()) + ".xml"
+			self.flattenCybox(e.xpath('/operation/node()'),fileNameTemporary)
 
-			flattenCybox(e.xpath('/operation/node()'))
-
-			cybox()
-			sys.exit(0)
+			cybox(fileNameTemporary)
+			return
+		if operationNameValue == "nestedSchema":
+			e = etree.parse(self.fileName)
+			fileNameTemporary = "MultipleOperationsTempXml"+ str(time()) + ".xml"
+			self.flattenCybox(e.xpath('/operation/node()'),fileNameTemporary)
+			commandToExecute = "python MultipleOperations.py " + fileNameTemporary
+			Print.Print(PrintLevel.Command, "Command  " + operationNameValue)
+			Print.Print(PrintLevel.Command,commandToExecute)
+			os.system(commandToExecute)	
+			return
 
 		if operationNameValue =="IfCondition":
 			condition = xmldoc.getElementsByTagName('condition')
@@ -103,7 +111,7 @@ class OneOperation(object):
 			e = etree.parse(self.fileName)
 			self.flatten(e.xpath('/operation/node()'),"IfConditionMultipleXmlTemp.xml")
 			
-			sys.exit(0)
+			return
 
 		if operationNameValue =="nestedOperations":
 			nestedOperation = xmldoc.getElementsByTagName('nestedOperationXml')
@@ -157,7 +165,7 @@ class OneOperation(object):
 			command = "bulk_extractor -E net -o "+operationPathValue+" " +operationInputFilevalue
 			Print.Print(PrintLevel.Command, command)
 			os.system(command)
-			sys.exit()	
+			return
 
 		if operationNameValue=="TCP_DUMP":
 			Print.Print(PrintLevel.Command,"TCP DUMP")
@@ -189,7 +197,19 @@ class OneOperation(object):
 			client = MongoClient()
 			db = client.test
 			db.DOSCollection.insert_many(aDict)
+			return
+		if operationNameValue =="CustomPython":
+			operationInputFile = xmldoc.getElementsByTagName('operationInputFile')
+			operationInputFilevalue = operationInputFile[0].attributes['myvalue'].value
+
+			operationPath = xmldoc.getElementsByTagName('operationPath')
+			operationPathValue = operationPath[0].attributes['myvalue'].value
+			operationPathValue = ConstantsClass.pathValue + operationPathValue +"/"+ operationInputFilevalue
 			
+			commandToExecute = "python " + operationPathValue
+			Print.Print(PrintLevel.Command, "Command  " + operationNameValue)
+			Print.Print(PrintLevel.Command,commandToExecute)
+			os.system(commandToExecute)			
 			#cursor = list(db.randCollection.aggregate([
 			 #    {"$group" : {"_id" : "$SenderIP", "count":  { "$sum" : 1}}
 
@@ -208,6 +228,21 @@ class OneOperation(object):
 
 				
 			sys.exit()	
+		if operationNameValue == "Alert":
+			operationWords = xmldoc.getElementsByTagName('operationWords')
+			operationWordsValue = operationWords[0].attributes['myvalue'].value
+
+			operationLevel = xmldoc.getElementsByTagName('operationLevel')
+			operationLevelValue = operationLevel[0].attributes['myvalue'].value
+
+			if operationLevelValue  == "Alpha":			
+				Print.Print(PrintLevel.Alpha,operationWordsValue)
+			elif operationLevelValue == "Beta":
+				Print.Print(PrintLevel.Beta,operationWordsValue)
+			elif operationLevelValue == "Gamma":
+				Print.Print(PrintLevel.Gamma,operationWordsValue)
+			return
+
 
 		operationInputFile = xmldoc.getElementsByTagName('operationInputFile')
 		operationInputFilevalue = operationInputFile[0].attributes['myvalue'].value
@@ -219,6 +254,6 @@ class OneOperation(object):
 
 		commandToExecute = "python " + operationPathValue + "/" + operationNameValue + ".py " + operationInputFilevalue
 		Print.Print(PrintLevel.Command,"Command : "+operationNameValue)
-		Print.Print(PrintLevel.Command, commandToExecute)
+		# Print.Print(PrintLevel.Command, commandToExecute)
 		os.system(commandToExecute)
 

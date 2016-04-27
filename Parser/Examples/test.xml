@@ -1,0 +1,8 @@
+
+<operations>
+  <operation>
+    <operationName myvalue="Yara" />
+    <operationInputFile myvalue="MemoryDumps" />
+    <operationPath myvalue="Primitives/Yara" />
+  </operation>
+</operations>

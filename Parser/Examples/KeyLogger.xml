@@ -1,0 +1,83 @@
+<operations description="Script that checks whether Key Logger exists or not">
+	
+	<operation>
+    	<operationName myvalue="PsList"/>
+    	<operationInputFile myvalue="MemoryDumps/zeus.vmem"/>
+    	<operationPath  myvalue="Primitives/Proceses/PsList"/>
+  </operation>
+
+   <operation>
+    <operationName myvalue="ifMultiple"/>
+    <ifConditionMultiple myvalue="or">
+      
+      <ifConditionBasic   myvalue= "Process object">
+        <key myvalue="PsList-Name"/>
+        <value myvalue="keylogger.exe"/>
+        <collection myvalue="PsListCollection"/>
+        <operator myvalue="contains"/>
+      </ifConditionBasic>
+
+      <ifConditionBasic myvalue= "Process object">
+        <key myvalue="PsList-Name"/>
+        <value myvalue="keyloggerxyz.exe"/>
+        <collection myvalue="PsListCollection"/>
+        <operator myvalue="contains"/>
+      </ifConditionBasic>     
+    </ifConditionMultiple>  
+  </operation>
+
+  <operation>
+    <operationName myvalue="FileScan"/>
+    <operationInputFile myvalue="MemoryDumps/zeus.vmem"/>
+    <operationPath  myvalue="Primitives/Proceses/FileScan"/>
+  </operation>
+
+   <operation>
+    <operationName myvalue="ifMultiple"/>
+    <ifConditionMultiple myvalue="or">
+    
+      <ifConditionBasic>
+        <key myvalue="Rekal-FileScan-FileName"/>
+        <value myvalue="C:\WINDOWS\system32\dfrgres.dll"/>
+        <collection myvalue="fileScanCollection"/>
+        <operator myvalue="contains"/>
+      </ifConditionBasic>
+
+      <ifConditionBasic>
+        <key myvalue="Rekal-FileScan-FileName"/>
+        <value myvalue="Shared\MSInfo\msinfo32.exe"/>
+        <collection myvalue="fileScanCollection"/>
+        <operator myvalue="contains"/>
+      </ifConditionBasic>
+     
+    </ifConditionMultiple>
+  </operation>
+  <operation>
+    <operationName myvalue="Connscan"/>
+    <operationInputFile myvalue="MemoryDumps/zeus.vmem"/>
+    <operationPath  myvalue="Primitives/Networking/Connscan"/>
+  </operation>
+
+  <operation>
+		<operationName myvalue="ifMultiple"/>
+		<ifConditionMultiple myvalue="or">
+		
+			<ifConditionBasic>
+				<key myvalue="Connscan-Remote-Address"/>
+				<value myvalue="192.154.6.7"/>
+				<collection myvalue="testcollection"/>
+				<operator myvalue="contains"/>
+			</ifConditionBasic>
+			<ifConditionBasic>
+				<key myvalue="Connscan-Remote-Address"/>
+				<value myvalue="192.154.6.88"/>
+				<collection myvalue="testcollection"/>
+				<operator myvalue="contains"/>
+			</ifConditionBasic>
+
+		</ifConditionMultiple>
+	</operation>
+
+
+
+</operations>

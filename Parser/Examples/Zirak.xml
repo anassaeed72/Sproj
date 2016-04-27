@@ -1,4 +1,4 @@
-<operations>
+<operations description="DOS attack detection script">
 	
 	<operation>
 		<operationName myvalue="Bulk_Extractor"/>
@@ -14,10 +14,6 @@
 	<operation>
 		<operationName myvalue="ifMultiple"/>
 		<ifConditionMultiple myvalue="and">
-
-			
-
-			
 			<ifConditionBasic>
 				<key myvalue="0.0.0.0.68"/>
 				<value myvalue="1"/>

@@ -46,10 +46,10 @@ class IfConditionBasic(object):
 					countOfPackets+=document["count"]
 				averageValue = countOfPackets/countOfDocuments
 				if averageValue > int (rightValue):
-					Print.Print(PrintLevel.IfConditionAnswer,"true")
+					Print.Print(PrintLevel.IfConditionAnswerBasic,"true")
 					return True
 				else:
-					Print.Print(PrintLevel.IfConditionAnswer,"false")
+					Print.Print(PrintLevel.IfConditionAnswerBasic,"false")
 					return False
 				sys.exit()
 
@@ -59,10 +59,10 @@ class IfConditionBasic(object):
 				for document in cursor:
 					countOfPackets+=document["count"]
 				if countOfPackets > int (rightValue):
-					Print.Print(PrintLevel.IfConditionAnswer,"true")
+					Print.Print(PrintLevel.IfConditionAnswerBasic,"true")
 					return True
 				else:
-					Print.Print(PrintLevel.IfConditionAnswer,"false")
+					Print.Print(PrintLevel.IfConditionAnswerBasic,"false")
 					return False
 				sys.exit()
 
@@ -71,13 +71,13 @@ class IfConditionBasic(object):
 				# print document
 				if document["_id"]== leftValue:
 					if document["count"]>=int(rightValue):
-						Print.Print(PrintLevel.IfConditionAnswer,"true")
+						Print.Print(PrintLevel.IfConditionAnswerBasic,"true")
 						return True
 					else:
-						Print.Print(PrintLevel.IfConditionAnswer,"false")
+						Print.Print(PrintLevel.IfConditionAnswerBasic,"false")
 						return False
 					sys.exit()
-			Print.Print(PrintLevel.IfConditionAnswer,"false")
+			Print.Print(PrintLevel.IfConditionAnswerBasic,"false")
 			return False
 			sys.exit()
 
@@ -89,12 +89,17 @@ class IfConditionBasic(object):
 			key_val[key_] = value
 
 			cursor = db[collectionValue].find(key_val)
+			Print.Print(PrintLevel.NewLine,"")
+			Print.Print(PrintLevel.IfConditionFormatting, "If Condition Evaluation")
+			Print.Print(PrintLevel.IfConditionFormatting, "Key:  " + key_)
+			Print.Print(PrintLevel.IfConditionFormatting, "Value:  " + value)
+			Print.Print(PrintLevel.IfConditionFormatting, "Operation:  Contains")
 
 
 			if cursor.count() >0:
-				Print.Print(PrintLevel.IfConditionAnswer,"true")
+				Print.Print(PrintLevel.IfConditionAnswerBasic,"true")
 				return True
 			else:
-				Print.Print(PrintLevel.IfConditionAnswer,"false")
+				Print.Print(PrintLevel.IfConditionAnswerBasic,"false")
 				return False 
 			sys.exit()

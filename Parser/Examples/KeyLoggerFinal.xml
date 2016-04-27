@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operations>
+  <operation>
+    <operationName myvalue="PsList" />
+    <operationInputFile myvalue="MemoryDumps/zeus.vmem" />
+    <operationPath myvalue="Primitives/Proceses/PsList" />
+  </operation>
+  <operation>
+    <operationName myvalue="ifMultiple" />
+    <ifConditionMultiple myvalue="or">
+      <ifConditionBasic myvalue="Process object">
+        <key myvalue="PsList-Name" />
+        <value myvalue="keylogger.exe" />
+        <collection myvalue="PsListCollection" />
+        <operator myvalue="contains" />
+      </ifConditionBasic>
+      <ifConditionBasic myvalue="Process object">
+        <key myvalue="PsList-Name" />
+        <value myvalue="keyloggerxyz.exe" />
+        <collection myvalue="PsListCollection" />
+        <operator myvalue="contains" />
+      </ifConditionBasic>
+    </ifConditionMultiple>
+  </operation>
+  
+  
+  <operation>
+    <operationName myvalue="DllList" />
+    <operationInputFile myvalue="MemoryDumps/zeus.vmem" />
+    <operationPath myvalue="Primitives/Proceses/DllList" />
+  </operation>
+  <operation>
+    <operationName myvalue="ifMultiple" />
+    <ifConditionMultiple myvalue="and">
+      <ifConditionBasic>
+        <key myvalue="DllList-Path" />
+        <value myvalue="C:\WINDOWS\system32\xpsp2res.dll" />
+        <collection myvalue="DllListCollection" />
+        <operator myvalue="contains" />
+      </ifConditionBasic>
+      <ifConditionBasic>
+        <key myvalue="DllList-Path" />
+        <value myvalue="C:\WINDOWS\system32\xpsp2res.dll" />
+        <collection myvalue="DllListCollection" />
+        <operator myvalue="contains" />
+      </ifConditionBasic>
+    </ifConditionMultiple>
+  </operation>
+  <operation>
+    <operationName myvalue="Yara" />
+    <operationInputFile myvalue="MemoryDumps/zeus.vmem" />
+    <operationPath myvalue="Primitives/Yara" />
+  </operation>
+
+  <operation>
+    <operationName myvalue="Connscan" />
+    <operationInputFile myvalue="MemoryDumps/zeus.vmem" />
+    <operationPath myvalue="Primitives/Networking/Connscan" />
+  </operation>
+
+  <operation>
+    <operationName myvalue="ifMultiple" />
+    <ifConditionMultiple myvalue="or">
+      <ifConditionBasic>
+        <key myvalue="Connscan-Remote-Address" />
+        <value myvalue="192.154.6.7" />
+        <collection myvalue="testcollection" />
+        <operator myvalue="contains" />
+      </ifConditionBasic>
+      <ifConditionBasic>
+        <key myvalue="Connscan-Remote-Address" />
+        <value myvalue="192.154.6.88" />
+        <collection myvalue="testcollection" />
+        <operator myvalue="contains" />
+      </ifConditionBasic>
+    </ifConditionMultiple>
+  </operation>
+
+
+
+</operations>

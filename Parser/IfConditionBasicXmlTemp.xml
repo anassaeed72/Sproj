@@ -1,6 +1,6 @@
 <ifConditionBasic>
-				<key myvalue="Connscan-Pid"/>
-				<value myvalue="856"/>
-				<collection myvalue="testcollection"/>
-				<operator myvalue="contains"/>
-			</ifConditionBasic>
+        <key myvalue="Connscan-Remote-Address"/>
+        <value myvalue="192.154.6.7"/>
+        <collection myvalue="testcollection"/>
+        <operator myvalue="contains"/>
+      </ifConditionBasic>

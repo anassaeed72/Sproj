@@ -38,4 +38,5 @@ for line in f.split("\n"):
 
 client = MongoClient()
 db = client.test
-db.testcollection.insert_many(aDict)
+if len(aDict) != 0:
+	db.testcollection.insert_many(aDict)

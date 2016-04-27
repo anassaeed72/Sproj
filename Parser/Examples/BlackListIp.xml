@@ -1,4 +1,4 @@
-<operations>
+<operations description="Script that runs for checking whether any black list IP is connected or not.">
 	
 	<operation>
 		<operationName myvalue="Connscan"/>

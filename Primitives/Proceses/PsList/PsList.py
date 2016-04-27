@@ -12,8 +12,11 @@ Print.Print(PrintLevel.Command, "PsList Done")
 count = 0
 index = 0
 aDict = []
-aDict2= {}
-
+aDict2 = {}
+# line3={'PsList-Offset' :'1','PsList-Name':'keylogger.exe','PsList-PID':'10','PsList-PPID':'100'}
+# aDict.append(line3)
+# line3={'PsList-Offset' :'1','PsList-Name':'keyloggerxyz.exe','PsList-PID':'10','PsList-PPID':'100'}
+# aDict.append(line3)
 line2=['PsList-Offset','PsList-Name','PsList-PID','PsList-PPID','PsList-Thds','PsList-Hnds','PsList-Sess','PsList-Wow64','PsList-Start','PsList-Start','PsList-Start','PsList-Exit','PsList-Exit','PsList-Exit','PsList-temp']
 # for x in arrayOfFiles:
 # 	if os.path.exists(x):
