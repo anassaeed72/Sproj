@@ -1,17 +1,5 @@
 <operation>
-    <operationName myvalue="ifMultiple"/>
-    <ifConditionMultiple myvalue="or">
-      <ifConditionBasic>
-        <key myvalue="Connscan-Remote-Address"/>
-        <value myvalue="192.154.6.7"/>
-        <collection myvalue="testcollection"/>
-        <operator myvalue="contains"/>
-      </ifConditionBasic>
-      <ifConditionBasic>
-        <key myvalue="Connscan-Remote-Address"/>
-        <value myvalue="192.154.6.88"/>
-        <collection myvalue="testcollection"/>
-        <operator myvalue="contains"/>
-      </ifConditionBasic>
-    </ifConditionMultiple>
+    <operationName myvalue="Yara"/>
+    <operationInputFile myvalue="MemoryDumps/KeyLogger.vmem"/>
+    <operationPath myvalue="Primitives/Yara"/>
   </operation>

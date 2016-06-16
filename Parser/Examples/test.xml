@@ -1,8 +1,8 @@
 
 <operations>
-  <operation>
-    <operationName myvalue="Yara" />
-    <operationInputFile myvalue="MemoryDumps" />
-    <operationPath myvalue="Primitives/Yara" />
+   <operation>
+    <operationName myvalue="WindowsAPI" />
+    <operationInputFile myvalue="MemoryDumps/zeus.vmem" />
+    <operationPath myvalue="Primitives/Proceses/WindowsAPI" />
   </operation>
 </operations>

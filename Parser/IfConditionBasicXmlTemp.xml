@@ -1,6 +1,6 @@
 <ifConditionBasic>
-        <key myvalue="Connscan-Remote-Address"/>
-        <value myvalue="192.154.6.7"/>
-        <collection myvalue="testcollection"/>
-        <operator myvalue="contains"/>
-      </ifConditionBasic>
+      <key myvalue="WindowsAPI-Name"/>
+      <value myvalue="GetAsyncKeyState"/>
+      <collection myvalue="WindowsAPICollection"/>
+      <operator myvalue="contains"/>
+    </ifConditionBasic>

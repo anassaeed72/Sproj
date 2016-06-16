@@ -13,6 +13,7 @@ class IfConditionMultiple(object):
 		super(IfConditionMultiple, self).__init__()
 		self.fileName = fileName
 		self.ifMultipleOperator = "and"
+		self.result = "True"
 	def flatten(self,seq):
 		for item in seq:
 			if isinstance(item,(etree._Element,)):
@@ -44,7 +45,8 @@ class IfConditionMultiple(object):
 		  	  		if self.ifMultipleOperator == "and" and outputIfBasic == False:
 		  	  			Print.Print(PrintLevel.NewLine,"")
 		  	  			Print.Print(PrintLevel.IfConditionAnswerMultiple,"If Condition Multiple: False")
-		  	  			sys.exit()
+		  	  			# sys.exit()
+		  	  			self.result = "False"
 	def evaluate(self):
 		e = etree.parse(self.fileName)
 		Print.Print(PrintLevel.BaseClass, "In Multiple If Condition")		
@@ -52,6 +54,7 @@ class IfConditionMultiple(object):
 		ifMultiple = xmldoc.getElementsByTagName('ifConditionMultiple')
 		self.ifMultipleOperator = "and"#ifMultiple[0].attributes['myvalue'].value
 		depthCheck = int(0)
+		self.result = "True"
 		if depthCheck >10:
 			sys.exit()
 		depthCheck = depthCheck+1
@@ -60,5 +63,5 @@ class IfConditionMultiple(object):
 		self.flatten(e.xpath('/ifConditionMultiple/node()'))
 		if self.ifMultipleOperator == "and":
 			Print.Print(PrintLevel.NewLine,"")
-			Print.Print(PrintLevel.IfConditionAnswerMultiple, "If Condition Multiple Final : True")
+			Print.Print(PrintLevel.IfConditionAnswerMultiple, "If Condition Multiple Final : "+ self.result)
 

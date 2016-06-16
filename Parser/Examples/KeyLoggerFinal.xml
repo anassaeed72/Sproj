@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<operations>
+<operations description="Script for Detecting Key Logger using Name, Connections, Dlls Code Injection and Windows APIs">
   <operation>
     <operationName myvalue="PsList" />
-    <operationInputFile myvalue="MemoryDumps/zeus.vmem" />
+    <operationInputFile myvalue="MemoryDumps/KeyLogger.vmem" />
     <operationPath myvalue="Primitives/Proceses/PsList" />
   </operation>
   <operation>
@@ -22,42 +22,11 @@
       </ifConditionBasic>
     </ifConditionMultiple>
   </operation>
-  
-  
-  <operation>
-    <operationName myvalue="DllList" />
-    <operationInputFile myvalue="MemoryDumps/zeus.vmem" />
-    <operationPath myvalue="Primitives/Proceses/DllList" />
-  </operation>
-  <operation>
-    <operationName myvalue="ifMultiple" />
-    <ifConditionMultiple myvalue="and">
-      <ifConditionBasic>
-        <key myvalue="DllList-Path" />
-        <value myvalue="C:\WINDOWS\system32\xpsp2res.dll" />
-        <collection myvalue="DllListCollection" />
-        <operator myvalue="contains" />
-      </ifConditionBasic>
-      <ifConditionBasic>
-        <key myvalue="DllList-Path" />
-        <value myvalue="C:\WINDOWS\system32\xpsp2res.dll" />
-        <collection myvalue="DllListCollection" />
-        <operator myvalue="contains" />
-      </ifConditionBasic>
-    </ifConditionMultiple>
-  </operation>
-  <operation>
-    <operationName myvalue="Yara" />
-    <operationInputFile myvalue="MemoryDumps/zeus.vmem" />
-    <operationPath myvalue="Primitives/Yara" />
-  </operation>
-
   <operation>
     <operationName myvalue="Connscan" />
-    <operationInputFile myvalue="MemoryDumps/zeus.vmem" />
+    <operationInputFile myvalue="MemoryDumps/KeyLogger.vmem" />
     <operationPath myvalue="Primitives/Networking/Connscan" />
   </operation>
-
   <operation>
     <operationName myvalue="ifMultiple" />
     <ifConditionMultiple myvalue="or">
@@ -75,7 +44,59 @@
       </ifConditionBasic>
     </ifConditionMultiple>
   </operation>
-
-
-
+  <operation>
+    <operationName myvalue="DllList" />
+    <operationInputFile myvalue="MemoryDumps/KeyLogger.vmem" />
+    <operationPath myvalue="Primitives/Proceses/DllList" />
+  </operation>
+  <operation>
+    <operationName myvalue="ifMultiple" />
+    <ifConditionMultiple myvalue="and">
+      <ifConditionBasic>
+        <key myvalue="DllList-Path" />
+        <value myvalue="C:\WINDOWS\system32\ntshrui.dll" />
+        <collection myvalue="DllListCollection" />
+        <operator myvalue="contains" />
+      </ifConditionBasic>
+      <ifConditionBasic>
+        <key myvalue="DllList-Path" />
+        <value myvalue="C:\WINDOWS\system32\OLEAUT32.dll" />
+        <collection myvalue="DllListCollection" />
+        <operator myvalue="contains" />
+      </ifConditionBasic>
+      <ifConditionBasic>
+        <key myvalue="DllList-Path" />
+        <value myvalue="C:\WINDOWS\system32\bpki.dll" />
+        <collection myvalue="DllListCollection" />
+        <operator myvalue="contains" />
+      </ifConditionBasic>
+    </ifConditionMultiple>
+  </operation>
+  <operation>
+    <operationName myvalue="WindowsAPI" />
+    <operationInputFile myvalue="MemoryDumps/KeyLogger.vmem" />
+    <operationPath myvalue="Primitives/Proceses/WindowsAPI" />
+  </operation>
+  <operation>
+    <operationName myvalue="ifMultiple" />
+    <ifConditionMultiple myvalue="and">
+      <ifConditionBasic>
+        <key myvalue="WindowsAPI-Name" />
+        <value myvalue="SetWindowsHookEx" />
+        <collection myvalue="WindowsAPICollection" />
+        <operator myvalue="contains" />
+      </ifConditionBasic>
+      <ifConditionBasic>
+      <key myvalue="WindowsAPI-Name" />
+      <value myvalue="GetAsyncKeyState" />
+      <collection myvalue="WindowsAPICollection" />
+      <operator myvalue="contains" />
+    </ifConditionBasic>
+    </ifConditionMultiple>
+  </operation>
+  <operation>
+    <operationName myvalue="Yara" />
+    <operationInputFile myvalue="MemoryDumps/KeyLogger.vmem" />
+    <operationPath myvalue="Primitives/Yara" />
+  </operation>
 </operations>

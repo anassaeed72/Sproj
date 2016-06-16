@@ -17,22 +17,41 @@ class IfConditionBasic(object):
 		self.fileName = fileName
 	def evaluate(self):				
 		xmldoc = minidom.parse(self.fileName)
-
-		left = xmldoc.getElementsByTagName('key')
-		leftValue = left[0].attributes['myvalue'].value
-		right = xmldoc.getElementsByTagName('value')
-		rightValue = right[0].attributes['myvalue'].value
-
-		collection = xmldoc.getElementsByTagName('collection')
-		collectionValue = collection[0].attributes['myvalue'].value
-
-		operator = xmldoc.getElementsByTagName('operator')
-		operatorValue = operator[0].attributes['myvalue'].value
+		collectionValue = "NULL"
+		leftValue = ""
+		rightValue = ""
+		operatorValue = ""
+		try:
+			left = xmldoc.getElementsByTagName('key')
+			leftValue = left[0].attributes['myvalue'].value
+		except Exception, e:
+			pass
+		try:
+			right = xmldoc.getElementsByTagName('value')
+			rightValue = right[0].attributes['myvalue'].value
+		except Exception, e:
+			pass
+		try:
+			collection = xmldoc.getElementsByTagName('collection')
+			collectionValue = collection[0].attributes['myvalue'].value
+		except Exception, e:
+			pass
+			
+		try:
+			operator = xmldoc.getElementsByTagName('operator')
+			operatorValue = operator[0].attributes['myvalue'].value
+		except Exception, e:
+			pass
+		
 
 		client = MongoClient()
 		db = client.test
-
+		
 		if collectionValue=="DOSCollection":
+			print ("\nDOS Detection")
+			print  ("Operator : " + operatorValue)
+			print("Left Hand Side Value : " +leftValue )
+			print ("Right Hand Side Value : " +rightValue+"\n")
 			cursor = list(db.randCollection.aggregate([
 		    {"$group" : {"_id" : "$SenderIP", "count":  { "$sum" : 1}}
 
@@ -66,7 +85,45 @@ class IfConditionBasic(object):
 					return False
 				sys.exit()
 
+			if operatorValue == "greaterThan":
+				for document in cursor:
+					if document["count"]>=rightValue and document["_id"] == leftValue:
+						return True
 			
+			if operatorValue =="topSenders":
+				print "in topSenders"
+				client = MongoClient()
+				db = client.test
+				cursor = list(db.randCollection.aggregate([
+				{"$group" : {"_id" : "$SenderIP", "count":  { "$sum" : 1}}
+				},
+				{"$limit": int(rightValue)}]))
+				sumOfPackets = 0;
+				IpList= []
+				for document in cursor:
+					if document["count"] < int(leftValue):
+
+						return False
+					IpList.append(document["_id"])
+
+				print ("IPs with more then " + str(leftValue) +" packets")
+				for IP in IpList:
+					print IP				
+				return True
+			if operatorValue =="topSendersSum":
+				client = MongoClient()
+				db = client.test
+				cursor = list(db.randCollection.aggregate([
+				{"$group" : {"_id" : "$SenderIP", "count":  { "$sum" : 1}}
+				},
+				{"$limit": int(rightValue)}]))
+				sumOfPackets = 0;
+				for document in cursor:
+
+					sumOfPackets = sumOfPackets + document["count"]
+				if sumOfPackets >= int(leftValue):
+					return True
+				return False
 			for document in cursor:
 				# print document
 				if document["_id"]== leftValue:
@@ -103,3 +160,34 @@ class IfConditionBasic(object):
 				Print.Print(PrintLevel.IfConditionAnswerBasic,"false")
 				return False 
 			sys.exit()
+		if operatorValue == "Inversion":
+			print " in Inversion"
+			innerCollection = xmldoc.getElementsByTagName('innerCollection')
+			outerCollection = xmldoc.getElementsByTagName('outerCollection')
+			innerCollectionField = xmldoc.getElementsByTagName('innerCollectionField')
+			outerCollectionField = xmldoc.getElementsByTagName('outerCollectionField')
+
+			innerCollectionValue = innerCollection[0].attributes['myvalue'].value
+			outerCollectionValue = outerCollection[0].attributes['myvalue'].value
+			innerCollectionFieldValue = innerCollectionField[0].attributes['myvalue'].value
+			outerCollectionFieldValue = outerCollectionField[0].attributes['myvalue'].value
+			Print.Print(PrintLevel.IfConditionFormatting,"If Condition Evaluation")
+			Print.Print(PrintLevel.IfConditionFormatting,"Operation : Inversion")
+			Print.Print(PrintLevel.IfConditionFormatting,"Inner Collection : " +innerCollectionValue)
+			Print.Print(PrintLevel.IfConditionFormatting,"Inner Collection Field : " +innerCollectionFieldValue)
+			Print.Print(PrintLevel.IfConditionFormatting,"Output Collection : " + outerCollectionValue)
+			Print.Print(PrintLevel.IfConditionFormatting,"Output Collection Field : " +outerCollectionFieldValue )
+			cursor = db[outerCollectionValue].find()
+			for document in cursor:
+				if self.findObjectInCollectionAbsent(innerCollectionValue,innerCollectionFieldValue,document[outerCollectionFieldValue]):
+					print ("Process Found is : " + document[outerCollectionFieldValue])
+					return True
+		return False
+
+	def findObjectInCollectionAbsent(self,collection,toFindField,toFindValue):
+		client = MongoClient()
+		db = client.test
+		cursor = db[collection].find({toFindField:toFindValue})
+		for document in cursor:
+			return False
+		return True

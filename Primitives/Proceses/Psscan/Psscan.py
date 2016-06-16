@@ -40,5 +40,6 @@ for line in output.split("\n"):
 
 client = MongoClient()
 db = client.test
-db.PsxViewCollection.insert_many(aDict)
-Print.Print(PrintLevel,Command, "Psscan Added to DB")
+if aDict:
+	db.PsscanCollection.insert_many(aDict)
+print("Psscan Added to DB")

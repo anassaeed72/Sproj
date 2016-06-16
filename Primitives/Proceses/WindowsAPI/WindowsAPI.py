@@ -9,21 +9,19 @@ if len(sys.argv) <2:
 	Print.Print(PrintLevel.Error,'Arguments not given')
 	sys.exit()
 Print.Print(PrintLevel.Command,"WindowsAPI Starting")
-# commandToExecute = 'python vol.py -f ' + sys.argv[1] + " enumfunc -h"
+
 commandToExecute = "python vol.py  -f home/xen/Documents/zeus.vmem enumfunc -K"
-proc=subprocess.Popen(commandToExecute, shell=True, stdout=subprocess.PIPE, )
+# proc=subprocess.Popen(commandToExecute, shell=True, stdout=subprocess.PIPE, )
 Print.Print(PrintLevel.Command, "WindowsAPI Ended")
-output=proc.communicate()[0]
+output = ""
+# output=proc.communicate()[0]
+# print output
 count = 0
 index = 0
 aDict = []
 aDict2= {}
 
-line2=['DllList-Base','DllList-Size','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path','DllList-Path']
-
-Print.Print(PrintLevel.RawOuput, output)
-
-exit(0)
+line2=['WindowsAPI-Base','WindowsAPI-Size','WindowsAPI-Path','WindowsAPI-Path','WindowsAPI-Path','WindowsAPI-Path','WindowsAPI-Path','WindowsAPI-Path','WindowsAPI-Path','WindowsAPI-Path','WindowsAPI-Path','WindowsAPI-Path','WindowsAPI-Path','WindowsAPI-Path','WindowsAPI-Path','WindowsAPI-Path','WindowsAPI-Path','WindowsAPI-Path','WindowsAPI-Path','WindowsAPI-Path','WindowsAPI-Path','WindowsAPI-Path','WindowsAPI-Path','WindowsAPI-Path','WindowsAPI-Path','WindowsAPI-Path','WindowsAPI-Path']
 
 for line in output.split("\n"):
 	count = count +1
@@ -49,5 +47,5 @@ client = MongoClient()
 db = client.test
 if aDict:
 	pass
-	# db.WindowsAPICollection.insert_many(aDict)
+	db.WindowsAPICollection.insert_many(aDict)
 Print.Print(PrintLevel.Command,"WindowsAPI Added data to DB")

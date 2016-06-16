@@ -5,11 +5,12 @@ from pymongo import MongoClient
 from Print import Print
 from Constants import PrintLevel
 
+
+
 Print.Print(PrintLevel.Command, "PsxView Starting")
 proc=subprocess.Popen('python vol.py -f '+sys.argv[1]+' psxview', shell=True, stdout=subprocess.PIPE, )
 output=proc.communicate()[0]
 Print.Print(PrintLevel.Command, "PsxView Done")
-Print.Print(PrintLevel.RawOutput, output)
 count = 0
 index = 0
 aDict = []
@@ -40,4 +41,6 @@ for line in output.split("\n"):
 
 client = MongoClient()
 db = client.test
-db.PsxViewCollection.insert_many(aDict)
+if aDict:
+	db.PsxViewCollection.insert_many(aDict)
+print ("PsxView Data added to DB")

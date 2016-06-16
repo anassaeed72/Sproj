@@ -1,0 +1,6 @@
+# BANNER FILE NOT PROVIDED (-b option)
+# BULK_EXTRACTOR-Version: 1.5.0 ($Rev: 10844 $)
+# Feature-Recorder: ether
+# Filename: /home/xen/Documents/scripts/Primitives/Utility/ABC.mem
+# Histogram-File-Version: 1.1
+n=156	00:16:3E:70:02:01
