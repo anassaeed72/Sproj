@@ -1,0 +1,12 @@
+<ifConditionMultiple>
+			<ifConditionBasic>
+				<left myvalue="left"/>
+				<right myvalue="right"/>
+				<operator myvalue="operator"/>
+			</ifConditionBasic>
+			<ifConditionBasic>
+				<left myvalue="left"/>
+				<right myvalue="right"/>
+				<operator myvalue="operator"/>
+			</ifConditionBasic>
+		</ifConditionMultiple>

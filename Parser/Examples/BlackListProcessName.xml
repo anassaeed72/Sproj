@@ -1,0 +1,23 @@
+<operations>
+	
+	<operation>
+		<operationName myvalue="PsList"/>
+		<operationInputFile myvalue="MemoryDumps/zeus.vmem"/>
+		<operationPath  myvalue="Primitives/Proceses/PsList"/>
+	</operation>
+
+	<operation>
+		<operationName myvalue="ifMultiple"/>
+		<ifConditionMultiple myvalue="and">
+		
+			<ifConditionBasic>
+				<key myvalue="PsList-Name"/>
+				<value myvalue="svchost.exe"/>
+				<collection myvalue="PsListCollection"/>
+				<operator myvalue="contains"/>
+			</ifConditionBasic>
+
+		</ifConditionMultiple>
+	</operation>
+
+</operations>

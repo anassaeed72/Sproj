@@ -1,0 +1,16 @@
+# BANNER FILE NOT PROVIDED (-b option)
+# BULK_EXTRACTOR-Version: 1.5.0 ($Rev: 10844 $)
+# Feature-Recorder: ether
+# Filename: test.mem
+# Feature-File-Version: 1.1
+810409984	00:16:3E:70:02:01	 (ether_shost) 
+810412032	00:16:3E:70:02:01	 (ether_shost) 
+810414080	00:16:3E:70:02:01	 (ether_shost) 
+810416128	00:16:3E:70:02:01	 (ether_shost) 
+810418176	00:16:3E:70:02:01	 (ether_shost) 
+810420224	00:16:3E:70:02:01	 (ether_shost) 
+810422272	00:16:3E:70:02:01	 (ether_shost) 
+810424320	00:16:3E:70:02:01	 (ether_shost) 
+810426368	00:16:3E:70:02:01	 (ether_shost) 
+803578534	00:16:3E:70:02:01	 (ether_shost) 
+804790214	00:16:3E:70:02:01	 (ether_shost) 

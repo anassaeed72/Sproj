@@ -1,0 +1,14 @@
+<ifConditionBasic>
+<<<<<<< HEAD
+      <key myvalue="WindowsAPI-Name"/>
+      <value myvalue="GetAsyncKeyState"/>
+      <collection myvalue="WindowsAPICollection"/>
+      <operator myvalue="contains"/>
+    </ifConditionBasic>
+=======
+				<key myvalue="0.0.0.0.68"/>
+				<value myvalue="100"/>
+				<collection myvalue="DOSCollection"/>
+				<operator myvalue="contains"/>
+			</ifConditionBasic>
+>>>>>>> eecd91e9fd97390d6cb0f1c5da81cdc0f38db5aa

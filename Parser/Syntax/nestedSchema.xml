@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operations>
+	<operation>
+		<operationName myvalue="nestedOperations" />
+		<nestedOperation myvalue="path to nested Schema file" />
+	</operation>
+</operations>

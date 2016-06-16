@@ -1,0 +1,71 @@
+<<<<<<< HEAD
+<?xml version="1.0" encoding="UTF-8"?>
+<operations description="DOS attack detection script">
+=======
+<operations description="DOS attack detection script">
+	
+>>>>>>> eecd91e9fd97390d6cb0f1c5da81cdc0f38db5aa
+	<operation>
+		<operationName myvalue="Bulk_Extractor" />
+		<operationInputFile myvalue="MemoryDumps/DOS.vmem" />
+		<operationPath myvalue="MemoryDumps/Bulk_Extractor" />
+	</operation>
+	<operation>
+		<operationName myvalue="TCP_DUMP" />
+		<operationInputFile myvalue="MemoryDumps/Bulk_Extractor/packets.pcap" />
+	</operation>
+	<operation>
+		<operationName myvalue="ifMultiple" />
+		<ifConditionMultiple myvalue="and">
+			<ifConditionBasic>
+<<<<<<< HEAD
+				<key myvalue="256.221.251.219" />
+				<value myvalue="5000" />
+				<collection myvalue="DOSCollection" />
+				<operator myvalue="greaterThan" />
+=======
+				<key myvalue="0.0.0.0.68"/>
+				<value myvalue="100"/>
+				<collection myvalue="DOSCollection"/>
+				<operator myvalue="contains"/>
+>>>>>>> eecd91e9fd97390d6cb0f1c5da81cdc0f38db5aa
+			</ifConditionBasic>
+			<ifConditionBasic>
+				<key myvalue="5000" />
+				<value myvalue="5" />
+				<collection myvalue="DOSCollection" />
+				<operator myvalue="topSendersSum" />
+			</ifConditionBasic>
+			<ifConditionBasic>
+				<key myvalue="10" />
+				<value myvalue="5" />
+				<collection myvalue="DOSCollection" />
+				<operator myvalue="topSenders" />
+			</ifConditionBasic>
+			<ifConditionBasic>
+				<key myvalue="168.97.85.92" />
+				<value myvalue="5000" />
+				<collection myvalue="DOSCollection" />
+				<operator myvalue="contains" />
+			</ifConditionBasic>
+			<ifConditionBasic>
+				<key myvalue="56.21.51.19" />
+				<value myvalue="5000" />
+				<collection myvalue="DOSCollection" />
+				<operator myvalue="contains" />
+			</ifConditionBasic>
+			<ifConditionBasic>
+				<key myvalue="" />
+				<value myvalue="1000" />
+				<collection myvalue="DOSCollection" />
+				<operator myvalue="average" />
+			</ifConditionBasic>
+			<ifConditionBasic>
+				<key myvalue="" />
+				<value myvalue="5000" />
+				<collection myvalue="DOSCollection" />
+				<operator myvalue="sum" />
+			</ifConditionBasic>
+		</ifConditionMultiple>
+	</operation>
+</operations>

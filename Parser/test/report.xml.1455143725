@@ -1,0 +1,274 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dfxml xmloutputversion='1.0'>
+  <metadata 
+  xmlns='http://afflib.org/bulk_extractor/' 
+  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' 
+  xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <dc:type>Feature Extraction</dc:type>
+  </metadata>
+  <creator version='1.0'>
+    <program>BULK_EXTRACTOR</program>
+    <version>1.5.0</version>
+    <build_environment>
+      <compiler>5.2.1 (5.2.1 20151028)</compiler>
+      <CPPFLAGS> -I/usr/local/include -DUTC_OFFSET=-0500</CPPFLAGS>
+      <CFLAGS>-g     -pthread -g -O3 -MD -Wpointer-arith -Wmissing-declarations -Wmissing-prototypes -Wshadow -Wwrite-strings -Wcast-align -Waggregate-return -Wbad-function-cast -Wcast-qual -Wundef -Wredundant-decls -Wdisabled-optimization -Wfloat-equal -Wmultichar -Wc++-compat -Wmissing-noreturn -Wall -Wstrict-prototypes -fPIC   -D_FORTIFY_SOURCE=2 </CFLAGS>
+      <CXXFLAGS>-g -pthread -g -O3 -std=c++11 -Wall -MD -D_FORTIFY_SOURCE=2 -Wpointer-arith -Wshadow -Wwrite-strings -Wcast-align -Wredundant-decls -Wdisabled-optimization -Wfloat-equal -Wmultichar -Wmissing-noreturn -Woverloaded-virtual -Wsign-promo -funit-at-a-time -Weffc++  -fPIC -D_FORTIFY_SOURCE=2 </CXXFLAGS>
+      <LDFLAGS> -L/usr/local/lib</LDFLAGS>
+      <LIBS>-lewf -lstdc++ -lexpat -lz -ldl  -lssl -lcrypto </LIBS>
+      <compilation_date>2015-12-02T12:41:00</compilation_date>
+      <library name="libewf" version="20140608"/>
+    </build_environment>
+    <execution_environment>
+      <os_sysname>Linux</os_sysname>
+      <os_release>4.2.0-1-amd64</os_release>
+      <os_version>#1 SMP Debian 4.2.6-1 (2015-11-10)</os_version>
+      <host>debian</host>
+      <arch>x86_64</arch>
+      <command_line>bulk_extractor -E net -o test /home/xen/Documents/scripts/Primitives/Utility/ABC.mem</command_line>
+      <uid>1000</uid>
+      <username>xen</username>
+      <start_time>2016-02-10T22:33:49Z</start_time>
+    </execution_environment>
+  </creator>
+  <configuration>
+    <threads>4</threads>
+    <pagesize>16777216</pagesize>
+    <marginsize>4194304</marginsize>
+    <scanners>
+      <scanner>net</scanner>
+    </scanners>
+  </configuration>
+  <provided_filename>/home/xen/Documents/scripts/Primitives/Utility/ABC.mem</provided_filename>
+  <timestamp name='phase1 start' delta='0.064597' total='0.064597'/>
+  <runtime xmlns:debug="http://www.afflib.org/bulk_extractor/debug">
+    <debug:work_start threadid='3' pos0='0' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_start threadid='0' pos0='16777216' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='3' pos0='0' time='0.451448'/>
+    <debug:work_start threadid='1' pos0='33554432' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='0' pos0='16777216' time='0.438219'/>
+    <debug:work_start threadid='2' pos0='50331648' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='1' pos0='33554432' time='0.441594'/>
+    <debug:work_start threadid='3' pos0='67108864' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='2' pos0='50331648' time='0.446344'/>
+    <debug:work_start threadid='0' pos0='83886080' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='3' pos0='67108864' time='0.458838'/>
+    <debug:work_start threadid='1' pos0='100663296' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='0' pos0='83886080' time='0.450615'/>
+    <debug:work_start threadid='2' pos0='117440512' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='1' pos0='100663296' time='0.451176'/>
+    <debug:work_start threadid='3' pos0='134217728' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='2' pos0='117440512' time='0.437555'/>
+    <debug:work_start threadid='0' pos0='150994944' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='3' pos0='134217728' time='0.438167'/>
+    <debug:work_start threadid='1' pos0='167772160' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='0' pos0='150994944' time='0.430862'/>
+    <debug:work_start threadid='2' pos0='184549376' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='1' pos0='167772160' time='0.436134'/>
+    <debug:work_start threadid='3' pos0='201326592' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_start threadid='0' pos0='218103808' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='2' pos0='184549376' time='0.437481'/>
+    <debug:work_start threadid='1' pos0='234881024' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='3' pos0='201326592' time='0.444368'/>
+    <debug:work_start threadid='2' pos0='251658240' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='0' pos0='218103808' time='0.443994'/>
+    <debug:work_start threadid='3' pos0='268435456' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='1' pos0='234881024' time='0.452505'/>
+    <debug:work_start threadid='0' pos0='285212672' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='2' pos0='251658240' time='0.441241'/>
+    <debug:work_start threadid='1' pos0='301989888' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='3' pos0='268435456' time='0.445286'/>
+    <debug:work_end threadid='0' pos0='285212672' time='0.43533'/>
+    <debug:work_start threadid='2' pos0='318767104' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='1' pos0='301989888' time='0.439269'/>
+    <debug:work_start threadid='3' pos0='335544320' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='2' pos0='318767104' time='0.434856'/>
+    <debug:work_start threadid='0' pos0='352321536' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='3' pos0='335544320' time='0.442357'/>
+    <debug:work_start threadid='1' pos0='369098752' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='0' pos0='352321536' time='0.435022'/>
+    <debug:work_start threadid='2' pos0='385875968' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_start threadid='3' pos0='402653184' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='1' pos0='369098752' time='0.438559'/>
+    <debug:work_start threadid='0' pos0='419430400' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='2' pos0='385875968' time='0.441379'/>
+    <debug:work_start threadid='1' pos0='436207616' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='3' pos0='402653184' time='0.445001'/>
+    <debug:work_start threadid='2' pos0='452984832' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='0' pos0='419430400' time='0.444199'/>
+    <debug:work_start threadid='3' pos0='469762048' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='1' pos0='436207616' time='0.435125'/>
+    <debug:work_start threadid='0' pos0='486539264' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='2' pos0='452984832' time='0.440341'/>
+    <debug:work_start threadid='1' pos0='503316480' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='3' pos0='469762048' time='0.436911'/>
+    <debug:work_start threadid='2' pos0='520093696' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='0' pos0='486539264' time='0.444414'/>
+    <debug:work_start threadid='3' pos0='536870912' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='1' pos0='503316480' time='0.442829'/>
+    <debug:work_start threadid='0' pos0='553648128' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='2' pos0='520093696' time='0.445998'/>
+    <debug:work_end threadid='3' pos0='536870912' time='0.444283'/>
+    <debug:work_start threadid='1' pos0='570425344' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_start threadid='2' pos0='587202560' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='0' pos0='553648128' time='0.439717'/>
+    <debug:work_start threadid='3' pos0='603979776' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='1' pos0='570425344' time='0.44408'/>
+    <debug:work_start threadid='0' pos0='620756992' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='2' pos0='587202560' time='0.438144'/>
+    <debug:work_end threadid='3' pos0='603979776' time='0.437036'/>
+    <debug:work_start threadid='1' pos0='637534208' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='0' pos0='620756992' time='0.442462'/>
+    <debug:work_start threadid='2' pos0='654311424' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_start threadid='3' pos0='671088640' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='1' pos0='637534208' time='0.442986'/>
+    <debug:work_start threadid='0' pos0='687865856' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='2' pos0='654311424' time='0.440417'/>
+    <debug:work_start threadid='1' pos0='704643072' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='3' pos0='671088640' time='0.447981'/>
+    <debug:work_start threadid='2' pos0='721420288' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='0' pos0='687865856' time='0.440688'/>
+    <debug:work_start threadid='3' pos0='738197504' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='1' pos0='704643072' time='0.446141'/>
+    <debug:work_end threadid='2' pos0='721420288' time='0.444648'/>
+    <debug:work_start threadid='0' pos0='754974720' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='3' pos0='738197504' time='0.449664'/>
+    <debug:work_start threadid='1' pos0='771751936' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_start threadid='2' pos0='788529152' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='0' pos0='754974720' time='0.447202'/>
+    <debug:work_start threadid='3' pos0='805306368' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='1' pos0='771751936' time='0.443796'/>
+    <debug:work_end threadid='2' pos0='788529152' time='0.440282'/>
+    <debug:work_start threadid='0' pos0='822083584' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='3' pos0='805306368' time='0.43811'/>
+    <debug:work_start threadid='1' pos0='838860800' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='0' pos0='822083584' time='0.428503'/>
+    <debug:work_start threadid='2' pos0='855638016' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='2' pos0='855638016' time='0.195901'/>
+    <debug:work_end threadid='1' pos0='838860800' time='0.417958'/>
+    <debug:work_start threadid='3' pos0='872415232' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_start threadid='0' pos0='889192448' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='3' pos0='872415232' time='0.224859'/>
+    <debug:work_start threadid='2' pos0='905969664' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='0' pos0='889192448' time='0.226587'/>
+    <debug:work_start threadid='1' pos0='922746880' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='2' pos0='905969664' time='0.227549'/>
+    <debug:work_start threadid='3' pos0='939524096' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='1' pos0='922746880' time='0.22639'/>
+    <debug:work_start threadid='0' pos0='956301312' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='3' pos0='939524096' time='0.226146'/>
+    <debug:work_start threadid='2' pos0='973078528' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='0' pos0='956301312' time='0.224991'/>
+    <debug:work_start threadid='1' pos0='989855744' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='2' pos0='973078528' time='0.225904'/>
+    <debug:work_start threadid='3' pos0='1006632960' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='1' pos0='989855744' time='0.226075'/>
+    <debug:work_end threadid='3' pos0='1006632960' time='0.226152'/>
+    <debug:work_start threadid='0' pos0='1023410176' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_start threadid='2' pos0='1040187392' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='0' pos0='1023410176' time='0.228172'/>
+    <debug:work_start threadid='1' pos0='1056964608' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='2' pos0='1040187392' time='0.225496'/>
+    <debug:work_start threadid='3' pos0='1073741824' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='1' pos0='1056964608' time='0.225886'/>
+    <debug:work_start threadid='0' pos0='1090519040' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='3' pos0='1073741824' time='0.229158'/>
+    <debug:work_start threadid='2' pos0='1107296256' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='0' pos0='1090519040' time='0.226305'/>
+    <debug:work_start threadid='1' pos0='1124073472' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='2' pos0='1107296256' time='0.22624'/>
+    <debug:work_start threadid='3' pos0='1140850688' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='1' pos0='1124073472' time='0.22892'/>
+    <debug:work_start threadid='0' pos0='1157627904' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='3' pos0='1140850688' time='0.229161'/>
+    <debug:work_start threadid='2' pos0='1174405120' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='0' pos0='1157627904' time='0.227715'/>
+    <debug:work_start threadid='1' pos0='1191182336' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='2' pos0='1174405120' time='0.22719'/>
+    <debug:work_start threadid='3' pos0='1207959552' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='1' pos0='1191182336' time='0.225846'/>
+    <debug:work_start threadid='0' pos0='1224736768' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='3' pos0='1207959552' time='0.225991'/>
+    <debug:work_start threadid='2' pos0='1241513984' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='0' pos0='1224736768' time='0.227579'/>
+    <debug:work_start threadid='1' pos0='1258291200' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='2' pos0='1241513984' time='0.226087'/>
+    <debug:work_start threadid='3' pos0='1275068416' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='1' pos0='1258291200' time='0.225947'/>
+    <debug:work_start threadid='0' pos0='1291845632' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='3' pos0='1275068416' time='0.224596'/>
+    <debug:work_start threadid='2' pos0='1308622848' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='0' pos0='1291845632' time='0.229145'/>
+    <debug:work_start threadid='1' pos0='1325400064' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='2' pos0='1308622848' time='0.228301'/>
+    <debug:work_start threadid='3' pos0='1342177280' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='1' pos0='1325400064' time='0.228474'/>
+    <debug:work_start threadid='0' pos0='1358954496' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='3' pos0='1342177280' time='0.225943'/>
+    <debug:work_start threadid='2' pos0='1375731712' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='0' pos0='1358954496' time='0.225838'/>
+    <debug:work_start threadid='1' pos0='1392508928' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='2' pos0='1375731712' time='0.227073'/>
+    <debug:work_start threadid='3' pos0='1409286144' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='1' pos0='1392508928' time='0.226591'/>
+    <debug:work_start threadid='0' pos0='1426063360' pagesize='16777216' bufsize='20971520'/>
+    <debug:work_end threadid='3' pos0='1409286144' time='0.231496'/>
+<!-- Time elapsed waiting for 2 threads to finish:
+     (timeout in 60 min.)
+ -->
+    <debug:work_end threadid='0' pos0='1426063360' time='0.224655'/>
+  </runtime>
+  <source>
+    <image_filename>/home/xen/Documents/scripts/Primitives/Utility/ABC.mem</image_filename>
+    <image_size>4278190080</image_size>
+    <hashdigest type='MD5'>52217a85e1317f3455d10bcae43cdab2</hashdigest>
+  </source>
+  <feature_files>
+    <feature_file><name>alerts</name>
+<count>0</count>
+</feature_file>
+
+    <feature_file><name>ether</name>
+<count>13</count>
+</feature_file>
+
+    <feature_file><name>ip</name>
+<count>29</count>
+</feature_file>
+
+    <thread_wait thread='0'>0</thread_wait>
+    <thread_wait thread='0'>11.0141</thread_wait>
+    <thread_wait thread='1'>11.1548</thread_wait>
+    <thread_wait thread='2'>11.5754</thread_wait>
+    <thread_wait thread='3'>10.7882</thread_wait>
+  </feature_files>
+  <timestamp name='phase1 end' delta='18.876986' total='18.941586'/>
+  <timestamp name='phase2 (shutdown) start' delta='0.000033' total='18.941622'/>
+  <timestamp name='phase2 (shutdown) end' delta='0.000153' total='18.941776'/>
+  <timestamp name='phase3 (histograms) start' delta='0.000027' total='18.941804'/>
+  <timestamp name='phase3 (histograms) end' delta='0.068250' total='19.010055'/>
+  <report>
+    <total_bytes>1442840576</total_bytes>
+    <elapsed_seconds>19.011887</elapsed_seconds>
+    <max_depth_seen>0</max_depth_seen>
+    <dup_data_encountered>0</dup_data_encountered>
+  </report>
+  <scanner_times>
+    <path><name>NET</name>
+<calls>51</calls>
+<seconds>20.759885</seconds>
+</path>
+
+  </scanner_times>
+  <rusage>
+    <utime>33.204000</utime>
+    <stime>0.460000</stime>
+    <maxrss>88644</maxrss>
+    <minflt>61744</minflt>
+    <majflt>25</majflt>
+    <nswap>0</nswap>
+    <inblock>2430432</inblock>
+    <oublock>96</oublock>
+    <clocktime>19.010287</clocktime>
+  </rusage>
+</dfxml>

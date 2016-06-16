@@ -1,0 +1,5 @@
+<operation>
+	<operationName myvalue="test"/>
+		<operationInputFile myvalue="tempinputfile"/>
+		<operationPath myvalue="OperationPath" />
+</operation>

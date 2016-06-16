@@ -1,0 +1,13 @@
+<operation>
+    <operationName myvalue="IfCondition"/>
+		<condition myvalue="condition"/>
+		<left myvalue ="OneOperation.py"/>
+		<right myvalue = "right"/>
+		<yesaction myvalue = "yesaction"/>
+		<noaction myvalue = "noaction" />
+</operation>
+
+
+
+
+

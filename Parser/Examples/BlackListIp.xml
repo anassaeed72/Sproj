@@ -1,0 +1,36 @@
+<operations description="Script that runs for checking whether any black list IP is connected or not.">
+	
+	<operation>
+		<operationName myvalue="Connscan"/>
+		<operationInputFile myvalue="MemoryDumps/zeus.vmem"/>
+		<operationPath  myvalue="Primitives/Networking/Connscan"/>
+	</operation>
+
+	<operation>
+		<operationName myvalue="ifMultiple"/>
+		<ifConditionMultiple myvalue="and">
+			
+			<ifConditionBasic>
+				<key myvalue="Connscan-Pid"/>
+				<value myvalue="856"/>
+				<collection myvalue="testcollection"/>
+				<operator myvalue="contains"/>
+			</ifConditionBasic>
+
+			<ifConditionBasic>
+				<key myvalue="Connscan-Local-Address"/>
+				<value myvalue="172.16.176.143:1054"/>
+				<collection myvalue="testcollection"/>
+				<operator myvalue="contains"/>
+			</ifConditionBasic>
+			<ifConditionBasic>
+				<key myvalue="Connscan-Remote-Address"/>
+				<value myvalue="193.104.41.75:80"/>
+				<collection myvalue="testcollection"/>
+				<operator myvalue="contains"/>
+			</ifConditionBasic>
+
+		</ifConditionMultiple>
+	</operation>
+
+</operations>

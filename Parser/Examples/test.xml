@@ -1,0 +1,8 @@
+
+<operations>
+   <operation>
+    <operationName myvalue="WindowsAPI" />
+    <operationInputFile myvalue="MemoryDumps/zeus.vmem" />
+    <operationPath myvalue="Primitives/Proceses/WindowsAPI" />
+  </operation>
+</operations>

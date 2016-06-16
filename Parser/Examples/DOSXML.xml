@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operations>
+	<operation>
+		<operationName myvalue="getDump"/>
+		<operationInputFile myvalue="/home/xen/Documents/scripts/Primitives/Utility/ABC.mem" />
+		<vmName myvalue="windows7-sp1"/>
+		<operationPath myvalue= "/home/xen/Documents/scripts/Primitives/Utility"/>
+	</operation>
+	
+	
+	<operation>
+		<operationName myvalue="DOS" />
+		<operationPath myvalue="/home/xen/Documents/scripts/Attacks" />
+		<vmName myvalue="/home/xen/Documents/scripts/Primitives/Utility/ABC.mem" />
+		<minPacket myvalue = "1"/>
+	</operation>
+	
+	<operation>
+		<operationName myvalue="Connscan"/>
+		<operationInputFile myvalue="/home/xen/Documents/scripts/Primitives/Utility/ABC.mem"/>
+		<operationPath  myvalue="/home/xen/Documents/scripts/Primitives/Networking/Connscan"/>
+	</operation>
+	
+	<operation>
+		<operationName myvalue="Connscan"/>
+		<operationInputFile myvalue="/home/xen/Documents/scripts/Primitives/Utility/ABC.mem"/>
+		<operationPath  myvalue="/home/xen/Documents/scripts/Primitives/Networking/Connscan"/>
+	</operation>
+	
+	<operation>
+		<operationName myvalue="Sockets"/>
+		<operationInputFile myvalue="/home/xen/Documents/scripts/Primitives/Utility/ABC.mem"/>
+		<operationPath  myvalue="/home/xen/Documents/scripts/Primitives/Networking/Sockets"/>
+	</operation>
+
+	<operation>
+		<operationName myvalue="NetScan"/>
+		<operationInputFile myvalue="/home/xen/Documents/scripts/Primitives/Utility/ABC.mem"/>
+		<operationPath  myvalue="/home/xen/Documents/scripts/Primitives/Networking/NetScan"/>
+	</operation>
+
+	<operation>
+		<operationName myvalue="SockScan"/>
+		<operationInputFile myvalue="/home/xen/Documents/scripts/Primitives/Utility/ABC.mem"/>
+		<operationPath  myvalue="/home/xen/Documents/scripts/Primitives/Networking/SockScan"/>
+	</operation>
+
+	<operation>
+		<operationName myvalue="PsList"/>
+		<operationInputFile myvalue="/home/xen/Documents/scripts/Primitives/Utility/ABC.mem"/>
+		<operationPath  myvalue="/home/xen/Documents/scripts/Primitives/Proceses/PsList"/>
+	</operation>
+	<operation>
+		<operationName myvalue="Psscan"/>
+		<operationInputFile myvalue="/home/xen/Documents/scripts/Primitives/Utility/ABC.mem"/>
+		<operationPath  myvalue="/home/xen/Documents/scripts/Primitives/Proceses/Psscan"/>
+	</operation>
+	
+
+	
+	
+</operations>

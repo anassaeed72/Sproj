@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operations description="Script for checking the presence of a rootkit, by checking its presence in three different databases">
+	<operation>
+		<operationName myvalue="PsList" />
+		<operationInputFile myvalue="MemoryDumps/Rootkit.vmem" />
+		<operationPath myvalue="Primitives/Proceses/PsList" />
+	</operation>
+	<operation>
+		<operationName myvalue="Psscan" />
+		<operationInputFile myvalue="MemoryDumps/Rootkit.vmem" />
+		<operationPath myvalue="Primitives/Proceses/Psscan" />
+	</operation>
+	<operation>
+		<operationName myvalue="PsxView" />
+		<operationInputFile myvalue="MemoryDumps/Rootkit.vmem" />
+		<operationPath myvalue="Primitives/Proceses/PsxView" />
+	</operation>
+	<operation>
+		<operationName myvalue="ifMultiple" />
+		<ifConditionMultiple myvalue="and">
+			<ifConditionBasic>
+				<key myvalue="PsList-Name" />
+				<value myvalue="agpbrdg5.sys" />
+				<collection myvalue="PsListCollection" />
+				<operator myvalue="contains" />
+			</ifConditionBasic>
+			<ifConditionBasic>
+				<key myvalue="PsList-Name" />
+				<value myvalue="alcop.sys" />
+				<collection myvalue="PsListCollection" />
+				<operator myvalue="contains" />
+			</ifConditionBasic>
+		</ifConditionMultiple>
+	</operation>
+	<operation>
+		<operationName myvalue="ifMultiple" />
+		<ifConditionMultiple myvalue="and">
+			<ifConditionBasic>
+				<key myvalue="Psscan-Name" />
+				<value myvalue="armdvc.sys" />
+				<collection myvalue="PsscanCollection" />
+				<operator myvalue="contains" />
+			</ifConditionBasic>
+			<ifConditionBasic>
+				<key myvalue="Psscan-Name" />
+				<value myvalue="63cica.sys" />
+				<collection myvalue="PsscanCollection" />
+				<operator myvalue="contains" />
+			</ifConditionBasic>
+		</ifConditionMultiple>
+	</operation>
+	<operation>
+		<operationName myvalue="ifMultiple" />
+		<ifConditionMultiple myvalue="and">
+			<ifConditionBasic>
+				<key myvalue="PsxView-Name" />
+				<value myvalue="agehhtd.cat" />
+				<collection myvalue="PsxviewCollection" />
+				<operator myvalue="contains" />
+			</ifConditionBasic>
+			<ifConditionBasic>
+				<key myvalue="PsxView-Name" />
+				<value myvalue="aiqpbter.chm" />
+				<collection myvalue="PsxviewCollection" />
+				<operator myvalue="contains" />
+			</ifConditionBasic>
+		</ifConditionMultiple>
+	</operation>
+	
+
+	 <operation>
+    <operationName myvalue="DllList" />
+    <operationInputFile myvalue="MemoryDumps/Rootkit.vmem" />
+    <operationPath myvalue="Primitives/Proceses/DllList" />
+  </operation>
+
+  <operation>
+    <operationName myvalue="ifMultiple" />
+    <ifConditionMultiple myvalue="and">
+      <ifConditionBasic>
+        <key myvalue="DllList-Path" />
+        <value myvalue="C:\WINDOWS\system32\ntshrui.dll" />
+        <collection myvalue="DllListCollection" />
+        <operator myvalue="contains" />
+      </ifConditionBasic>
+      <ifConditionBasic>
+        <key myvalue="DllList-Path" />
+        <value myvalue="C:\WINDOWS\system32\OLEAUT32.dll" />
+        <collection myvalue="DllListCollection" />
+        <operator myvalue="contains" />
+      </ifConditionBasic>
+      <ifConditionBasic>
+        <key myvalue="DllList-Path" />
+        <value myvalue="C:\WINDOWS\system32\bpki.dll" />
+        <collection myvalue="DllListCollection" />
+        <operator myvalue="contains" />
+      </ifConditionBasic>
+    </ifConditionMultiple>
+  </operation>
+  <operation>
+		<operationName myvalue="ifMultiple" />
+		<ifConditionMultiple myvalue="and">
+			<ifConditionBasic>
+				<innerCollection myvalue="PsListCollection" />
+				<outerCollection myvalue="PsxViewCollection" />
+				<innerCollectionField myvalue="PsList-Name" />
+				<outerCollectionField myvalue="PsxView-Name" />
+				<operator myvalue="Inversion" />
+			</ifConditionBasic>
+		</ifConditionMultiple>
+	</operation>
+	<operation>
+		<operationName myvalue="ifMultiple" />
+		<ifConditionMultiple myvalue="and">
+			<ifConditionBasic>
+				<innerCollection myvalue="PsListCollection" />
+				<outerCollection myvalue="PsscanCollection" />
+				<innerCollectionField myvalue="PsList-Name" />
+				<outerCollectionField myvalue="Psscan-Name" />
+				<operator myvalue="Inversion" />
+			</ifConditionBasic>
+		</ifConditionMultiple>
+	</operation>
+
+</operations>
