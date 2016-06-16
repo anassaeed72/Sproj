@@ -3,7 +3,14 @@
 # Feature-Recorder: ether
 # Filename: /home/xen/Documents/Sproj/MemoryDumps/zeus.vmem
 # Histogram-File-Version: 1.1
+<<<<<<< HEAD
 n=5494	00:0C:29:A4:81:79
 n=3075	00:50:56:F1:2D:82
 n=123	00:50:56:FC:2F:93
 n=123	01:00:5E:7F:FF:FA
+=======
+n=3618	00:0C:29:A4:81:79
+n=2025	00:50:56:F1:2D:82
+n=81	00:50:56:FC:2F:93
+n=81	01:00:5E:7F:FF:FA
+>>>>>>> eecd91e9fd97390d6cb0f1c5da81cdc0f38db5aa

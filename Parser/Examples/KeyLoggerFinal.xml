@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <operations description="Script for Detecting Key Logger using Name, Connections, Dlls Code Injection and Windows APIs">
   <operation>
     <operationName myvalue="PsList" />
     <operationInputFile myvalue="MemoryDumps/KeyLogger.vmem" />
+=======
+<operations>
+  <operation>
+    <operationName myvalue="PsList" />
+    <operationInputFile myvalue="MemoryDumps/zeus.vmem" />
+>>>>>>> eecd91e9fd97390d6cb0f1c5da81cdc0f38db5aa
     <operationPath myvalue="Primitives/Proceses/PsList" />
   </operation>
   <operation>
@@ -24,7 +31,11 @@
   </operation>
   <operation>
     <operationName myvalue="Connscan" />
+<<<<<<< HEAD
     <operationInputFile myvalue="MemoryDumps/KeyLogger.vmem" />
+=======
+    <operationInputFile myvalue="MemoryDumps/zeus.vmem" />
+>>>>>>> eecd91e9fd97390d6cb0f1c5da81cdc0f38db5aa
     <operationPath myvalue="Primitives/Networking/Connscan" />
   </operation>
   <operation>
@@ -46,7 +57,11 @@
   </operation>
   <operation>
     <operationName myvalue="DllList" />
+<<<<<<< HEAD
     <operationInputFile myvalue="MemoryDumps/KeyLogger.vmem" />
+=======
+    <operationInputFile myvalue="MemoryDumps/zeus.vmem" />
+>>>>>>> eecd91e9fd97390d6cb0f1c5da81cdc0f38db5aa
     <operationPath myvalue="Primitives/Proceses/DllList" />
   </operation>
   <operation>
@@ -54,12 +69,17 @@
     <ifConditionMultiple myvalue="and">
       <ifConditionBasic>
         <key myvalue="DllList-Path" />
+<<<<<<< HEAD
         <value myvalue="C:\WINDOWS\system32\ntshrui.dll" />
+=======
+        <value myvalue="C:\WINDOWS\system32\xpsp2res.dll" />
+>>>>>>> eecd91e9fd97390d6cb0f1c5da81cdc0f38db5aa
         <collection myvalue="DllListCollection" />
         <operator myvalue="contains" />
       </ifConditionBasic>
       <ifConditionBasic>
         <key myvalue="DllList-Path" />
+<<<<<<< HEAD
         <value myvalue="C:\WINDOWS\system32\OLEAUT32.dll" />
         <collection myvalue="DllListCollection" />
         <operator myvalue="contains" />
@@ -67,26 +87,40 @@
       <ifConditionBasic>
         <key myvalue="DllList-Path" />
         <value myvalue="C:\WINDOWS\system32\bpki.dll" />
+=======
+        <value myvalue="C:\WINDOWS\system32\grhp2res.dll" />
+>>>>>>> eecd91e9fd97390d6cb0f1c5da81cdc0f38db5aa
         <collection myvalue="DllListCollection" />
         <operator myvalue="contains" />
       </ifConditionBasic>
     </ifConditionMultiple>
   </operation>
   <operation>
+<<<<<<< HEAD
     <operationName myvalue="WindowsAPI" />
     <operationInputFile myvalue="MemoryDumps/KeyLogger.vmem" />
+=======
+    <operationName myvalue="DllList" />
+    <operationInputFile myvalue="MemoryDumps/zeus.vmem" />
+>>>>>>> eecd91e9fd97390d6cb0f1c5da81cdc0f38db5aa
     <operationPath myvalue="Primitives/Proceses/WindowsAPI" />
   </operation>
   <operation>
     <operationName myvalue="ifMultiple" />
     <ifConditionMultiple myvalue="and">
       <ifConditionBasic>
+<<<<<<< HEAD
         <key myvalue="WindowsAPI-Name" />
         <value myvalue="SetWindowsHookEx" />
+=======
+        <key myvalue="Windows-API" />
+        <value myvalue="C:\WINDOWS\system32\xpsp2res.dll" />
+>>>>>>> eecd91e9fd97390d6cb0f1c5da81cdc0f38db5aa
         <collection myvalue="WindowsAPICollection" />
         <operator myvalue="contains" />
       </ifConditionBasic>
       <ifConditionBasic>
+<<<<<<< HEAD
       <key myvalue="WindowsAPI-Name" />
       <value myvalue="GetAsyncKeyState" />
       <collection myvalue="WindowsAPICollection" />
@@ -99,4 +133,13 @@
     <operationInputFile myvalue="MemoryDumps/KeyLogger.vmem" />
     <operationPath myvalue="Primitives/Yara" />
   </operation>
+=======
+        <key myvalue="Windows-API" />
+        <value myvalue="C:\WINDOWS\system32\grhp2res.dll" />
+        <collection myvalue="WindowsAPICollection" />
+        <operator myvalue="contains" />
+      </ifConditionBasic>
+    </ifConditionMultiple>
+  </operation>
+>>>>>>> eecd91e9fd97390d6cb0f1c5da81cdc0f38db5aa
 </operations>

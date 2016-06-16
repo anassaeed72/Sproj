@@ -13,7 +13,10 @@ class IfConditionMultiple(object):
 		super(IfConditionMultiple, self).__init__()
 		self.fileName = fileName
 		self.ifMultipleOperator = "and"
+<<<<<<< HEAD
 		self.result = "True"
+=======
+>>>>>>> eecd91e9fd97390d6cb0f1c5da81cdc0f38db5aa
 	def flatten(self,seq):
 		for item in seq:
 			if isinstance(item,(etree._Element,)):
@@ -41,6 +44,13 @@ class IfConditionMultiple(object):
 		  	  		if self.ifMultipleOperator == "or" and outputIfBasic ==True:
 		  	  			Print.Print(PrintLevel.NewLine,"")
 		  	  			Print.Print(PrintLevel.IfConditionAnswerMultiple, "If Condition Multiple: True")
+<<<<<<< HEAD
+=======
+		  	  			sys.exit()
+		  	  		if self.ifMultipleOperator == "and" and outputIfBasic == False:
+		  	  			Print.Print(PrintLevel.NewLine,"")
+		  	  			Print.Print(PrintLevel.IfConditionAnswerMultiple,"If Condition Multiple: False")
+>>>>>>> eecd91e9fd97390d6cb0f1c5da81cdc0f38db5aa
 		  	  			sys.exit()
 		  	  		if self.ifMultipleOperator == "and" and outputIfBasic == False:
 		  	  			Print.Print(PrintLevel.NewLine,"")
@@ -63,5 +73,9 @@ class IfConditionMultiple(object):
 		self.flatten(e.xpath('/ifConditionMultiple/node()'))
 		if self.ifMultipleOperator == "and":
 			Print.Print(PrintLevel.NewLine,"")
+<<<<<<< HEAD
 			Print.Print(PrintLevel.IfConditionAnswerMultiple, "If Condition Multiple Final : "+ self.result)
+=======
+			Print.Print(PrintLevel.IfConditionAnswerMultiple, "If Condition Multiple Final : True")
+>>>>>>> eecd91e9fd97390d6cb0f1c5da81cdc0f38db5aa
 

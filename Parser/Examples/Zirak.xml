@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <operations description="DOS attack detection script">
+=======
+<operations description="DOS attack detection script">
+	
+>>>>>>> eecd91e9fd97390d6cb0f1c5da81cdc0f38db5aa
 	<operation>
 		<operationName myvalue="Bulk_Extractor" />
 		<operationInputFile myvalue="MemoryDumps/DOS.vmem" />
@@ -13,10 +18,17 @@
 		<operationName myvalue="ifMultiple" />
 		<ifConditionMultiple myvalue="and">
 			<ifConditionBasic>
+<<<<<<< HEAD
 				<key myvalue="256.221.251.219" />
 				<value myvalue="5000" />
 				<collection myvalue="DOSCollection" />
 				<operator myvalue="greaterThan" />
+=======
+				<key myvalue="0.0.0.0.68"/>
+				<value myvalue="100"/>
+				<collection myvalue="DOSCollection"/>
+				<operator myvalue="contains"/>
+>>>>>>> eecd91e9fd97390d6cb0f1c5da81cdc0f38db5aa
 			</ifConditionBasic>
 			<ifConditionBasic>
 				<key myvalue="5000" />

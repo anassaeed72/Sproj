@@ -1,4 +1,5 @@
 <ifConditionMultiple myvalue="and">
+<<<<<<< HEAD
       <ifConditionBasic>
         <key myvalue="WindowsAPI-Name"/>
         <value myvalue="SetWindowsHookEx"/>
@@ -12,3 +13,42 @@
       <operator myvalue="contains"/>
     </ifConditionBasic>
     </ifConditionMultiple>
+=======
+			<ifConditionBasic>
+				<key myvalue="0.0.0.0.68"/>
+				<value myvalue="100"/>
+				<collection myvalue="DOSCollection"/>
+				<operator myvalue="contains"/>
+			</ifConditionBasic>
+
+			<ifConditionBasic>
+				<key myvalue="172.16.176.143.1035"/>
+				<value myvalue="1"/>
+				<collection myvalue="DOSCollection"/>
+				<operator myvalue="contains"/>
+			</ifConditionBasic>
+			
+
+			<ifConditionBasic>
+				<key myvalue=""/>
+				<value myvalue="3"/>
+				<collection myvalue="DOSCollection"/>
+				<operator myvalue="average"/>
+			</ifConditionBasic>
+
+			<ifConditionBasic>
+				<key myvalue="172.16.176.143.1055"/>
+				<value myvalue="3"/>
+				<collection myvalue="DOSCollection"/>
+				<operator myvalue="contains"/>
+			</ifConditionBasic>
+
+			<ifConditionBasic>
+				<key myvalue=""/>
+				<value myvalue="30"/>
+				<collection myvalue="DOSCollection"/>
+				<operator myvalue="sum"/>
+			</ifConditionBasic>
+
+		</ifConditionMultiple>
+>>>>>>> eecd91e9fd97390d6cb0f1c5da81cdc0f38db5aa
